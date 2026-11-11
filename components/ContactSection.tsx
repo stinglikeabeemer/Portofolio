@@ -6,7 +6,6 @@ import {
   Mail,
   Send,
   Linkedin,
-  Github,
   Phone,
   MapPin,
   FileDown,
@@ -140,15 +139,6 @@ export function ContactSection() {
                 >
                   <Linkedin className="h-4 w-4" />
                   <span>LinkedIn</span>
-                </a>
-                <a
-                  href={personal.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-3 text-xs font-semibold text-slate-700 hover:border-emerald-500 dark:border-emerald-500/20 dark:bg-[#05130e]/80 dark:text-slate-200"
-                >
-                  <Github className="h-4 w-4" />
-                  <span>GitHub</span>
                 </a>
               </div>
             </motion.div>

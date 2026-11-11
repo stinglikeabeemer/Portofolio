@@ -152,15 +152,6 @@ export function HeroSection() {
           >
             linkedin.com/in/galihpradityo
           </a>
-          <span className="text-white/60">•</span>
-          <a
-            href={personal.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[11px] sm:text-xs text-white/90 hover:text-emerald-300 transition-colors tracking-wide"
-          >
-            github.com/galihpradityo
-          </a>
         </div>
 
         {/* Right Action Buttons: Download & Play Now */}

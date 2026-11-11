@@ -9,7 +9,6 @@ import {
   Menu,
   X,
   FileDown,
-  Github,
   Linkedin,
 } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
@@ -151,15 +150,6 @@ export function Navbar() {
                   <span>Download CV</span>
                 </a>
                 <div className="flex items-center gap-2">
-                  <a
-                    href={portfolioData.personal.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                    className="rounded-full border border-slate-200 p-2 text-slate-600 dark:border-white/10 dark:text-slate-300"
-                  >
-                    <Github className="h-4 w-4" />
-                  </a>
                   <a
                     href={portfolioData.personal.linkedin}
                     target="_blank"

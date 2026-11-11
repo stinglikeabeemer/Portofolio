@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Terminal } from "lucide-react";
+import { Linkedin, Mail, Terminal } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
 export function Footer() {
@@ -40,15 +40,6 @@ export function Footer() {
           >
             <Linkedin className="h-4 w-4" />
             <span>LinkedIn</span>
-          </a>
-          <a
-            href={personal.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 transition-colors hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400"
-          >
-            <Github className="h-4 w-4" />
-            <span>GitHub</span>
           </a>
           <a
             href={`mailto:${personal.email}`}

@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Github, Layers, Sparkles, Check } from "lucide-react";
+import { Layers, Sparkles, Check } from "lucide-react";
 import { ProjectItem } from "@/data/portfolio";
 
 interface ProjectCardProps {
@@ -101,18 +101,6 @@ export function ProjectCard({
                   {project.subtitle}
                 </p>
               </div>
-
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View ${project.title} on GitHub`}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 transition-all hover:border-emerald-500 hover:bg-emerald-600 hover:text-white dark:border-emerald-500/20 dark:bg-[#05130e]/80 dark:text-slate-200 dark:hover:border-emerald-400 dark:hover:bg-emerald-600"
-                >
-                  <Github className="h-4 w-4" />
-                </a>
-              )}
             </div>
 
             {/* Project Narrative Description */}
