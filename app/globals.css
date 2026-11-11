@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-slate-50 text-slate-900 antialiased selection:bg-violet-600 selection:text-white dark:bg-[#070814] dark:text-slate-100;
+    @apply bg-slate-50 text-slate-900 antialiased selection:bg-emerald-500 selection:text-white dark:bg-[#050e0b] dark:text-slate-100;
   }
 }
 
@@ -22,11 +22,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(124, 58, 237, 0.35);
+  background: rgba(16, 185, 129, 0.35);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 58, 237, 0.6);
+  background: rgba(16, 185, 129, 0.65);
 }
 
