@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 720" fill="none">
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.45"/>
+      <stop offset="45%" stop-color="#4F46E5" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#090A1A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.75"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131633" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#0B0D20" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="320" cy="340" r="290" fill="url(#coreGlow)"/>
+
+  <!-- Outer HUD Hex & Rings -->
+  <circle cx="320" cy="340" r="230" stroke="url(#frameGrad)" stroke-width="1.2" stroke-dasharray="6 8" opacity="0.55"/>
+  <circle cx="320" cy="340" r="185" stroke="#6366F1" stroke-width="1" opacity="0.35"/>
+
+  <!-- Top S-Rank System Header Card -->
+  <rect x="70" y="64" width="500" height="84" rx="18" fill="url(#cardGrad)" stroke="url(#frameGrad)" stroke-width="1.5"/>
+  <circle cx="114" cy="106" r="18" fill="#7C3AED" fill-opacity="0.25" stroke="#A78BFA" stroke-width="1.5"/>
+  <text x="114" y="112" text-anchor="middle" fill="#F59E0B" font-family="monospace" font-weight="800" font-size="16">S</text>
+  <text x="150" y="99" fill="#E2E8F0" font-family="sans-serif" font-weight="700" font-size="15" letter-spacing="1.5">SYSTEM ARCHITECTURE CORE</text>
+  <text x="150" y="121" fill="#38BDF8" font-family="monospace" font-size="12">STATUS: ONLINE // LATENCY &lt; 18ms // RLS ACTIVE</text>
+  <rect x="478" y="90" width="68" height="28" rx="14" fill="#10B981" fill-opacity="0.18" stroke="#10B981" stroke-width="1"/>
+  <text x="512" y="108" text-anchor="middle" fill="#34D399" font-family="monospace" font-weight="700" font-size="11">READY</text>
+
+  <!-- Central API Gateway Node -->
+  <rect x="140" y="210" width="360" height="190" rx="22" fill="url(#cardGrad)" stroke="url(#frameGrad)" stroke-width="1.8"/>
+  <text x="172" y="246" fill="#A78BFA" font-family="monospace" font-size="12" font-weight="700">// API GATEWAY &amp; MICROSERVICES</text>
+  <text x="172" y="276" fill="#F8FAFC" font-family="sans-serif" font-weight="800" font-size="22">Laravel 12  ×  FastAPI</text>
+  <text x="172" y="302" fill="#94A3B8" font-family="sans-serif" font-size="13">Sanctum Token Auth • Multi-Role RBAC • REST HTTP</text>
+
+  <!-- Code / Endpoint Pills inside central card -->
+  <rect x="172" y="324" width="142" height="32" rx="8" fill="#1E1B4B" stroke="#6366F1" stroke-width="1"/>
+  <text x="243" y="344" text-anchor="middle" fill="#C4B5FD" font-family="monospace" font-size="11">POST /api/v1/ai</text>
+
+  <rect x="328" y="324" width="142" height="32" rx="8" fill="#0F2942" stroke="#06B6D4" stroke-width="1"/>
+  <text x="399" y="344" text-anchor="middle" fill="#67E8F9" font-family="monospace" font-size="11">POST /cv/detect</text>
+
+  <!-- Connecting Lines to Bottom Nodes -->
+  <path d="M230 400 L165 465" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M320 400 L320 465" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M410 400 L475 465" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- Bottom Left Node: SQL & RLS -->
+  <rect x="60" y="468" width="160" height="128" rx="16" fill="url(#cardGrad)" stroke="#8B5CF6" stroke-width="1.4"/>
+  <text x="82" y="500" fill="#C4B5FD" font-family="monospace" font-size="11" font-weight="700">SQL ENGINE</text>
+  <text x="82" y="526" fill="#F8FAFC" font-family="sans-serif" font-weight="700" font-size="16">PostgreSQL</text>
+  <text x="82" y="546" fill="#F8FAFC" font-family="sans-serif" font-weight="700" font-size="16">&amp; MySQL</text>
+  <text x="82" y="572" fill="#94A3B8" font-family="monospace" font-size="10">Supabase RLS + Triggers</text>
+
+  <!-- Bottom Center Node: NoSQL -->
+  <rect x="240" y="468" width="160" height="128" rx="16" fill="url(#cardGrad)" stroke="#38BDF8" stroke-width="1.4"/>
+  <text x="262" y="500" fill="#67E8F9" font-family="monospace" font-size="11" font-weight="700">DOCUMENT DB</text>
+  <text x="262" y="526" fill="#F8FAFC" font-family="sans-serif" font-weight="700" font-size="16">MongoDB</text>
+  <text x="262" y="546" fill="#F8FAFC" font-family="sans-serif" font-weight="700" font-size="16">&amp; Firebase</text>
+  <text x="262" y="572" fill="#94A3B8" font-family="monospace" font-size="10">Schema + FCM Realtime</text>
+
+  <!-- Bottom Right Node: AI & CV -->
+  <rect x="420" y="468" width="160" height="128" rx="16" fill="url(#cardGrad)" stroke="#F59E0B" stroke-width="1.4"/>
+  <text x="442" y="500" fill="#FCD34D" font-family="monospace" font-size="11" font-weight="700">AI &amp; VISION</text>
+  <text x="442" y="526" fill="#F8FAFC" font-family="sans-serif" font-weight="700" font-size="16">Gemini API</text>
+  <text x="442" y="546" fill="#F8FAFC" font-family="sans-serif" font-weight="700" font-size="16">&amp; OpenCV</text>
+  <text x="442" y="572" fill="#94A3B8" font-family="monospace" font-size="10">TFLite + Function Call</text>
+
+  <!-- Decorative HUD Corner Crosshairs -->
+  <path d="M40 40 H75 M40 40 V75" stroke="#A78BFA" stroke-width="2"/>
+  <path d="M600 40 H565 M600 40 V75" stroke="#38BDF8" stroke-width="2"/>
+  <path d="M40 660 H75 M40 660 V625" stroke="#38BDF8" stroke-width="2"/>
+  <path d="M600 660 H565 M600 660 V625" stroke="#F59E0B" stroke-width="2"/>
+</svg>
+

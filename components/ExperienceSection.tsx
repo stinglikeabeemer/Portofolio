@@ -1,0 +1,89 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { Trophy, Award } from "lucide-react";
+import { portfolioData } from "@/data/portfolio";
+import { Timeline } from "@/components/Timeline";
+
+export function ExperienceSection() {
+  const { experience, achievements } = portfolioData;
+
+  return (
+    <section id="experience" className="relative py-20 scroll-mt-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-violet-600 dark:text-violet-400">
+              04 // LEADERSHIP &amp; ORGANIZATIONAL TRACK RECORD
+            </span>
+            <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              Organizational{" "}
+              <span className="bg-gradient-to-r from-violet-600 via-cyan-500 to-amber-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-cyan-300 dark:to-amber-300">
+                Experience
+              </span>
+            </h2>
+          </div>
+          <p className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400">
+            Leadership experience, operational logistics management, and strategic corporate sponsorships at IPB University.
+          </p>
+        </div>
+
+        {/* Responsive Vertical Timeline */}
+        <Timeline items={experience} />
+
+        {/* Honors & Achievements Subsection */}
+        <div id="achievements" className="mt-20 pt-6">
+          <div className="mb-8 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-500">
+                <Trophy className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-display text-2xl font-extrabold text-slate-900 dark:text-white">
+                  Honors &amp; Achievements
+                </h3>
+                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">
+                  Scholarships and competition awards across national and international levels
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {achievements.map((ach) => (
+              <motion.div
+                key={ach.title}
+                initial={false}
+                whileHover={{ y: -5 }}
+                className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/85 p-5 shadow-sm backdrop-blur-md transition-all hover:border-amber-500/50 dark:border-white/10 dark:bg-[#0c0e22]/85 dark:hover:border-amber-400/50"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-0.5 font-mono text-[10px] font-bold text-amber-600 dark:text-amber-300">
+                      {ach.year}
+                    </span>
+                    <Award className="h-4 w-4 text-amber-500" />
+                  </div>
+                  <h4 className="mt-3 font-display text-base font-bold text-slate-900 dark:text-white">
+                    {ach.title}
+                  </h4>
+                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                    {ach.organizer}
+                  </p>
+                </div>
+
+                <div className="mt-4 border-t border-slate-200/60 pt-3 dark:border-white/10">
+                  <span className="font-mono text-[11px] font-semibold text-violet-600 dark:text-violet-400">
+                    ★ {ach.badge}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
