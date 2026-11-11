@@ -3,235 +3,184 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Download,
-  ArrowUpRight,
-  Github,
-  Linkedin,
-  Mail,
-  ShieldCheck,
-  Database,
-  Cpu,
-  MapPin,
-} from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
-const hudNavLinks = [
-  { label: "ABOUT", href: "#about" },
-  { label: "SKILLS", href: "#skills" },
-  { label: "PROJECTS", href: "#projects" },
-  { label: "EXPERIENCE", href: "#experience" },
-  { label: "ACHIEVEMENTS", href: "#achievements" },
-  { label: "CONTACT", href: "#contact" },
+const navItems = [
+  { label: "Home", href: "#hero", active: true },
+  { label: "Profiles", href: "#about" },
+  { label: "Heroes", href: "#projects" },
+  { label: "About", href: "#experience" },
 ];
 
 export function HeroSection() {
   const { personal } = portfolioData;
 
   return (
-    <section
-      id="hero"
-      className="relative overflow-hidden py-10 sm:py-16 lg:py-20"
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Framed Glassmorphic HUD Container inspired by Landing Page.jpg & Landing Page Reference.jpg */}
-        <motion.div
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative overflow-hidden rounded-[2rem] border border-slate-200/90 bg-gradient-to-br from-white/95 via-slate-50/90 to-violet-50/50 p-6 shadow-2xl dark:border-white/15 dark:from-[#0b0d20]/95 dark:via-[#080a18]/95 dark:to-[#13112c]/95 sm:p-10 lg:p-14"
-        >
-          {/* Ambient Background Glows */}
-          <div className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full bg-violet-600/20 blur-3xl dark:bg-violet-600/25" />
-          <div className="pointer-events-none absolute -bottom-28 right-1/4 h-80 w-80 rounded-full bg-cyan-500/15 blur-3xl dark:bg-cyan-500/20" />
-          <div className="pointer-events-none absolute right-10 top-12 h-64 w-64 rounded-full bg-amber-500/10 blur-3xl dark:bg-amber-500/15" />
+    <section id="hero" className="relative py-4 sm:py-8 lg:py-10 scroll-mt-24">
+      <div className="mx-auto max-w-[1440px] px-2.5 sm:px-6 lg:px-8">
+        {/* Exact Layout replica of Landing Page.jpg */}
+        <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-[#071913] shadow-2xl border border-emerald-950/70 min-h-[660px] sm:min-h-[720px] lg:min-h-[780px] xl:min-h-[820px] flex flex-col justify-between">
+          
+          {/* Background Character Art (Megumi Fushiguro & Divine Dog Shadow Wolf) */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/landing-page-desktop.jpg"
+              alt="Galih Pradityo — Backend Architect Portfolio"
+              fill
+              priority
+              className="object-cover object-[70%_center] lg:object-right opacity-95 scale-[1.01]"
+            />
+            {/* Left Vignette & Gradient Mask so live text replaces baked text seamlessly */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#061711] via-[#061711]/95 sm:via-[#061711]/85 lg:via-[#061711]/65 to-transparent w-full lg:w-[62%]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04110c] via-transparent to-[#061711]/45" />
+            <div className="absolute -left-16 top-1/3 h-96 w-96 rounded-full bg-emerald-500/15 blur-[130px]" />
+          </div>
 
-          {/* Subtle Inner Frame Border (from Landing Page.jpg) */}
-          <div className="pointer-events-none absolute inset-3 rounded-[1.5rem] border border-slate-300/40 dark:border-white/10 sm:inset-4" />
+          {/* Thin Inset Inner Border Frame (Exact 1:1 match to Landing Page.jpg) */}
+          <div className="pointer-events-none absolute inset-3 sm:inset-5 md:inset-7 rounded-[1.4rem] sm:rounded-[1.8rem] md:rounded-[2.1rem] border border-white/40 z-20" />
 
-          <div className="relative z-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
-            {/* Left Column: S-Rank Header, Name, Role, Description & Dual CTAs */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* S-Rank / Specialist Status Badge (from Solo Leveling Reference) */}
-              <motion.div
-                initial={false}
-                whileHover={{ scale: 1.02 }}
-                className="inline-flex flex-wrap items-center gap-3 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 backdrop-blur-md dark:border-amber-400/30 dark:bg-amber-500/10"
-              >
-                <span className="font-display text-base font-black italic tracking-wider text-amber-600 dark:text-amber-400">
-                  S-RANK
-                </span>
-                <span className="h-3.5 w-[1px] bg-amber-500/40" />
-                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-slate-700 dark:text-amber-100/90">
-                  Backend &amp; API Architect
-                </span>
-              </motion.div>
-
-              {/* Main Name & Headline */}
-              <div className="space-y-3">
-                <p className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-violet-600 dark:text-violet-400">
-                  {personal.title}
-                </p>
-                <h1 className="font-display text-4xl font-extrabold uppercase tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl leading-[1.08]">
-                  Raden Mas{" "}
-                  <span className="bg-gradient-to-r from-violet-600 via-indigo-500 to-cyan-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-cyan-300 dark:to-amber-300">
-                    Galih Pradityo
-                  </span>
-                </h1>
-                <p className="text-base font-semibold text-slate-700 dark:text-slate-200 sm:text-lg">
-                  {personal.role}
-                </p>
-              </div>
-
-              {/* Narrative Description */}
-              <p className="max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300/90 sm:text-base">
-                Engineering high-throughput backend systems with{" "}
-                <span className="font-semibold text-slate-900 dark:text-white">
-                  Laravel 12 &amp; FastAPI
-                </span>
-                , resilient database schemas across{" "}
-                <span className="font-semibold text-slate-900 dark:text-white">
-                  PostgreSQL (RLS), MySQL, &amp; MongoDB
-                </span>
-                , and intelligent pipelines using{" "}
-                <span className="font-semibold text-slate-900 dark:text-white">
-                  Google Gemini AI &amp; Computer Vision (OpenCV)
-                </span>
-                . Dedicated to clean architecture, multi-role authentication, and
-                production-grade API reliability.
-              </p>
-
-              {/* Quick Architecture Pills */}
-              <div className="flex flex-wrap items-center gap-2.5 pt-1">
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white/80 px-3 py-1.5 font-mono text-xs text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
-                  <ShieldCheck className="h-3.5 w-3.5 text-violet-500" />
-                  Sanctum &amp; RBAC Security
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white/80 px-3 py-1.5 font-mono text-xs text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
-                  <Database className="h-3.5 w-3.5 text-cyan-500" />
-                  SQL &amp; NoSQL Modeling
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white/80 px-3 py-1.5 font-mono text-xs text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
-                  <Cpu className="h-3.5 w-3.5 text-amber-500" />
-                  AI &amp; OpenCV Integration
-                </span>
-              </div>
-
-              {/* Dual CTA Buttons (Download Resume & View Projects) */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
-                  href="/CV_Raden Mas Galih Pradityo.pdf"
-                  download="CV_Raden Mas Galih Pradityo.pdf"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-slate-900 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-600 hover:shadow-violet-600/30 dark:bg-white dark:text-slate-950 dark:shadow-white/10 dark:hover:bg-violet-500 dark:hover:text-white"
+          {/* TOP BAR INSIDE THE FRAME */}
+          <div className="relative z-30 flex items-center justify-between px-6 pt-6 sm:px-10 sm:pt-9 md:px-14 md:pt-11">
+            {/* Left Group: Logo & Nav Links (Home, Profiles, Heroes, About) */}
+            <div className="flex items-center gap-6 sm:gap-10 md:gap-12">
+              {/* Minimalist Geometric White Glyph (matching top-left logo in Landing Page.jpg) */}
+              <a href="#hero" className="group flex items-center" aria-label="Home">
+                <svg
+                  className="h-7 w-7 sm:h-8 sm:w-8 text-white transition-transform group-hover:scale-105"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
-                  <span>Download Resume</span>
-                </a>
+                  <path
+                    d="M16 4L28 26H22L16 14.5L10 26H4L16 4Z"
+                    fill="white"
+                  />
+                  <polygon points="16,19 13,25 19,25" fill="#10B981" />
+                </svg>
+              </a>
 
-                <a
-                  href="#projects"
-                  className="group inline-flex items-center gap-2.5 rounded-full border-2 border-slate-300 bg-white/70 px-7 py-3.5 text-sm font-bold text-slate-800 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500 hover:text-violet-600 dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:border-violet-400 dark:hover:bg-violet-500/15"
-                >
-                  <span>View Projects</span>
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-              </div>
-
-              {/* Bottom Left Meta & Social Bar */}
-              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-slate-200/80 pt-6 dark:border-white/10">
-                <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                  <MapPin className="h-3.5 w-3.5 text-violet-500" />
-                  <span>{personal.location}</span>
-                  <span className="mx-1">•</span>
-                  <span className="font-mono text-emerald-600 dark:text-emerald-400">
-                    GPA {personal.education.gpa}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-3">
+              {/* Navigation Links with Active Underline Bar under Home (exact match) */}
+              <nav className="hidden sm:flex items-center gap-7 md:gap-9">
+                {navItems.map((item) => (
                   <a
-                    href={personal.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn Profile"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/80 px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:border-violet-500 hover:text-violet-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:border-violet-400 dark:hover:text-white"
-                  >
-                    <Linkedin className="h-3.5 w-3.5" />
-                    <span>LinkedIn</span>
-                  </a>
-                  <a
-                    href={personal.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub Profile"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/80 px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:border-violet-500 hover:text-violet-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:border-violet-400 dark:hover:text-white"
-                  >
-                    <Github className="h-3.5 w-3.5" />
-                    <span>GitHub</span>
-                  </a>
-                  <a
-                    href={`mailto:${personal.email}`}
-                    aria-label="Email Galih"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/80 px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:border-violet-500 hover:text-violet-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:border-violet-400 dark:hover:text-white"
-                  >
-                    <Mail className="h-3.5 w-3.5" />
-                    <span>Email</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Architecture Graphic (<Image/>) + Vertical HUD Spine from Reference */}
-            <div className="relative lg:col-span-5 flex items-center justify-between gap-4">
-              {/* Main Hero Architecture Visual using Next.js <Image /> */}
-              <motion.div
-                initial={false}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.35 }}
-                className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-950/90 p-2 shadow-2xl dark:border-violet-500/25"
-              >
-                <Image
-                  src={personal.avatarImage}
-                  alt="Raden Mas Galih Pradityo - Backend & API System Architecture"
-                  width={640}
-                  height={720}
-                  priority
-                  className="h-auto w-full rounded-xl object-cover"
-                />
-              </motion.div>
-
-              {/* Right-Side Vertical HUD Spine (inspired by Landing Page Reference.jpg) */}
-              <div className="hidden xl:flex flex-col items-end justify-center gap-4 pl-2">
-                <div className="h-10 w-[1px] bg-gradient-to-b from-transparent to-violet-500/60" />
-                {hudNavLinks.map((item, idx) => (
-                  <a
-                    key={item.href}
+                    key={item.label}
                     href={item.href}
-                    className="group flex items-center gap-2.5 text-right"
+                    className="relative group py-1 text-sm md:text-base font-semibold tracking-wide text-white/90 hover:text-white transition-colors"
                   >
-                    <span
-                      className={`font-mono text-[10px] tracking-[0.2em] transition-all ${
-                        idx === 0
-                          ? "font-bold text-violet-600 dark:text-white"
-                          : "text-slate-400 group-hover:text-violet-500 dark:text-slate-400 dark:group-hover:text-violet-300"
-                      }`}
-                    >
-                      {item.label}
-                    </span>
-                    <span
-                      className={`h-2 w-2 rotate-45 border transition-all ${
-                        idx === 0
-                          ? "border-amber-400 bg-amber-400 shadow-[0_0_8px_#f59e0b]"
-                          : "border-violet-400/60 bg-transparent group-hover:border-violet-400 group-hover:bg-violet-400"
-                      }`}
-                    />
+                    <span>{item.label}</span>
+                    {item.active ? (
+                      <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+                    ) : (
+                      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-emerald-400 rounded-full transition-all group-hover:w-full" />
+                    )}
                   </a>
                 ))}
-                <div className="h-10 w-[1px] bg-gradient-to-t from-transparent to-violet-500/60" />
+              </nav>
+            </div>
+
+            {/* Top Right Badge (matching Mobile Legends placement in Landing Page.jpg) */}
+            <div className="flex items-center gap-3">
+              <div className="text-right hidden xs:block sm:block">
+                <p className="font-display text-[10px] sm:text-xs font-black tracking-[0.22em] text-white uppercase drop-shadow">
+                  IPB UNIVERSITY
+                </p>
+                <p className="font-mono text-[8px] sm:text-[9px] tracking-widest text-emerald-400 uppercase font-bold">
+                  SOFTWARE ENGINEERING
+                </p>
+              </div>
+
+              {/* Metallic Shield Emblem */}
+              <div className="flex items-center gap-1.5 rounded-lg border border-white/35 bg-black/45 backdrop-blur-md px-2.5 py-1.5">
+                <svg className="h-5 w-5 text-emerald-300" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L4 5V11C4 16.55 7.42 21.74 12 23C16.58 21.74 20 16.55 20 11V5L12 2ZM12 4.18L18 6.43V11C18 15.35 15.44 19.34 12 20.73C8.56 19.34 6 15.35 6 11V6.43L12 4.18Z"/>
+                  <path d="M12 7L9 11H11V16H13V11H15L12 7Z"/>
+                </svg>
+                <span className="font-mono font-black text-xs text-white">S-RANK</span>
               </div>
             </div>
           </div>
-        </motion.div>
+
+          {/* MAIN HERO CONTENT (EXACT TYPOGRAPHY & LORE BIO FROM LANDING PAGE) */}
+          <div className="relative z-30 my-auto px-6 py-6 sm:px-10 sm:py-8 md:px-14 max-w-2xl lg:max-w-xl xl:max-w-2xl">
+            {/* Giant Title: JULIAN -> GALIH (in classic high-contrast Serif font) */}
+            <motion.h1
+              initial={false}
+              className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] font-normal tracking-tight text-white uppercase leading-[0.9] drop-shadow-md"
+            >
+              GALIH
+            </motion.h1>
+
+            {/* Subtitle: MEGUMI FUSHIGURO -> RADEN MAS GALIH PRADITYO */}
+            <motion.p
+              initial={false}
+              className="mt-2.5 sm:mt-3 font-display text-lg sm:text-2xl md:text-3xl font-extrabold uppercase tracking-[0.16em] text-white drop-shadow-sm"
+            >
+              Raden Mas Galih Pradityo
+            </motion.p>
+
+            {/* Specialist Tag */}
+            <p className="mt-1 font-mono text-xs sm:text-sm font-bold tracking-widest text-emerald-400 uppercase">
+              // Backend &amp; API Architecture Specialist
+            </p>
+
+            {/* Narrative Bio Paragraph (styled exactly like the lore in Landing Page.jpg) */}
+            <motion.p
+              initial={false}
+              className="mt-4 sm:mt-5 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-slate-200/90 font-normal drop-shadow"
+            >
+              Raden Mas Galih Pradityo is a 5th-semester Software Engineering student at
+              IPB University (GPA 3.80/4.00) specializing in backend software development,
+              API architecture, and database modeling. Proficient in engineering scalable
+              RESTful APIs and microservices with Laravel 12 and FastAPI, designing resilient
+              SQL/NoSQL databases with PostgreSQL RLS and MongoDB, and deploying intelligent
+              Computer Vision pipelines and Google Gemini AI integrations.
+            </motion.p>
+          </div>
+
+          {/* BOTTOM BAR INSIDE THE FRAME */}
+          <div className="relative z-30 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 px-6 pb-6 sm:px-10 sm:pb-9 md:px-14 md:pb-11">
+            {/* Left Watermark / Handle (matching instagram.com/aldidwimustofa) */}
+            <div className="flex items-center gap-3">
+              <a
+                href={personal.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[11px] sm:text-xs text-white/70 hover:text-emerald-300 transition-colors tracking-wide"
+              >
+                linkedin.com/in/galihpradityo
+              </a>
+              <span className="text-white/40">•</span>
+              <a
+                href={personal.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[11px] sm:text-xs text-white/70 hover:text-emerald-300 transition-colors tracking-wide"
+              >
+                github.com/galihpradityo
+              </a>
+            </div>
+
+            {/* Right Action Buttons: Download & Play Now (Exact match to Landing Page.jpg) */}
+            <div className="flex items-center gap-3 sm:gap-4 self-end sm:self-auto">
+              {/* Button 1: Download -> Downloads CV_Raden Mas Galih Pradityo.pdf */}
+              <a
+                href="/CV_Raden Mas Galih Pradityo.pdf"
+                download="CV_Raden Mas Galih Pradityo.pdf"
+                className="inline-flex items-center justify-center rounded-full bg-white px-7 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-slate-950 transition-all duration-300 hover:bg-emerald-300 hover:scale-105 active:scale-95 shadow-md shadow-black/20"
+              >
+                Download
+              </a>
+
+              {/* Button 2: Play Now -> Scrolls to Featured Projects */}
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center rounded-full bg-white px-7 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-slate-950 transition-all duration-300 hover:bg-emerald-300 hover:scale-105 active:scale-95 shadow-md shadow-black/20"
+              >
+                Play Now
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
