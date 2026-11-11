@@ -1,79 +1,123 @@
-Product Requirements Document (PRD): Personal Portfolio Web
-1. Product Overview
-Nama Produk: Galih Pradityo - Personal Portfolio
+# Raden Mas Galih Pradityo — Personal Portfolio Website
 
-Tujuan: Membangun online presence yang profesional untuk menonjolkan spesialisasi di ranah backend development, API architecture, dan database modeling, guna menarik peluang internship atau kolaborasi proyek.
+A modern, high-performance personal portfolio website built with **Next.js 15 (App Router)**, **Tailwind CSS**, and **Framer Motion**, tailored to showcase expertise in **Backend Engineering**, **API Architecture**, and **Database Modeling**.
 
-Target Audiens: Tech Recruiter, Engineering Manager, dan sesama developer.
+Live Preview: [http://localhost:3001](http://localhost:3001)
 
-2. Tech Stack & Infrastructure
-Framework: Next.js (App Router untuk performa SSR/SSG dan routing optimal).
+---
 
-Styling & UI: Tailwind CSS dikombinasikan dengan Framer Motion (untuk animasi transisi yang smooth).
+## 🚀 Key Features
 
-Deployment & Hosting: Vercel (integrasi CI/CD langsung dari GitHub).
+- **Decoupled Data Architecture**: All profile information, skills, projects, and organizational experiences reside in `data/portfolio.ts` for clean separation of concerns and instant maintainability.
+- **Glassmorphic HUD & Cyber Anime Aesthetic**: Inspired by the Solo Leveling / Jujutsu Kaisen visual references, featuring obsidian dark backgrounds, violet & cyan glow accents, and S-Rank specialist badges.
+- **Responsive Single-Page Layout**:
+  - **Sticky Navbar**: Glassmorphic blur (`backdrop-blur-xl`), anchor navigation with scroll offset, instant CV download trigger, and dark/light theme toggle.
+  - **Hero Section**: Dynamic HUD layout, direct download CTA for `CV_Raden Mas Galih Pradityo.pdf`, and link to project showcase.
+  - **About Me**: Academic foundation at IPB University (GPA 3.80/4.00), core engineering principles, and career internship goals.
+  - **Skills Bento Grid**: Categorized into *Backend & APIs*, *Databases*, and *Tools & CV*.
+  - **Featured Projects**: Interactive cards with hover-lift motion, architectural system diagrams rendered with Next.js `<Image/>`, and tech stack chips for **MediGo**, **Agrivision**, **Ba-Yu**, and **QLC**.
+  - **Experience & Honors**: Responsive vertical timeline with diamond node markers and academic achievement cards.
+  - **Contact Section**: Quick message form with pre-filled mailto trigger, social handles, and location metadata.
+- **SEO & Performance Optimized**:
+  - Fully static pre-rendering via Next.js App Router.
+  - Native `<Image/>` optimization with SVG vector diagrams.
+  - Automated `sitemap.xml` and `robots.txt` generation.
+  - Dark/Light mode powered by `next-themes` with zero layout shift.
 
-Analytics/SEO: Next.js Metadata API.
+---
 
-3. Core Features & Requirements
-A. Global UI/UX
+## 🛠️ Tech Stack
 
-Theme Toggle: Implementasi fitur Dark Mode / Light Mode yang responsif. Transisi antar tema harus mulus dan sistem otomatis membaca preferensi OS pengunjung saat pertama kali muat.
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS 3](https://tailwindcss.com/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Theme**: [next-themes](https://github.com/pacocoursey/next-themes)
+- **Language**: TypeScript (Strict Mode)
 
-Responsive Design: Antarmuka mobile-first yang rapi dan proporsional di semua ukuran layar (HP, tablet, desktop).
+---
 
-Navigation: Navbar model sticky atau floating dengan akses cepat ke menu utama (About, Skills, Projects, Experience, Contact).
+## 📁 Project Structure
 
-B. Halaman Utama (Single Page Architecture)
+```text
+├── app/
+│   ├── globals.css          # Tailwind base & custom scrollbar styles
+│   ├── icon.svg             # Terminal HUD browser favicon
+│   ├── layout.tsx           # Root layout with ThemeProvider, Navbar, & Footer
+│   ├── page.tsx             # Single-page portfolio structure
+│   ├── robots.ts            # Search engine crawler directives
+│   └── sitemap.ts           # Dynamic sitemap index
+├── components/
+│   ├── AboutSection.tsx     # Academic foundation & career goals
+│   ├── ContactSection.tsx   # Direct message transmission & contact links
+│   ├── ExperienceSection.tsx# Vertical timeline & honors cards
+│   ├── Footer.tsx           # Minimalist footer with copyright & links
+│   ├── HeroSection.tsx      # S-Rank framed HUD & dual CTAs
+│   ├── Navbar.tsx           # Sticky glassmorphism nav & dark mode toggle
+│   ├── ProjectCard.tsx      # Interactive card with hover-lift & tech chips
+│   ├── ProjectsSection.tsx  # Grid wrapper for featured projects
+│   ├── SkillBadge.tsx       # Modern bento skill badge component
+│   ├── SkillsSection.tsx    # Technical competencies bento grid
+│   ├── ThemeProvider.tsx    # Next-themes wrapper
+│   └── Timeline.tsx         # Responsive vertical spine timeline
+├── data/
+│   └── portfolio.ts         # Single source of truth for all content
+├── public/
+│   ├── CV_Raden Mas Galih Pradityo.pdf  # Downloadable resume
+│   └── images/
+│       ├── hero-architect.svg           # Central system architecture graphic
+│       └── projects/                    # Project architecture diagrams
+│           ├── agrivision.svg
+│           ├── bayu.svg
+│           ├── medigo.svg
+│           └── qlc.svg
+├── tailwind.config.ts       # Design tokens, color palette, & glow shadows
+└── tsconfig.json            # TypeScript configuration
+```
 
-1. Hero Section:
+---
 
-Headline utama yang lugas: "Software Engineering Student | Backend & API Architecture Specialist".
+## 💻 Getting Started
 
-Deskripsi singkat yang punchy.
+### 1. Prerequisites
+Ensure you have **Node.js 18+** installed:
+```bash
+node -v
+npm -v
+```
 
-Tombol Call-to-Action (CTA) ganda: "Unduh Resume" (mengarahkan langsung ke akses download CV_Raden Mas Galih Pradityo.pdf) dan "Lihat Proyek".
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-Ikon tautan eksternal ke LinkedIn dan GitHub.
+### 3. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) (or `http://localhost:3001` if port 3000 is occupied).
 
-2. About Me:
+### 4. Build for Production
+```bash
+npm run build
+npm run start
+```
 
-Ringkasan naratif tentang latar belakang sebagai mahasiswa semester 5 di IPB, minat kuat pada penulisan clean code, dan fokus saat ini mencari backend internship.
+---
 
-3. Skills & Competencies:
+## 🚢 Deploying to Vercel
 
-Tampilan visual berbasis grid atau badge yang dikategorikan dengan jelas:
+1. Push your repository to GitHub:
+   ```bash
+   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+   git branch -M main
+   git push -u origin main
+   ```
+2. Go to [Vercel](https://vercel.com) and click **"Add New Project"**.
+3. Import your GitHub repository.
+4. Next.js presets will be detected automatically. Click **"Deploy"**.
 
-Backend & APIs: Laravel, FastAPI, Next.js, REST API Design.
+---
 
-Databases: PostgreSQL, MySQL, MongoDB, Firebase.
-
-Tools & Integrations: Google Gemini API, OpenCV, TensorFlow Lite, Docker, Railway, Postman.
-
-4. Featured Projects (Seksi Paling Krusial):
-
-Tampilan card interaktif untuk proyek kunci. Setiap card wajib memuat: Judul, Peran (Backend/Fullstack), Tech Stack chips, deskripsi arsitektur, dan tautan (GitHub/Demo).
-
-MediGo: Highlight sistem MVC, implementasi token authentication Laravel Sanctum, dan cara integrasi Google Gemini API via HTTP POST.
-
-Agrivision: Tonjolkan desain RESTful API menggunakan FastAPI di Railway, pipeline Computer Vision (OpenCV), dan manajemen PostgreSQL dengan Row-Level Security (RLS).
-
-Ba-Yu & QLC: Fokuskan pada pemodelan NoSQL (MongoDB), Role-Based Access Control (RBAC), dan arsitektur full-stack.
-
-5. Experience & Achievements:
-
-Desain Timeline view minimalis untuk menampilkan rekam jejak organisasi (PJK SITE 2025, Logistik SRD, BEM SV IPB) dan prestasi (YPLI Scholarship, juara kompetisi film pendek, semifinalis business plan).
-
-6. Contact Section:
-
-Formulir kontak sederhana (nama, email, pesan) yang dihubungkan melalui Next.js API Routes (misal menggunakan Resend atau Nodemailer) atau cukup sediakan tombol "Say Hello" yang membuka mailto langsung ke email lu.
-
-4. Non-Functional Requirements (NFR)
-Performance: Skor Lighthouse harus menembus angka 90+ untuk metrik Performance, Accessibility, Best Practices, dan SEO.
-
-Optimization: Wajib memanfaatkan komponen bawaan <Image/> dari Next.js untuk lazy loading dan kompresi format gambar (WebP/AVIF).
-
-Security: Semua kunci pihak ketiga (seperti API email atau analitik) harus diamankan menggunakan Environment Variables (.env.local) dan tidak terekspos ke client-side.
-
-5. Future Iterations (Fase Selanjutnya)
-Integrasi CMS headless atau sistem markdown (MDX) untuk menambahkan fitur blog. Sebagai spesialis backend, lu bisa nulis technical breakdown tentang cara lu ngedesain database atau integrasi API di proyek-proyek lu.
+## 📄 License
+MIT © Raden Mas Galih Pradityo
