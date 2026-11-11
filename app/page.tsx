@@ -18,14 +18,10 @@ export default function HomePage() {
       {/* Splash Screen with Jump-in "Hallo!" and Curtain Exit Animation */}
       <SplashScreen onFinish={() => setSplashFinished(true)} />
 
-      {/* Main Content with Entrance Scale/Jump-in Transition */}
+      {/* Main Content with Entrance Transition */}
       <motion.main
-        initial={{ opacity: 0.8, scale: 0.98 }}
-        animate={
-          splashFinished
-            ? { opacity: 1, scale: 1 }
-            : { opacity: 1, scale: 1 }
-        }
+        initial={false}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative overflow-hidden"
       >

@@ -39,10 +39,10 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange={false}
         >
-          <div className="relative flex min-h-screen flex-col bg-grid-pattern bg-[size:36px_36px]">
+          <div className="relative flex min-h-screen flex-col bg-slate-50 dark:bg-[#061410]">
             <Navbar />
             <div className="flex-1">{children}</div>
             <Footer />

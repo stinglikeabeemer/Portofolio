@@ -101,3 +101,4 @@ export function SplashScreen({ onFinish }: { onFinish?: () => void }) {
     </AnimatePresence>
   );
 }
+

@@ -10,8 +10,8 @@ export function AboutSection() {
 
   return (
     <section id="about" className="relative py-20 scroll-mt-24">
-      {/* Subtle ambient green glow in the background */}
-      <div className="pointer-events-none absolute left-1/4 top-10 h-96 w-96 rounded-full bg-emerald-500/10 blur-[140px]" />
+      {/* Subtle ambient green glow in the background, positioned deeper to preserve smooth transition */}
+      <div className="pointer-events-none absolute left-1/4 top-48 h-96 w-96 rounded-full bg-emerald-500/10 blur-[140px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
