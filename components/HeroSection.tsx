@@ -37,18 +37,12 @@ export function HeroSection() {
           unoptimized
           className="object-cover object-center"
         />
-        {/* Deep, multi-stop gradient transition that dissolves seamlessly into the next section with zero visible line */}
-        <div className="absolute inset-x-0 bottom-0 h-96 sm:h-[460px] lg:h-[540px] bg-gradient-to-t from-slate-50 via-slate-50/90 to-transparent dark:from-[#061410] dark:from-25% dark:via-[#061410]/95 dark:via-55% dark:via-[#061410]/50 dark:via-75% dark:to-transparent pointer-events-none" />
+        {/* Gentle bottom fade to transition into the next section without obscuring the artwork */}
+        <div className="absolute inset-x-0 bottom-0 h-36 sm:h-48 bg-gradient-to-t from-[#061410] via-[#061410]/75 to-transparent pointer-events-none" />
       </div>
 
       {/* TOP BAR (Full Width Header right on the background) */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative z-30 flex items-center justify-between px-6 sm:px-12 lg:px-16 pt-6 sm:pt-8 md:pt-10"
-      >
+      <div className="relative z-30 flex items-center justify-between px-6 sm:px-12 lg:px-16 pt-6 sm:pt-8 md:pt-10">
         {/* Left: Minimalist Geometric Glyph Logo & Nav Links */}
         <div className="flex items-center gap-6 sm:gap-10 md:gap-12">
           <a href="#hero" className="group flex items-center" aria-label="Home">
@@ -116,16 +110,10 @@ export function HeroSection() {
             <Moon className="block h-4 w-4 text-emerald-300 dark:hidden" />
           </button>
         </div>
-      </motion.div>
+      </div>
 
       {/* MAIN HERO CONTENT (LEFT-ALIGNED TYPOGRAPHY & LORE BIO) */}
-      <motion.div
-        initial={{ opacity: 0, y: 45, scale: 0.96 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: false, amount: 0.2 }}
-        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-30 my-auto px-6 sm:px-12 lg:px-16 py-8 max-w-2xl lg:max-w-xl xl:max-w-2xl"
-      >
+      <div className="relative z-30 my-auto px-6 sm:px-12 lg:px-16 py-8 max-w-2xl lg:max-w-xl xl:max-w-2xl">
         {/* Giant Title: GALIH */}
         <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-normal tracking-tight text-white uppercase leading-[0.9] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
           GALIH
@@ -150,16 +138,10 @@ export function HeroSection() {
           SQL/NoSQL databases with PostgreSQL RLS and MongoDB, and deploying intelligent
           Computer Vision pipelines and Google Gemini AI integrations.
         </p>
-      </motion.div>
+      </div>
 
       {/* BOTTOM BAR (Watermarks on Left, Action Pills on Right) */}
-      <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
-        transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-30 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 px-6 sm:px-12 lg:px-16 pb-8 sm:pb-12"
-      >
+      <div className="relative z-30 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 px-6 sm:px-12 lg:px-16 pb-8 sm:pb-12">
         {/* Left Watermark / Handle */}
         <div className="flex items-center gap-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
           <a
@@ -198,7 +180,7 @@ export function HeroSection() {
             Play Now
           </a>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

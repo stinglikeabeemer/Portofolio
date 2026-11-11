@@ -9,6 +9,7 @@ import { SkillsSection } from "@/components/SkillsSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { ContactSection } from "@/components/ContactSection";
+import { BackToTop } from "@/components/BackToTop";
 
 export default function HomePage() {
   const [splashFinished, setSplashFinished] = useState(false);
@@ -42,6 +43,9 @@ export default function HomePage() {
 
         {/* Contact Section (py-20) */}
         <ContactSection />
+
+        {/* Floating Back to Top Button */}
+        <BackToTop />
       </motion.main>
     </>
   );
