@@ -32,21 +32,24 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="relative py-20 scroll-mt-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute left-1/4 top-10 h-96 w-96 rounded-full bg-emerald-500/10 blur-[150px]" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={false}
-          className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-white/95 via-slate-50/90 to-violet-50/40 p-6 shadow-xl dark:border-white/10 dark:from-[#0c0e22]/95 dark:via-[#080a18]/95 dark:to-[#13102e]/95 sm:p-10 lg:p-12"
+          className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-white/95 via-slate-50/90 to-emerald-50/40 p-6 shadow-xl dark:border-emerald-500/20 dark:from-[#09221a]/95 dark:via-[#081a14]/95 dark:to-[#05130e]/95 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] sm:p-10 lg:p-12"
         >
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
             {/* Left Info Column */}
             <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
               <div>
-                <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-violet-600 dark:text-violet-400">
+                <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
                   05 // INITIATE CONNECTION
                 </span>
                 <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
                   Let&apos;s Build Scalable{" "}
-                  <span className="bg-gradient-to-r from-violet-600 to-cyan-500 bg-clip-text text-transparent dark:from-violet-400 dark:to-cyan-300">
+                  <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
                     Backend Systems
                   </span>
                 </h2>
@@ -58,9 +61,9 @@ export function ContactSection() {
               <div className="space-y-3.5">
                 <a
                   href={`mailto:${personal.email}`}
-                  className="flex items-center gap-3.5 rounded-2xl border border-slate-200/80 bg-white/80 p-4 transition-all hover:border-violet-500/50 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-violet-400/50"
+                  className="flex items-center gap-3.5 rounded-2xl border border-slate-200/80 bg-white/80 p-4 transition-all hover:border-emerald-500/50 dark:border-emerald-500/15 dark:bg-[#05130e]/80 dark:hover:border-emerald-400/50"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 text-violet-600 dark:bg-violet-500/20 dark:text-violet-300">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
@@ -74,7 +77,7 @@ export function ContactSection() {
                 </a>
 
                 <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
-                  <div className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 p-4 dark:border-white/10 dark:bg-white/[0.03]">
+                  <div className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 p-4 dark:border-emerald-500/15 dark:bg-[#05130e]/80">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/20 dark:text-cyan-300">
                       <Phone className="h-4 w-4" />
                     </div>
@@ -88,7 +91,7 @@ export function ContactSection() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 p-4 dark:border-white/10 dark:bg-white/[0.03]">
+                  <div className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/80 p-4 dark:border-emerald-500/15 dark:bg-[#05130e]/80">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600 dark:bg-amber-500/20 dark:text-amber-300">
                       <MapPin className="h-4 w-4" />
                     </div>
@@ -107,7 +110,7 @@ export function ContactSection() {
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <a
                   href={`mailto:${personal.email}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-violet-600 px-6 py-3 text-xs font-bold text-white shadow-lg shadow-violet-600/25 transition-all hover:bg-violet-500"
+                  className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-xs font-bold text-white shadow-lg shadow-emerald-600/25 transition-all hover:bg-emerald-500 active:scale-95"
                 >
                   <Mail className="h-4 w-4" />
                   <span>Say Hello Directly</span>
@@ -115,7 +118,7 @@ export function ContactSection() {
                 <a
                   href={personal.resumeUrl}
                   download="CV_Raden Mas Galih Pradityo.pdf"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-5 py-3 text-xs font-bold text-slate-800 transition-all hover:border-violet-500 hover:text-violet-600 dark:border-white/15 dark:bg-white/5 dark:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-5 py-3 text-xs font-bold text-slate-800 transition-all hover:border-emerald-500 hover:text-emerald-600 dark:border-emerald-500/20 dark:bg-[#05130e]/80 dark:text-white dark:hover:border-emerald-400"
                 >
                   <FileDown className="h-4 w-4" />
                   <span>Download CV</span>
@@ -124,7 +127,7 @@ export function ContactSection() {
                   href={personal.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-3 text-xs font-semibold text-slate-700 hover:border-violet-500 dark:border-white/15 dark:bg-white/5 dark:text-slate-200"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-3 text-xs font-semibold text-slate-700 hover:border-emerald-500 dark:border-emerald-500/20 dark:bg-[#05130e]/80 dark:text-slate-200"
                 >
                   <Linkedin className="h-4 w-4" />
                   <span>LinkedIn</span>
@@ -133,7 +136,7 @@ export function ContactSection() {
                   href={personal.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-3 text-xs font-semibold text-slate-700 hover:border-violet-500 dark:border-white/15 dark:bg-white/5 dark:text-slate-200"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-3 text-xs font-semibold text-slate-700 hover:border-emerald-500 dark:border-emerald-500/20 dark:bg-[#05130e]/80 dark:text-slate-200"
                 >
                   <Github className="h-4 w-4" />
                   <span>GitHub</span>
@@ -145,7 +148,7 @@ export function ContactSection() {
             <div className="lg:col-span-6">
               <form
                 onSubmit={handleSubmit}
-                className="space-y-4 rounded-2xl border border-slate-200/80 bg-white/90 p-6 shadow-sm dark:border-white/10 dark:bg-white/[0.03] sm:p-7"
+                className="space-y-4 rounded-2xl border border-slate-200/80 bg-white/90 p-6 shadow-sm dark:border-emerald-500/20 dark:bg-[#05130e]/80 sm:p-7"
               >
                 <h3 className="font-display text-lg font-bold text-slate-900 dark:text-white">
                   Send a Direct Message
@@ -164,7 +167,7 @@ export function ContactSection() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your name or company..."
-                    className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-violet-500 dark:border-white/10 dark:bg-[#070814]/80 dark:text-white dark:focus:border-violet-400"
+                    className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-emerald-500 dark:border-emerald-500/20 dark:bg-[#081a14] dark:text-white dark:focus:border-emerald-400"
                   />
                 </div>
 
@@ -182,7 +185,7 @@ export function ContactSection() {
                     value={senderEmail}
                     onChange={(e) => setSenderEmail(e.target.value)}
                     placeholder="name@company.com"
-                    className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-violet-500 dark:border-white/10 dark:bg-[#070814]/80 dark:text-white dark:focus:border-violet-400"
+                    className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-emerald-500 dark:border-emerald-500/20 dark:bg-[#081a14] dark:text-white dark:focus:border-emerald-400"
                   />
                 </div>
 
@@ -200,13 +203,13 @@ export function ContactSection() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Hello Galih, we'd like to discuss a Backend Internship / software engineering opportunity..."
-                    className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-violet-500 dark:border-white/10 dark:bg-[#070814]/80 dark:text-white dark:focus:border-violet-400"
+                    className="mt-1.5 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition-colors focus:border-emerald-500 dark:border-emerald-500/20 dark:bg-[#081a14] dark:text-white dark:focus:border-emerald-400"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-bold text-white transition-all hover:bg-violet-600 dark:bg-violet-600 dark:hover:bg-violet-500"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-bold text-white transition-all hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 shadow-lg shadow-emerald-600/20 active:scale-[0.99]"
                 >
                   <Send className="h-4 w-4" />
                   <span>Transmit Message</span>

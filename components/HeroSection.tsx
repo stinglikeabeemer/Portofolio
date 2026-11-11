@@ -37,8 +37,8 @@ export function HeroSection() {
           unoptimized
           className="object-cover object-center"
         />
-        {/* Subtle bottom fade to transition smoothly into the next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050e0b] via-[#050e0b]/50 to-transparent" />
+        {/* Subtle bottom fade to transition seamlessly into the next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#061410] via-[#061410]/75 to-transparent pointer-events-none" />
       </div>
 
       {/* TOP BAR (Full Width Header right on the background) */}

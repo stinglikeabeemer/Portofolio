@@ -17,20 +17,28 @@ const config: Config = {
       },
       colors: {
         brand: {
-          violet: "#7C3AED",
-          indigo: "#4F46E5",
-          cyan: "#06B6D4",
-          gold: "#F59E0B",
           emerald: "#10B981",
+          teal: "#14B8A6",
+          cyan: "#06B6D4",
+          violet: "#7C3AED",
+          gold: "#F59E0B",
+        },
+        forest: {
+          950: "#040d0a",
+          900: "#061410",
+          850: "#081b15",
+          800: "#0b241c",
+          700: "#103328",
         },
       },
       backgroundImage: {
         "grid-pattern":
-          "linear-gradient(to right, rgba(124, 58, 237, 0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(124, 58, 237, 0.07) 1px, transparent 1px)",
+          "linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px)",
       },
       boxShadow: {
-        glow: "0 0 35px -5px rgba(124, 58, 237, 0.35)",
-        "glow-gold": "0 0 35px -5px rgba(245, 158, 11, 0.35)",
+        glow: "0 0 35px -5px rgba(16, 185, 129, 0.3)",
+        "glow-emerald": "0 0 35px -5px rgba(16, 185, 129, 0.35)",
+        "glow-cyan": "0 0 35px -5px rgba(6, 182, 212, 0.35)",
       },
     },
   },
@@ -38,4 +46,3 @@ const config: Config = {
 };
 
 export default config;
-

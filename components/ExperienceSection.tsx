@@ -11,16 +11,19 @@ export function ExperienceSection() {
 
   return (
     <section id="experience" className="relative py-20 scroll-mt-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute right-1/4 top-1/3 h-96 w-96 rounded-full bg-emerald-500/10 blur-[150px]" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="mb-14 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-violet-600 dark:text-violet-400">
+            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
               04 // LEADERSHIP &amp; ORGANIZATIONAL TRACK RECORD
             </span>
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               Organizational{" "}
-              <span className="bg-gradient-to-r from-violet-600 via-cyan-500 to-amber-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-cyan-300 dark:to-amber-300">
+              <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
                 Experience
               </span>
             </h2>
@@ -57,7 +60,7 @@ export function ExperienceSection() {
                 key={ach.title}
                 initial={false}
                 whileHover={{ y: -5 }}
-                className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/85 p-5 shadow-sm backdrop-blur-md transition-all hover:border-amber-500/50 dark:border-white/10 dark:bg-[#0c0e22]/85 dark:hover:border-amber-400/50"
+                className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/85 p-5 shadow-sm backdrop-blur-md transition-all hover:border-amber-500/50 dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2">
@@ -74,8 +77,8 @@ export function ExperienceSection() {
                   </p>
                 </div>
 
-                <div className="mt-4 border-t border-slate-200/60 pt-3 dark:border-white/10">
-                  <span className="font-mono text-[11px] font-semibold text-violet-600 dark:text-violet-400">
+                <div className="mt-4 border-t border-slate-200/60 pt-3 dark:border-emerald-500/15">
+                  <span className="font-mono text-[11px] font-semibold text-emerald-400">
                     ★ {ach.badge}
                   </span>
                 </div>

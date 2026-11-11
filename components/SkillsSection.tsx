@@ -11,26 +11,29 @@ export function SkillsSection() {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case "Backend & APIs":
-        return <Server className="h-5 w-5 text-violet-500" />;
+        return <Server className="h-5 w-5 text-emerald-400" />;
       case "Databases":
-        return <Database className="h-5 w-5 text-cyan-500" />;
+        return <Database className="h-5 w-5 text-cyan-400" />;
       default:
-        return <Cpu className="h-5 w-5 text-amber-500" />;
+        return <Cpu className="h-5 w-5 text-teal-400" />;
     }
   };
 
   return (
     <section id="skills" className="relative py-20 scroll-mt-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute right-1/4 top-20 h-96 w-96 rounded-full bg-emerald-500/10 blur-[150px]" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-violet-600 dark:text-violet-400">
+            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
               02 // TECHNICAL ARSENAL &amp; STACK
             </span>
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               Skills &amp;{" "}
-              <span className="bg-gradient-to-r from-violet-600 via-cyan-500 to-amber-500 bg-clip-text text-transparent dark:from-violet-400 dark:via-cyan-300 dark:to-amber-300">
+              <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
                 Competencies
               </span>
             </h2>
@@ -56,11 +59,11 @@ export function SkillsSection() {
             return (
               <div
                 key={group.category}
-                className={`${colSpan} rounded-3xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-[#0c0e22]/85 sm:p-8`}
+                className={`${colSpan} rounded-3xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] sm:p-8`}
               >
-                <div className="mb-6 flex flex-col justify-between gap-2 border-b border-slate-200/70 pb-4 dark:border-white/10 sm:flex-row sm:items-center">
+                <div className="mb-6 flex flex-col justify-between gap-2 border-b border-slate-200/70 pb-4 dark:border-emerald-500/15 sm:flex-row sm:items-center">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 dark:border-white/10 dark:bg-white/5">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 dark:border-emerald-500/20 dark:bg-[#05130e]/80">
                       {getCategoryIcon(group.category)}
                     </div>
                     <div>
@@ -72,7 +75,7 @@ export function SkillsSection() {
                       </p>
                     </div>
                   </div>
-                  <span className="self-start rounded-full border border-slate-200 bg-slate-100 px-3 py-1 font-mono text-xs font-semibold text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 sm:self-center">
+                  <span className="self-start rounded-full border border-slate-200 bg-slate-100 px-3 py-1 font-mono text-xs font-semibold text-slate-600 dark:border-emerald-500/25 dark:bg-[#05130e]/90 dark:text-emerald-300 sm:self-center">
                     {group.skills.length} Technologies
                   </span>
                 </div>

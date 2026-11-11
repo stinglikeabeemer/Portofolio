@@ -20,24 +20,24 @@ export function SkillBadge({
   > = {
     violet: {
       border:
-        "hover:border-violet-500/50 dark:hover:border-violet-400/50 hover:shadow-[0_8px_30px_-8px_rgba(124,58,237,0.28)]",
+        "hover:border-emerald-500/50 dark:hover:border-emerald-400/50 hover:shadow-[0_8px_30px_-8px_rgba(16,185,129,0.3)]",
       badge:
-        "bg-violet-500/10 text-violet-700 border-violet-500/25 dark:bg-violet-500/15 dark:text-violet-300 dark:border-violet-400/30",
-      dot: "bg-violet-500",
+        "bg-emerald-500/10 text-emerald-700 border-emerald-500/25 dark:bg-emerald-500/15 dark:text-emerald-300 dark:border-emerald-400/30",
+      dot: "bg-emerald-400",
     },
     cyan: {
       border:
-        "hover:border-cyan-500/50 dark:hover:border-cyan-400/50 hover:shadow-[0_8px_30px_-8px_rgba(6,182,212,0.28)]",
+        "hover:border-cyan-500/50 dark:hover:border-cyan-400/50 hover:shadow-[0_8px_30px_-8px_rgba(6,182,212,0.3)]",
       badge:
         "bg-cyan-500/10 text-cyan-700 border-cyan-500/25 dark:bg-cyan-500/15 dark:text-cyan-300 dark:border-cyan-400/30",
-      dot: "bg-cyan-500",
+      dot: "bg-cyan-400",
     },
     amber: {
       border:
-        "hover:border-amber-500/50 dark:hover:border-amber-400/50 hover:shadow-[0_8px_30px_-8px_rgba(245,158,11,0.28)]",
+        "hover:border-teal-500/50 dark:hover:border-teal-400/50 hover:shadow-[0_8px_30px_-8px_rgba(20,184,166,0.3)]",
       badge:
-        "bg-amber-500/10 text-amber-700 border-amber-500/25 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-400/30",
-      dot: "bg-amber-500",
+        "bg-teal-500/10 text-teal-700 border-teal-500/25 dark:bg-teal-500/15 dark:text-teal-300 dark:border-teal-400/30",
+      dot: "bg-teal-400",
     },
   };
 
@@ -47,12 +47,12 @@ export function SkillBadge({
     <motion.div
       initial={false}
       whileHover={{ y: -4 }}
-      className={`group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/90 p-4 backdrop-blur-sm transition-all duration-300 dark:border-white/10 dark:bg-white/[0.04] ${currentStyle.border}`}
+      className={`group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/90 p-4 backdrop-blur-sm transition-all duration-300 dark:border-emerald-500/20 dark:bg-[#05130e]/80 ${currentStyle.border}`}
     >
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2.5">
           <span
-            className={`h-2 w-2 rounded-full ${currentStyle.dot} transition-transform duration-300 group-hover:scale-125`}
+            className={`h-2 w-2 rounded-full ${currentStyle.dot} transition-transform duration-300 group-hover:scale-125 shadow-[0_0_8px_currentColor]`}
           />
           <h4 className="font-display text-sm font-bold text-slate-900 dark:text-white sm:text-base">
             {skill.name}
