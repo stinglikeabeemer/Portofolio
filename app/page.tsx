@@ -1,4 +1,8 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { SplashScreen } from "@/components/SplashScreen";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { SkillsSection } from "@/components/SkillsSection";
@@ -7,26 +11,42 @@ import { ExperienceSection } from "@/components/ExperienceSection";
 import { ContactSection } from "@/components/ContactSection";
 
 export default function HomePage() {
+  const [splashFinished, setSplashFinished] = useState(false);
+
   return (
-    <main className="relative overflow-hidden">
-      {/* Hero Section with Fade-in Animation & Framed HUD */}
-      <HeroSection />
+    <>
+      {/* Splash Screen with Jump-in "Hallo!" and Curtain Exit Animation */}
+      <SplashScreen onFinish={() => setSplashFinished(true)} />
 
-      {/* About Section (py-20) */}
-      <AboutSection />
+      {/* Main Content with Entrance Scale/Jump-in Transition */}
+      <motion.main
+        initial={{ opacity: 0.8, scale: 0.98 }}
+        animate={
+          splashFinished
+            ? { opacity: 1, scale: 1 }
+            : { opacity: 1, scale: 1 }
+        }
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative overflow-hidden"
+      >
+        {/* Full-bleed Hero Section with Julian Artwork */}
+        <HeroSection />
 
-      {/* Skills Bento Grid Section (py-20) */}
-      <SkillsSection />
+        {/* About Section (py-20) */}
+        <AboutSection />
 
-      {/* Featured Projects Section (py-20) */}
-      <ProjectsSection />
+        {/* Skills Bento Grid Section (py-20) */}
+        <SkillsSection />
 
-      {/* Organizational Experience & Achievements Timeline Section (py-20) */}
-      <ExperienceSection />
+        {/* Featured Projects Section (py-20) */}
+        <ProjectsSection />
 
-      {/* Contact Section (py-20) */}
-      <ContactSection />
-    </main>
+        {/* Organizational Experience & Achievements Timeline Section (py-20) */}
+        <ExperienceSection />
+
+        {/* Contact Section (py-20) */}
+        <ContactSection />
+      </motion.main>
+    </>
   );
 }
-
