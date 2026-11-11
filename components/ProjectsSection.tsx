@@ -1,12 +1,41 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { portfolioData } from "@/data/portfolio";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { portfolioData, ProjectItem } from "@/data/portfolio";
 import { ProjectCard } from "@/components/ProjectCard";
+
+type FilterType = "All" | "Backend & APIs" | "AI & Vision" | "Databases & Fullstack";
 
 export function ProjectsSection() {
   const { projects } = portfolioData;
+  const [activeFilter, setActiveFilter] = useState<FilterType>("All");
+
+  const filterTabs: FilterType[] = [
+    "All",
+    "Backend & APIs",
+    "AI & Vision",
+    "Databases & Fullstack",
+  ];
+
+  const matchesFilter = (project: ProjectItem, filter: FilterType): boolean => {
+    if (filter === "All") return true;
+    const stack = project.techStack.join(" ").toLowerCase();
+    const desc = (project.description + " " + project.title).toLowerCase();
+
+    if (filter === "Backend & APIs") {
+      return stack.includes("laravel") || stack.includes("fastapi") || desc.includes("api");
+    }
+    if (filter === "AI & Vision") {
+      return stack.includes("opencv") || stack.includes("gemini") || desc.includes("vision") || desc.includes("ai");
+    }
+    if (filter === "Databases & Fullstack") {
+      return stack.includes("mongodb") || stack.includes("postgresql") || stack.includes("react");
+    }
+    return true;
+  };
+
+  const filteredProjects = projects.filter((p) => matchesFilter(p, activeFilter));
 
   return (
     <section id="projects" className="relative py-20 scroll-mt-24">
@@ -20,7 +49,7 @@ export function ProjectsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+          className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
           <div>
             <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
@@ -38,12 +67,42 @@ export function ProjectsSection() {
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
+        {/* Filter Category Tabs with Animated Pill */}
+        <div className="mb-10 flex flex-wrap items-center gap-2">
+          {filterTabs.map((tab) => {
+            const isActive = activeFilter === tab;
+            return (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => setActiveFilter(tab)}
+                className={`relative rounded-full px-4 py-2 font-mono text-xs font-semibold tracking-wide transition-colors ${
+                  isActive
+                    ? "text-white"
+                    : "border border-slate-200/80 bg-white/70 text-slate-600 hover:text-emerald-600 dark:border-emerald-500/20 dark:bg-[#05130e]/80 dark:text-slate-300 dark:hover:text-emerald-400"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="activeProjectFilter"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 shadow-md shadow-emerald-500/30"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{tab}</span>
+              </button>
+            );
+          })}
         </div>
+
+        {/* Projects Grid with Smooth Layout Transitions */}
+        <motion.div layout className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
