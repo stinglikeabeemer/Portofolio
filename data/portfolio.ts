@@ -308,6 +308,33 @@ export const portfolioData: {
       githubUrl: "https://github.com/galihpradityo",
       accentColor: "from-amber-500/30 via-orange-600/20 to-violet-600/20",
     },
+    {
+      id: "set-ais",
+      title: "SET Alumni Information System",
+      subtitle: "Software Engineering Technology Alumni & Career Intelligence Platform",
+      role: "Fullstack Developer & System Analyst",
+      period: "Nov 2025 – Dec 2025",
+      category: "Academic Project",
+      featureHighlight: "Laravel 12 & React 19 Inertia SPA, Driver.js Onboarding, RBAC & PII Security",
+      description:
+        "Comprehensive alumni management and career network ecosystem engineered for IPB University Software Engineering Technology. Features full-stack architecture with Laravel 12 and React 19 (Inertia.js), strict RBAC with PII data privacy, composite indexing, Driver.js interactive tours, automated email verification, and exportable report generation.",
+      architectureHighlights: [
+        "Authored comprehensive Software Requirements Specifications (SRS/SKPL) and engineered the core full-stack architecture utilizing Laravel 12, React 19, and Inertia.js.",
+        "Designed responsive SPA interfaces with Tailwind CSS and interactive onboarding (Driver.js), structured with optimized relational database constraints and composite indexing.",
+        "Enforced strict RBAC and PII privacy protection, implementing rate-limited authentication, automated email verification, and XSS sanitization.",
+      ],
+      techStack: [
+        "Laravel 12",
+        "React 19",
+        "Inertia.js",
+        "Tailwind CSS",
+        "MySQL / PostgreSQL",
+        "PHPUnit",
+      ],
+      image: "/images/projects/set-ais.svg",
+      githubUrl: "https://github.com/galihpradityo",
+      accentColor: "from-emerald-600/30 via-teal-600/20 to-cyan-500/20",
+    },
   ],
 
   experience: [

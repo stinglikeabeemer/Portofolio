@@ -9,9 +9,14 @@ import { ProjectItem } from "@/data/portfolio";
 interface ProjectCardProps {
   project: ProjectItem;
   index?: number;
+  featured?: boolean;
 }
 
-export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  index = 0,
+  featured = false,
+}: ProjectCardProps) {
   return (
     <motion.article
       layout
@@ -24,12 +29,21 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         delay: (index % 2) * 0.12,
         ease: [0.22, 1, 0.36, 1],
       }}
-      whileHover={{ y: -8 }}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/80 bg-white/90 shadow-sm transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50 dark:hover:shadow-[0_20px_50px_-15px_rgba(16,185,129,0.3)]"
+      whileHover={{ y: -6 }}
+      className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/80 bg-white/90 shadow-sm transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50 dark:hover:shadow-[0_20px_50px_-15px_rgba(16,185,129,0.3)] ${
+        featured ? "lg:col-span-2" : "lg:col-span-1"
+      }`}
     >
-      {/* Top Preview Image using Next.js <Image /> */}
-      <div>
-        <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-slate-200/60 bg-slate-950 dark:border-emerald-500/20">
+      {/* Top / Main Body Split */}
+      <div className={featured ? "lg:grid lg:grid-cols-12 lg:items-stretch" : ""}>
+        {/* Preview Image using Next.js <Image /> */}
+        <div
+          className={
+            featured
+              ? "relative aspect-[16/9] lg:aspect-auto lg:col-span-6 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-200/60 bg-slate-950 dark:border-emerald-500/20 min-h-[260px]"
+              : "relative aspect-[16/9] w-full overflow-hidden border-b border-slate-200/60 bg-slate-950 dark:border-emerald-500/20"
+          }
+        >
           <Image
             src={project.image}
             alt={`${project.title} - ${project.subtitle}`}
@@ -60,37 +74,52 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </div>
 
         {/* Project Content Body */}
-        <div className="p-6 sm:p-7">
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
-                {project.category}
-              </span>
-              <h3 className="mt-1 font-display text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-500 dark:text-white dark:group-hover:text-emerald-400">
-                {project.title}
-              </h3>
-              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
-                {project.subtitle}
-              </p>
+        <div
+          className={
+            featured
+              ? "lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between"
+              : "p-6 sm:p-7"
+          }
+        >
+          <div>
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
+                    {project.category}
+                  </span>
+                  {featured && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2 py-0.5 font-mono text-[9px] font-bold text-emerald-600 dark:text-emerald-300 border border-emerald-500/30">
+                      ★ FEATURED
+                    </span>
+                  )}
+                </div>
+                <h3 className="mt-1 font-display text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-500 dark:text-white dark:group-hover:text-emerald-400">
+                  {project.title}
+                </h3>
+                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                  {project.subtitle}
+                </p>
+              </div>
+
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${project.title} on GitHub`}
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 transition-all hover:border-emerald-500 hover:bg-emerald-600 hover:text-white dark:border-emerald-500/20 dark:bg-[#05130e]/80 dark:text-slate-200 dark:hover:border-emerald-400 dark:hover:bg-emerald-600"
+                >
+                  <Github className="h-4 w-4" />
+                </a>
+              )}
             </div>
 
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`View ${project.title} on GitHub`}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 transition-all hover:border-emerald-500 hover:bg-emerald-600 hover:text-white dark:border-emerald-500/20 dark:bg-[#05130e]/80 dark:text-slate-200 dark:hover:border-emerald-400 dark:hover:bg-emerald-600"
-              >
-                <Github className="h-4 w-4" />
-              </a>
-            )}
+            {/* Project Narrative Description */}
+            <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              {project.description}
+            </p>
           </div>
-
-          {/* Project Narrative Description */}
-          <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            {project.description}
-          </p>
 
           {/* Key Backend & System Architecture Highlights */}
           <ul className="mt-4 space-y-2 border-t border-slate-200/60 pt-4 dark:border-emerald-500/15">

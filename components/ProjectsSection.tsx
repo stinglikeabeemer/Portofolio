@@ -98,9 +98,17 @@ export function ProjectsSection() {
         {/* Projects Grid with Smooth Layout Transitions */}
         <motion.div layout className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
+            {filteredProjects.map((project, index) => {
+              const isFeatured = filteredProjects.length % 2 !== 0 && index === 0;
+              return (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                  featured={isFeatured}
+                />
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </div>
