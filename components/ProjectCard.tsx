@@ -14,8 +14,10 @@ interface ProjectCardProps {
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   return (
     <motion.article
+      layout
       initial={{ opacity: 0, y: 50, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.92, transition: { duration: 0.25 } }}
       viewport={{ once: false, amount: 0.15 }}
       transition={{
         duration: 0.65,
