@@ -14,8 +14,14 @@ export function AboutSection() {
       <div className="pointer-events-none absolute left-1/4 top-48 h-96 w-96 rounded-full bg-emerald-500/10 blur-[140px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Heading */}
-        <div className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        {/* Section Heading with Scroll Entrance & Exit */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
           <div>
             <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
               01 // PROFILE &amp; ACADEMIC FOUNDATION
@@ -30,15 +36,17 @@ export function AboutSection() {
           <p className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400">
             Focusing on clean architecture, API reliability, SQL/NoSQL schema modeling, and production readiness.
           </p>
-        </div>
+        </motion.div>
 
         {/* Bento Grid: Narrative + IPB Education + Key Metrics */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
           {/* Narrative Card */}
           <motion.div
-            initial={false}
+            initial={{ opacity: 0, y: 45, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -4 }}
-            transition={{ duration: 0.3 }}
             className="lg:col-span-7 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-7 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] sm:p-8"
           >
             <div className="space-y-4">
@@ -96,9 +104,11 @@ export function AboutSection() {
 
           {/* Education & Coursework Bento Card */}
           <motion.div
-            initial={false}
+            initial={{ opacity: 0, y: 45, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -4 }}
-            transition={{ duration: 0.3 }}
             className="lg:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-gradient-to-br from-emerald-500/5 via-white/90 to-teal-500/5 p-7 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:from-[#09221a]/95 dark:via-[#081a14]/90 dark:to-[#05130e]/95 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] sm:p-8"
           >
             <div className="space-y-5">

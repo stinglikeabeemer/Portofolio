@@ -11,12 +11,18 @@ interface ProjectCardProps {
   index?: number;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   return (
     <motion.article
-      initial={false}
+      initial={{ opacity: 0, y: 50, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: false, amount: 0.15 }}
+      transition={{
+        duration: 0.65,
+        delay: (index % 2) * 0.12,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       whileHover={{ y: -8 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
       className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/80 bg-white/90 shadow-sm transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50 dark:hover:shadow-[0_20px_50px_-15px_rgba(16,185,129,0.3)]"
     >
       {/* Top Preview Image using Next.js <Image /> */}

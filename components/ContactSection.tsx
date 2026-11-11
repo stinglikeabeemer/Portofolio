@@ -37,12 +37,21 @@ export function ContactSection() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={false}
+          initial={{ opacity: 0, y: 50, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-white/95 via-slate-50/90 to-emerald-50/40 p-6 shadow-xl dark:border-emerald-500/20 dark:from-[#09221a]/95 dark:via-[#081a14]/95 dark:to-[#05130e]/95 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] sm:p-10 lg:p-12"
         >
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-            {/* Left Info Column */}
-            <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
+            {/* Left Info Column with Left Slide-in */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-6 flex flex-col justify-between space-y-6"
+            >
               <div>
                 <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
                   05 // INITIATE CONNECTION
@@ -142,10 +151,16 @@ export function ContactSection() {
                   <span>GitHub</span>
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Right Quick Message Form */}
-            <div className="lg:col-span-6">
+            {/* Right Quick Message Form with Right Slide-in */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-6"
+            >
               <form
                 onSubmit={handleSubmit}
                 className="space-y-4 rounded-2xl border border-slate-200/80 bg-white/90 p-6 shadow-sm dark:border-emerald-500/20 dark:bg-[#05130e]/80 sm:p-7"
@@ -215,7 +230,7 @@ export function ContactSection() {
                   <span>Transmit Message</span>
                 </button>
               </form>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

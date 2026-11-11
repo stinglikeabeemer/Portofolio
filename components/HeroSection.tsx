@@ -42,7 +42,13 @@ export function HeroSection() {
       </div>
 
       {/* TOP BAR (Full Width Header right on the background) */}
-      <div className="relative z-30 flex items-center justify-between px-6 sm:px-12 lg:px-16 pt-6 sm:pt-8 md:pt-10">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative z-30 flex items-center justify-between px-6 sm:px-12 lg:px-16 pt-6 sm:pt-8 md:pt-10"
+      >
         {/* Left: Minimalist Geometric Glyph Logo & Nav Links */}
         <div className="flex items-center gap-6 sm:gap-10 md:gap-12">
           <a href="#hero" className="group flex items-center" aria-label="Home">
@@ -110,25 +116,25 @@ export function HeroSection() {
             <Moon className="block h-4 w-4 text-emerald-300 dark:hidden" />
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* MAIN HERO CONTENT (LEFT-ALIGNED TYPOGRAPHY & LORE BIO) */}
-      <div className="relative z-30 my-auto px-6 sm:px-12 lg:px-16 py-8 max-w-2xl lg:max-w-xl xl:max-w-2xl">
+      <motion.div
+        initial={{ opacity: 0, y: 45, scale: 0.96 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-30 my-auto px-6 sm:px-12 lg:px-16 py-8 max-w-2xl lg:max-w-xl xl:max-w-2xl"
+      >
         {/* Giant Title: GALIH */}
-        <motion.h1
-          initial={false}
-          className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-normal tracking-tight text-white uppercase leading-[0.9] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
-        >
+        <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-normal tracking-tight text-white uppercase leading-[0.9] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
           GALIH
-        </motion.h1>
+        </h1>
 
         {/* Subtitle: RADEN MAS GALIH PRADITYO */}
-        <motion.p
-          initial={false}
-          className="mt-3 font-display text-lg sm:text-2xl md:text-3xl font-extrabold uppercase tracking-[0.16em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
-        >
+        <p className="mt-3 font-display text-lg sm:text-2xl md:text-3xl font-extrabold uppercase tracking-[0.16em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
           Raden Mas Galih Pradityo
-        </motion.p>
+        </p>
 
         {/* Specialist Tag */}
         <p className="mt-1 font-mono text-xs sm:text-sm font-bold tracking-widest text-emerald-300 uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
@@ -136,21 +142,24 @@ export function HeroSection() {
         </p>
 
         {/* Narrative Bio Paragraph */}
-        <motion.p
-          initial={false}
-          className="mt-4 sm:mt-5 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-white font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]"
-        >
+        <p className="mt-4 sm:mt-5 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-white font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
           Raden Mas Galih Pradityo is a 5th-semester Software Engineering student at
           IPB University (GPA 3.80/4.00) specializing in backend software development,
           API architecture, and database modeling. Proficient in engineering scalable
           RESTful APIs and microservices with Laravel 12 and FastAPI, designing resilient
           SQL/NoSQL databases with PostgreSQL RLS and MongoDB, and deploying intelligent
           Computer Vision pipelines and Google Gemini AI integrations.
-        </motion.p>
-      </div>
+        </p>
+      </motion.div>
 
       {/* BOTTOM BAR (Watermarks on Left, Action Pills on Right) */}
-      <div className="relative z-30 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 px-6 sm:px-12 lg:px-16 pb-8 sm:pb-12">
+      <motion.div
+        initial={{ opacity: 0, y: 35 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-30 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 px-6 sm:px-12 lg:px-16 pb-8 sm:pb-12"
+      >
         {/* Left Watermark / Handle */}
         <div className="flex items-center gap-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
           <a
@@ -189,7 +198,7 @@ export function HeroSection() {
             Play Now
           </a>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

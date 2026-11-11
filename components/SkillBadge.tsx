@@ -13,6 +13,7 @@ interface SkillBadgeProps {
 export function SkillBadge({
   skill,
   accent = "violet",
+  index = 0,
 }: SkillBadgeProps) {
   const accentStyles: Record<
     string,
@@ -45,7 +46,10 @@ export function SkillBadge({
 
   return (
     <motion.div
-      initial={false}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.15 }}
+      transition={{ duration: 0.45, delay: (index % 6) * 0.04, ease: "easeOut" }}
       whileHover={{ y: -4 }}
       className={`group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/90 p-4 backdrop-blur-sm transition-all duration-300 dark:border-emerald-500/20 dark:bg-[#05130e]/80 ${currentStyle.border}`}
     >

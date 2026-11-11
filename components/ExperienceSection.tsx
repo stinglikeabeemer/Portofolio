@@ -15,8 +15,14 @@ export function ExperienceSection() {
       <div className="pointer-events-none absolute right-1/4 top-1/3 h-96 w-96 rounded-full bg-emerald-500/10 blur-[150px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="mb-14 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        {/* Section Header with Scroll Entrance & Exit */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-14 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
           <div>
             <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
               04 // LEADERSHIP &amp; ORGANIZATIONAL TRACK RECORD
@@ -31,14 +37,20 @@ export function ExperienceSection() {
           <p className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400">
             Leadership experience, operational logistics management, and strategic corporate sponsorships at IPB University.
           </p>
-        </div>
+        </motion.div>
 
         {/* Responsive Vertical Timeline */}
         <Timeline items={experience} />
 
         {/* Honors & Achievements Subsection */}
         <div id="achievements" className="mt-20 pt-6">
-          <div className="mb-8 flex items-center justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-8 flex items-center justify-between"
+          >
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-500">
                 <Trophy className="h-5 w-5" />
@@ -52,13 +64,16 @@ export function ExperienceSection() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {achievements.map((ach) => (
+            {achievements.map((ach, idx) => (
               <motion.div
                 key={ach.title}
-                initial={false}
+                initial={{ opacity: 0, y: 35, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -5 }}
                 className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/85 p-5 shadow-sm backdrop-blur-md transition-all hover:border-amber-500/50 dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50"
               >

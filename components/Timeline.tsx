@@ -29,19 +29,28 @@ export function Timeline({ items }: TimelineProps) {
                 isEven ? "sm:flex-row" : "sm:flex-row-reverse"
               }`}
             >
-              {/* Timeline Diamond / Node Marker */}
-              <div className="absolute left-4 top-6 z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border-2 border-emerald-500 bg-white shadow-md shadow-emerald-500/30 dark:border-emerald-400 dark:bg-[#061410] sm:left-1/2 sm:top-1/2 sm:-translate-y-1/2">
+              {/* Timeline Diamond / Node Marker with Pop-in Animation */}
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.45, ease: "backOut" }}
+                className="absolute left-4 top-6 z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border-2 border-emerald-500 bg-white shadow-md shadow-emerald-500/30 dark:border-emerald-400 dark:bg-[#061410] sm:left-1/2 sm:top-1/2 sm:-translate-y-1/2"
+              >
                 <span className="h-2.5 w-2.5 rotate-45 bg-emerald-500 dark:bg-emerald-400 shadow-[0_0_8px_#10B981]" />
-              </div>
+              </motion.div>
 
-              {/* Card Container */}
+              {/* Card Container with Left/Right Entrance & Exit */}
               <div
                 className={`w-full pl-12 sm:w-1/2 sm:pl-0 ${
                   isEven ? "sm:pr-10" : "sm:pl-10"
                 }`}
               >
                 <motion.div
-                  initial={false}
+                  initial={{ opacity: 0, x: isEven ? -40 : 40, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                   whileHover={{ y: -4 }}
                   className="group rounded-3xl border border-slate-200/80 bg-white/90 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-emerald-500/50 hover:shadow-lg dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50 sm:p-7"
                 >

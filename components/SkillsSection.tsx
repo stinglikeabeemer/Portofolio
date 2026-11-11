@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { Server, Database, Cpu } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { SkillBadge } from "@/components/SkillBadge";
@@ -25,8 +26,14 @@ export function SkillsSection() {
       <div className="pointer-events-none absolute right-1/4 top-20 h-96 w-96 rounded-full bg-emerald-500/10 blur-[150px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        {/* Section Header with Scroll Entrance & Exit */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
           <div>
             <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
               02 // TECHNICAL ARSENAL &amp; STACK
@@ -41,11 +48,11 @@ export function SkillsSection() {
           <p className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400">
             Technical specialization for engineering resilient RESTful APIs, distributed database schemas, and AI/CV pipelines.
           </p>
-        </div>
+        </motion.div>
 
         {/* Bento Category Grid */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          {skills.map((group) => {
+          {skills.map((group, groupIdx) => {
             const colSpan =
               group.category === "Tools & CV"
                 ? "lg:col-span-12"
@@ -57,8 +64,12 @@ export function SkillsSection() {
                 : "grid-cols-1 sm:grid-cols-2";
 
             return (
-              <div
+              <motion.div
                 key={group.category}
+                initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: groupIdx * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className={`${colSpan} rounded-3xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] sm:p-8`}
               >
                 <div className="mb-6 flex flex-col justify-between gap-2 border-b border-slate-200/70 pb-4 dark:border-emerald-500/15 sm:flex-row sm:items-center">
@@ -90,7 +101,7 @@ export function SkillsSection() {
                     />
                   ))}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

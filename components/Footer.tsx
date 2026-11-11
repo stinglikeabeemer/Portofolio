@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Terminal } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
@@ -7,7 +10,13 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200/80 bg-white/70 backdrop-blur-md dark:border-emerald-500/15 dark:bg-[#040d0a]/90">
+    <motion.footer
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="border-t border-slate-200/80 bg-white/70 backdrop-blur-md dark:border-emerald-500/15 dark:bg-[#040d0a]/90"
+    >
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-md shadow-emerald-600/30">
@@ -50,6 +59,6 @@ export function Footer() {
           </a>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
