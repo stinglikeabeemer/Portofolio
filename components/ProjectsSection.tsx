@@ -54,23 +54,18 @@ export function ProjectsSection() {
         >
           <div>
             <TextGenerateEffect
-              text="02 // FEATURED PROJECTS"
+              text="02 FEATURED PROJECTS"
               as="span"
-              className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 block"
+              className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
             />
-            <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
               <TextGenerateEffect text="Featured Projects" as="span" delay={0.1} />
             </h2>
           </div>
-          <TextGenerateEffect
-            text="Production backend systems, AI &amp; Computer Vision pipelines, and robust SQL/NoSQL database architectures."
-            as="p"
-            className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400"
-          />
         </motion.div>
 
         {/* Filter Category Tabs with Animated Pill */}
-        <div className="mb-10 flex flex-wrap items-center gap-2">
+        <div className="mb-10 flex flex-wrap items-center gap-2.5">
           {filterTabs.map((tab) => {
             const isActive = activeFilter === tab;
             return (
@@ -78,7 +73,7 @@ export function ProjectsSection() {
                 key={tab}
                 type="button"
                 onClick={() => setActiveFilter(tab)}
-                className={`relative rounded-full px-4 py-2 font-mono text-xs font-semibold tracking-wide transition-colors ${
+                className={`relative rounded-full px-4 sm:px-5 py-2 sm:py-2.5 font-mono text-xs sm:text-sm font-semibold tracking-wide transition-colors ${
                   isActive
                     ? "text-white"
                     : "border border-slate-200/80 bg-white/70 text-slate-600 hover:text-emerald-600 dark:border-emerald-500/20 dark:bg-[#05130e]/80 dark:text-slate-300 dark:hover:text-emerald-400"

@@ -39,41 +39,41 @@ export function ContactSection() {
           {/* Section Header */}
           <div className="max-w-2xl mx-auto">
             <TextGenerateEffect
-              text="04 // INITIATE CONNECTION"
+              text="04 INITIATE CONNECTION"
               as="span"
-              className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 block"
+              className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
             />
-            <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
               <TextGenerateEffect text="Let's Build Scalable Backend Systems" as="span" delay={0.1} />
             </h2>
             <TextGenerateEffect
               text="Available for Backend Engineering Internships, API architecture consultations, and technical collaborations."
               as="p"
               delay={0.15}
-              className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base text-center"
+              className="mt-3.5 text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-300 text-center"
             />
           </div>
 
           {/* 3 Main Direct Contact Cards */}
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 text-left">
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3 text-left">
             {/* Email Card */}
             <a
               href={`mailto:${personal.email}`}
-              className="group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm transition-all hover:border-emerald-500 hover:shadow-md dark:border-emerald-500/15 dark:bg-[#05130e]/80 dark:hover:border-emerald-400"
+              className="group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm transition-all hover:border-emerald-500 hover:shadow-md dark:border-emerald-500/15 dark:bg-[#05130e]/80 dark:hover:border-emerald-400"
             >
               <div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300">
-                  <Mail className="h-5 w-5" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300">
+                  <Mail className="h-6 w-6" />
                 </div>
-                <p className="mt-4 font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                <p className="mt-4 font-mono text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                   Direct Email
                 </p>
-                <p className="mt-0.5 text-xs sm:text-sm font-bold text-slate-900 dark:text-white break-all group-hover:text-emerald-500 transition-colors">
+                <p className="mt-1 text-sm sm:text-base font-bold text-slate-900 dark:text-white break-all group-hover:text-emerald-500 transition-colors">
                   {personal.email}
                 </p>
               </div>
-              <span className="mt-4 inline-flex items-center gap-1 font-mono text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                Send Mail <ExternalLink className="h-3 w-3" />
+              <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                Send Mail <ExternalLink className="h-3.5 w-3.5" />
               </span>
             </a>
 
@@ -82,21 +82,21 @@ export function ContactSection() {
               href={`https://wa.me/6289505142755`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm transition-all hover:border-emerald-500 hover:shadow-md dark:border-emerald-500/15 dark:bg-[#05130e]/80 dark:hover:border-emerald-400"
+              className="group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm transition-all hover:border-emerald-500 hover:shadow-md dark:border-emerald-500/15 dark:bg-[#05130e]/80 dark:hover:border-emerald-400"
             >
               <div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/20 dark:text-cyan-300">
-                  <Phone className="h-5 w-5" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/20 dark:text-cyan-300">
+                  <Phone className="h-6 w-6" />
                 </div>
-                <p className="mt-4 font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                <p className="mt-4 font-mono text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                   WhatsApp / Phone
                 </p>
-                <p className="mt-0.5 text-xs sm:text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+                <p className="mt-1 text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
                   {personal.phone}
                 </p>
               </div>
-              <span className="mt-4 inline-flex items-center gap-1 font-mono text-[11px] font-semibold text-cyan-600 dark:text-cyan-400">
-                Chat via WhatsApp <ExternalLink className="h-3 w-3" />
+              <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-semibold text-cyan-600 dark:text-cyan-400">
+                Chat via WhatsApp <ExternalLink className="h-3.5 w-3.5" />
               </span>
             </a>
 
@@ -105,21 +105,21 @@ export function ContactSection() {
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm transition-all hover:border-emerald-500 hover:shadow-md dark:border-emerald-500/15 dark:bg-[#05130e]/80 dark:hover:border-emerald-400"
+              className="group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm transition-all hover:border-emerald-500 hover:shadow-md dark:border-emerald-500/15 dark:bg-[#05130e]/80 dark:hover:border-emerald-400"
             >
               <div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600 dark:bg-blue-500/20 dark:text-blue-300">
-                  <Linkedin className="h-5 w-5" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-600 dark:bg-blue-500/20 dark:text-blue-300">
+                  <Linkedin className="h-6 w-6" />
                 </div>
-                <p className="mt-4 font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                <p className="mt-4 font-mono text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                   Professional Network
                 </p>
-                <p className="mt-0.5 text-xs sm:text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+                <p className="mt-1 text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">
                   galihpradityo
                 </p>
               </div>
-              <span className="mt-4 inline-flex items-center gap-1 font-mono text-[11px] font-semibold text-blue-600 dark:text-blue-400">
-                Connect on LinkedIn <ExternalLink className="h-3 w-3" />
+              <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400">
+                Connect on LinkedIn <ExternalLink className="h-3.5 w-3.5" />
               </span>
             </a>
           </div>
@@ -129,14 +129,14 @@ export function ContactSection() {
             <a
               href={personal.resumeUrl}
               download="CV_Raden Mas Galih Pradityo.pdf"
-              className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-lg shadow-emerald-600/30 transition-all hover:bg-emerald-500 hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-7 py-3 text-sm sm:text-base font-bold text-white shadow-lg shadow-emerald-600/30 transition-all hover:bg-emerald-500 hover:scale-105 active:scale-95"
             >
-              <FileDown className="h-4 w-4" />
+              <FileDown className="h-4.5 w-4.5" />
               <span>Download Official CV (PDF)</span>
             </a>
 
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/80 px-4 py-2.5 font-mono text-xs text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
-              <MapPin className="h-3.5 w-3.5 text-emerald-500" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2.5 font-mono text-xs sm:text-sm text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+              <MapPin className="h-4 w-4 text-emerald-500" />
               <span>{personal.location}</span>
             </div>
           </div>

@@ -51,25 +51,25 @@ export function SkillBadge({
       viewport={{ once: false, amount: 0.15 }}
       transition={{ duration: 0.45, delay: (index % 6) * 0.04, ease: "easeOut" }}
       whileHover={{ y: -4 }}
-      className={`group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/90 p-4 backdrop-blur-sm transition-all duration-300 dark:border-emerald-500/20 dark:bg-[#05130e]/80 ${currentStyle.border}`}
+      className={`group relative flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/90 p-4 sm:p-5 backdrop-blur-sm transition-all duration-300 dark:border-emerald-500/20 dark:bg-[#05130e]/80 ${currentStyle.border}`}
     >
-      <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center justify-between gap-2.5">
         <div className="flex items-center gap-2.5">
           <span
-            className={`h-2 w-2 rounded-full ${currentStyle.dot} transition-transform duration-300 group-hover:scale-125 shadow-[0_0_8px_currentColor]`}
+            className={`h-2.5 w-2.5 rounded-full ${currentStyle.dot} transition-transform duration-300 group-hover:scale-125 shadow-[0_0_8px_currentColor]`}
           />
-          <h4 className="font-display text-sm font-bold text-slate-900 dark:text-white sm:text-base">
+          <h4 className="font-display text-base font-bold text-slate-900 dark:text-white sm:text-lg">
             {skill.name}
           </h4>
         </div>
         <span
-          className={`rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider ${currentStyle.badge}`}
+          className={`rounded-full border px-3 py-0.5 font-mono text-xs sm:text-[13px] font-semibold uppercase tracking-wider ${currentStyle.badge}`}
         >
           {skill.level}
         </span>
       </div>
 
-      <p className="mt-2.5 font-mono text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+      <p className="mt-2.5 font-mono text-xs sm:text-sm leading-relaxed text-slate-500 dark:text-slate-300">
         {skill.tag}
       </p>
     </motion.div>

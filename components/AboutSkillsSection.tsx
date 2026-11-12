@@ -21,11 +21,11 @@ export function AboutSkillsSection() {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case "Backend & APIs":
-        return <Server className="h-4 w-4 text-emerald-400" />;
+        return <Server className="h-5 w-5 text-emerald-400" />;
       case "Databases":
-        return <Database className="h-4 w-4 text-cyan-400" />;
+        return <Database className="h-5 w-5 text-cyan-400" />;
       default:
-        return <Cpu className="h-4 w-4 text-teal-400" />;
+        return <Cpu className="h-5 w-5 text-teal-400" />;
     }
   };
 
@@ -46,19 +46,14 @@ export function AboutSkillsSection() {
         >
           <div>
             <TextGenerateEffect
-              text="01 // PROFILE & TECH STACK"
+              text="01 PROFILE & TECH STACK"
               as="span"
-              className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 block"
+              className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
             />
-            <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
               <TextGenerateEffect text="About & Technical Stack" as="span" delay={0.1} />
             </h2>
           </div>
-          <TextGenerateEffect
-            text="Specializing in resilient RESTful APIs, high-integrity database schemas, and AI/CV backend pipelines."
-            as="p"
-            className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400"
-          />
         </motion.div>
 
         {/* Unified Bento Grid: Left (Profile & Academics) | Right (Tech Arsenal) */}
@@ -69,23 +64,23 @@ export function AboutSkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="relative lg:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-6 sm:p-8 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] overflow-hidden group"
+            className="relative lg:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-6 sm:p-8 md:p-9 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] overflow-hidden group"
           >
             {/* HUD Cyber Corner Accents */}
-            <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-emerald-400/50 rounded-tl-2xl pointer-events-none" />
-            <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-emerald-400/50 rounded-tr-2xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-emerald-400/50 rounded-bl-2xl pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-emerald-400/50 rounded-br-2xl pointer-events-none" />
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-emerald-400/50 rounded-tl-2xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-emerald-400/50 rounded-tr-2xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-emerald-400/50 rounded-bl-2xl pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-emerald-400/50 rounded-br-2xl pointer-events-none" />
 
             <div>
               {/* Badges Header */}
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-semibold text-emerald-700 dark:text-emerald-300">
-                  <GraduationCap className="h-3.5 w-3.5" />
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 font-mono text-xs sm:text-sm font-semibold text-emerald-700 dark:text-emerald-300">
+                  <GraduationCap className="h-4 w-4" />
                   IPB University
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 font-mono text-xs text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
-                  <Terminal className="h-3.5 w-3.5 text-emerald-400" />
+                <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-3.5 py-1.5 font-mono text-xs sm:text-sm text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+                  <Terminal className="h-4 w-4 text-emerald-400" />
                   Software Engineering
                 </span>
               </div>
@@ -94,13 +89,13 @@ export function AboutSkillsSection() {
               <TextGenerateEffect
                 text="Raden Mas Galih Pradityo"
                 as="h3"
-                className="mt-4 font-display text-2xl font-bold text-slate-900 dark:text-white"
+                className="mt-5 font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white"
               />
               <TextGenerateEffect
-                text="// Backend & API Architecture Specialist"
+                text="Backend & API Architecture Specialist"
                 as="p"
                 delay={0.1}
-                className="mt-1 font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400"
+                className="mt-1.5 font-mono text-xs sm:text-sm md:text-base font-semibold text-emerald-600 dark:text-emerald-400"
               />
 
               {/* Clean Concise Bio */}
@@ -108,19 +103,19 @@ export function AboutSkillsSection() {
                 text="5th-semester Software Engineering student at IPB University with strong expertise in architecting scalable RESTful APIs, relational/document database schemas, and seamless AI integrations."
                 as="p"
                 delay={0.15}
-                className="mt-4 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+                className="mt-4 text-sm sm:text-base md:text-[17px] leading-relaxed text-slate-600 dark:text-slate-300"
               />
 
               {/* Quick Focus Points */}
-              <div className="mt-6 space-y-2.5">
+              <div className="mt-6 space-y-3">
                 {[
                   "RESTful API & Microservices with Laravel 12 & FastAPI",
                   "Multi-Role Security (RBAC, Sanctum & PostgreSQL RLS)",
                   "SQL & NoSQL Schemas (PostgreSQL, MySQL, MongoDB)",
                   "AI & Computer Vision Integration (Gemini API & OpenCV)",
                 ].map((item, idx) => (
-                  <div key={item} className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500 dark:text-emerald-400 mt-0.5" />
+                  <div key={item} className="flex items-start gap-3 text-xs sm:text-sm md:text-[15px] font-medium text-slate-700 dark:text-slate-200">
+                    <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-emerald-500 dark:text-emerald-400 mt-0.5" />
                     <TextGenerateEffect text={item} as="span" delay={0.15 + idx * 0.05} />
                   </div>
                 ))}
@@ -128,30 +123,30 @@ export function AboutSkillsSection() {
             </div>
 
             {/* Quick Metrics Bar */}
-            <div className="mt-8 grid grid-cols-3 gap-2.5 border-t border-slate-200/70 pt-6 dark:border-emerald-500/15">
-              <div className="rounded-2xl border border-slate-200/60 bg-slate-50/80 p-3 text-center dark:border-emerald-500/15 dark:bg-[#05130e]/70">
-                <p className="font-display text-lg sm:text-xl font-extrabold text-emerald-500 dark:text-emerald-400">
+            <div className="mt-8 grid grid-cols-3 gap-3 border-t border-slate-200/70 pt-6 dark:border-emerald-500/15">
+              <div className="rounded-2xl border border-slate-200/60 bg-slate-50/80 p-3.5 sm:p-4 text-center dark:border-emerald-500/15 dark:bg-[#05130e]/70">
+                <p className="font-display text-xl sm:text-2xl md:text-3xl font-black text-emerald-500 dark:text-emerald-400">
                   3.80
                 </p>
-                <p className="mt-0.5 font-mono text-[10px] text-slate-500 dark:text-slate-400 uppercase">
+                <p className="mt-1 font-mono text-xs sm:text-[13px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                   GPA / 4.00
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-slate-200/60 bg-slate-50/80 p-3 text-center dark:border-emerald-500/15 dark:bg-[#05130e]/70">
-                <p className="font-display text-lg sm:text-xl font-extrabold text-teal-400">
+              <div className="rounded-2xl border border-slate-200/60 bg-slate-50/80 p-3.5 sm:p-4 text-center dark:border-emerald-500/15 dark:bg-[#05130e]/70">
+                <p className="font-display text-xl sm:text-2xl md:text-3xl font-black text-teal-400">
                   5+
                 </p>
-                <p className="mt-0.5 font-mono text-[10px] text-slate-500 dark:text-slate-400 uppercase">
+                <p className="mt-1 font-mono text-xs sm:text-[13px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                   Architectures
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-slate-200/60 bg-slate-50/80 p-3 text-center dark:border-emerald-500/15 dark:bg-[#05130e]/70">
-                <p className="font-display text-lg sm:text-xl font-extrabold text-cyan-400">
+              <div className="rounded-2xl border border-slate-200/60 bg-slate-50/80 p-3.5 sm:p-4 text-center dark:border-emerald-500/15 dark:bg-[#05130e]/70">
+                <p className="font-display text-xl sm:text-2xl md:text-3xl font-black text-cyan-400">
                   1st
                 </p>
-                <p className="mt-0.5 font-mono text-[10px] text-slate-500 dark:text-slate-400 uppercase">
+                <p className="mt-1 font-mono text-xs sm:text-[13px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                   Technofest &apos;25
                 </p>
               </div>
@@ -159,7 +154,7 @@ export function AboutSkillsSection() {
           </motion.div>
 
           {/* Right Bento Grid: Core Technical Stack (lg:col-span-7) */}
-          <div className="lg:col-span-7 flex flex-col gap-5">
+          <div className="lg:col-span-7 flex flex-col gap-6">
             {skills.map((group, groupIdx) => (
               <motion.div
                 key={group.category}
@@ -167,36 +162,36 @@ export function AboutSkillsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: groupIdx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative flex-1 rounded-3xl border border-slate-200/80 bg-white/80 p-5 sm:p-6 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 overflow-hidden group"
+                className="relative flex-1 rounded-3xl border border-slate-200/80 bg-white/80 p-6 sm:p-7 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 overflow-hidden group"
               >
                 {/* HUD Cyber Corner Accents */}
-                <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-emerald-400/40 rounded-tr-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
-                <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-emerald-400/40 rounded-bl-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
-                <div className="flex items-center justify-between pb-3 border-b border-slate-200/60 dark:border-white/5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
+                <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-emerald-400/40 rounded-tr-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
+                <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-emerald-400/40 rounded-bl-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
+                <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/60 dark:border-white/5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
                       {getCategoryIcon(group.category)}
                     </div>
                     <div>
                       <TextGenerateEffect
                         text={group.category}
                         as="h4"
-                        className="font-display text-sm sm:text-base font-bold text-slate-900 dark:text-white"
+                        className="font-display text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white"
                       />
                       <TextGenerateEffect
                         text={group.subtitle}
                         as="p"
                         delay={0.1}
-                        className="font-mono text-[10px] text-slate-500 dark:text-slate-400"
+                        className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400"
                       />
                     </div>
                   </div>
-                  <span className="font-mono text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-mono text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400">
                     {group.skills.length} Technologies
                   </span>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2.5">
                   {group.skills.map((skill, skillIdx) => (
                     <SkillBadge
                       key={skill.name}

@@ -61,15 +61,15 @@ export function ProjectCard({
 
           {/* Role Badge Overlay */}
           <div className="absolute left-3.5 top-3.5">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-slate-950/85 px-3 py-1 font-mono text-[10px] sm:text-[11px] font-semibold text-emerald-300 backdrop-blur-md">
-              <Layers className="h-3 w-3 text-emerald-400" />
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-slate-950/85 px-3.5 py-1.5 font-mono text-xs sm:text-sm font-semibold text-emerald-300 backdrop-blur-md">
+              <Layers className="h-3.5 w-3.5 text-emerald-400" />
               {project.role}
             </span>
           </div>
 
           {/* Period Overlay */}
           <div className="absolute bottom-3 left-3.5">
-            <span className="rounded-full border border-white/15 bg-slate-950/80 px-2.5 py-0.5 font-mono text-[10px] text-slate-300 backdrop-blur-md">
+            <span className="rounded-full border border-white/15 bg-slate-950/80 px-3 py-1 font-mono text-xs text-slate-300 backdrop-blur-md">
               {project.period}
             </span>
           </div>
@@ -79,8 +79,8 @@ export function ProjectCard({
         <div
           className={
             featured
-              ? "lg:col-span-7 p-5 sm:p-7 flex flex-col justify-between"
-              : "p-5 sm:p-6 flex flex-col justify-between"
+              ? "lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between"
+              : "p-6 sm:p-7 flex flex-col justify-between"
           }
         >
           <div>
@@ -88,10 +88,10 @@ export function ProjectCard({
               <TextGenerateEffect
                 text={project.category}
                 as="span"
-                className="font-mono text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400"
+                className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400"
               />
               {featured && (
-                <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 font-mono text-[9px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
                   ★ FEATURED
                 </span>
               )}
@@ -102,7 +102,7 @@ export function ProjectCard({
                 text={project.title}
                 as="h3"
                 delay={0.05}
-                className="mt-1.5 font-display text-xl sm:text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400"
+                className="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400"
               />
             </Link>
 
@@ -110,29 +110,29 @@ export function ProjectCard({
               text={project.subtitle}
               as="p"
               delay={0.1}
-              className="mt-0.5 text-xs font-medium text-slate-500 dark:text-slate-400"
+              className="mt-1 text-sm sm:text-base font-medium text-slate-500 dark:text-slate-400"
             />
 
             {/* Clean, Concise 1-sentence Description */}
             <TextGenerateEffect
               text={project.shortDescription || project.description}
               as="p"
-              className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+              className="mt-3.5 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300"
             />
           </div>
 
           {/* Tech Stack Pills */}
-          <div className="mt-4 flex flex-wrap gap-1.5">
+          <div className="mt-5 flex flex-wrap gap-2">
             {project.techStack.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-slate-200 bg-slate-100/80 px-2.5 py-0.5 font-mono text-[11px] font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
+                className="rounded-full border border-slate-200 bg-slate-100/80 px-3 py-1 font-mono text-xs sm:text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
               >
                 {tech}
               </span>
             ))}
             {project.techStack.length > 4 && (
-              <span className="rounded-full border border-slate-200 bg-slate-100/80 px-2 py-0.5 font-mono text-[10px] text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400">
+              <span className="rounded-full border border-slate-200 bg-slate-100/80 px-2.5 py-1 font-mono text-xs text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400">
                 +{project.techStack.length - 4}
               </span>
             )}
@@ -141,29 +141,29 @@ export function ProjectCard({
       </div>
 
       {/* Action Footer: Detail Arsitektur & Repository */}
-      <div className="flex items-center justify-between border-t border-slate-200/70 bg-slate-50/70 px-5 py-3 dark:border-emerald-500/15 dark:bg-[#05130e]/80 sm:px-6">
+      <div className="flex items-center justify-between border-t border-slate-200/70 bg-slate-50/70 px-6 py-3.5 dark:border-emerald-500/15 dark:bg-[#05130e]/80 sm:px-7">
         {project.githubUrl ? (
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-slate-600 transition-colors hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-300"
+            className="inline-flex items-center gap-2 font-mono text-sm sm:text-base font-semibold text-slate-700 transition-colors hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-300"
             aria-label={`Repository for ${project.title}`}
           >
-            <Github className="h-3.5 w-3.5" />
+            <Github className="h-4 w-4" />
             <span>Repository</span>
-            <ExternalLink className="h-3 w-3 opacity-60" />
+            <ExternalLink className="h-3.5 w-3.5 opacity-60" />
           </a>
         ) : (
-          <span className="font-mono text-xs text-slate-400">// Private Source</span>
+          <span className="font-mono text-sm text-slate-400">Private Source</span>
         )}
 
         <Link
           href={`/projects/${project.id}`}
-          className="group/btn inline-flex items-center gap-1.5 rounded-full bg-emerald-600/10 px-3.5 py-1 text-xs font-semibold text-emerald-700 transition-all hover:bg-emerald-600 hover:text-white dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500 dark:hover:text-white"
+          className="group/btn inline-flex items-center gap-2 rounded-full bg-emerald-600/10 px-4 py-1.5 text-sm sm:text-base font-semibold text-emerald-700 transition-all hover:bg-emerald-600 hover:text-white dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500 dark:hover:text-white"
         >
           <span>Detail</span>
-          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
+          <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" />
         </Link>
       </div>
     </motion.article>

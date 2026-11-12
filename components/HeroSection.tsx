@@ -129,15 +129,15 @@ export function HeroSection() {
           text="Raden Mas Galih Pradityo"
           as="p"
           delay={0.25}
-          className="mt-3 font-display text-lg sm:text-2xl md:text-3xl font-extrabold uppercase tracking-[0.16em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+          className="mt-3 font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase tracking-[0.16em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
         />
 
         {/* Specialist Tag */}
         <TextGenerateEffect
-          text="// Backend & API Architecture Specialist"
+          text="Backend & API Architecture Specialist"
           as="p"
           delay={0.4}
-          className="mt-1 font-mono text-xs sm:text-sm font-bold tracking-widest text-emerald-300 uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+          className="mt-1 font-mono text-xs sm:text-sm md:text-base font-bold tracking-widest text-emerald-300 uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
         />
 
         {/* Narrative Bio Paragraph */}
@@ -145,39 +145,21 @@ export function HeroSection() {
           text="5th-semester Software Engineering student at IPB University (GPA 3.80/4.00) specializing in scalable RESTful APIs, database modeling, and AI/CV backend pipelines."
           as="p"
           delay={0.55}
-          className="mt-4 sm:mt-5 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-white font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]"
+          className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-white font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]"
         />
       </div>
 
-      {/* BOTTOM BAR (Watermarks on Left, Action Pills on Right) */}
-      <div className="relative z-30 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 px-6 sm:px-12 lg:px-16 pb-8 sm:pb-12">
+      {/* BOTTOM BAR (Watermarks on Left) */}
+      <div className="relative z-30 flex items-center justify-between px-6 sm:px-12 lg:px-16 pb-8 sm:pb-12">
         {/* Left Watermark / Handle */}
         <div className="flex items-center gap-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
           <a
             href={personal.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[11px] sm:text-xs text-white/90 hover:text-emerald-300 transition-colors tracking-wide"
+            className="font-mono text-xs sm:text-sm text-white/90 hover:text-emerald-300 transition-colors tracking-wide"
           >
             linkedin.com/in/galihpradityo
-          </a>
-        </div>
-
-        {/* Right Action Buttons: Download & Play Now */}
-        <div className="flex items-center gap-3 sm:gap-4 self-end sm:self-auto">
-          <a
-            href="/CV_Raden Mas Galih Pradityo.pdf"
-            download="CV_Raden Mas Galih Pradityo.pdf"
-            className="inline-flex items-center justify-center rounded-full bg-white px-7 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-slate-950 transition-all duration-300 hover:bg-emerald-300 hover:scale-105 active:scale-95 shadow-2xl shadow-black/50"
-          >
-            Download
-          </a>
-
-          <a
-            href="#projects"
-            className="inline-flex items-center justify-center rounded-full bg-white px-7 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-slate-950 transition-all duration-300 hover:bg-emerald-300 hover:scale-105 active:scale-95 shadow-2xl shadow-black/50"
-          >
-            Play Now
           </a>
         </div>
       </div>

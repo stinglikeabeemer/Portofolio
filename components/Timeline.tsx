@@ -33,8 +33,8 @@ export function Timeline({ items }: TimelineProps) {
     <div className="relative">
       {/* Top Controls: Left / Right Navigation Buttons & Hint */}
       <div className="mb-4 flex items-center justify-between">
-        <span className="font-mono text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+        <span className="font-mono text-xs sm:text-sm text-slate-400 dark:text-slate-500 flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
           Scroll horizontally or use arrows (Left to Right)
         </span>
 
@@ -43,7 +43,7 @@ export function Timeline({ items }: TimelineProps) {
             type="button"
             onClick={() => scroll("left")}
             aria-label="Scroll left"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 shadow-sm transition-all hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-600 dark:border-white/10 dark:bg-[#071914] dark:text-slate-300 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 shadow-sm transition-all hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-600 dark:border-white/10 dark:bg-[#071914] dark:text-slate-300 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
@@ -51,7 +51,7 @@ export function Timeline({ items }: TimelineProps) {
             type="button"
             onClick={() => scroll("right")}
             aria-label="Scroll right"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 shadow-sm transition-all hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-600 dark:border-white/10 dark:bg-[#071914] dark:text-slate-300 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 shadow-sm transition-all hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-600 dark:border-white/10 dark:bg-[#071914] dark:text-slate-300 dark:hover:border-emerald-400 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
@@ -76,18 +76,18 @@ export function Timeline({ items }: TimelineProps) {
               ease: [0.22, 1, 0.36, 1],
             }}
             whileHover={{ y: -5 }}
-            className="group flex flex-col justify-between min-w-[300px] sm:min-w-[360px] max-w-[400px] shrink-0 snap-start rounded-3xl border border-slate-200/80 bg-white/90 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50"
+            className="group flex flex-col justify-between min-w-[320px] sm:min-w-[390px] md:min-w-[430px] max-w-[450px] shrink-0 snap-start rounded-3xl border border-slate-200/80 bg-white/90 p-6 sm:p-7 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50"
           >
             <div>
               {/* Milestone Node Header */}
-              <div className="flex items-center justify-between pb-3 border-b border-slate-200/60 dark:border-white/10">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1 font-mono text-[11px] font-semibold text-emerald-700 dark:border-emerald-400/25 dark:bg-emerald-500/15 dark:text-emerald-300">
-                  <Briefcase className="h-3 w-3" />
+              <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/60 dark:border-white/10">
+                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3.5 py-1.5 font-mono text-xs sm:text-sm font-semibold text-emerald-700 dark:border-emerald-400/25 dark:bg-emerald-500/15 dark:text-emerald-300">
+                  <Briefcase className="h-3.5 w-3.5" />
                   <TextGenerateEffect text={item.role} as="span" />
                 </span>
 
-                <span className="inline-flex items-center gap-1 font-mono text-xs text-slate-500 dark:text-slate-400">
-                  <Calendar className="h-3.5 w-3.5 text-emerald-400" />
+                <span className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                  <Calendar className="h-4 w-4 text-emerald-400" />
                   <TextGenerateEffect text={item.period} as="span" delay={0.05} />
                 </span>
               </div>
@@ -97,13 +97,13 @@ export function Timeline({ items }: TimelineProps) {
                 <TextGenerateEffect
                   text={item.organization}
                   as="h3"
-                  className="font-display text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors"
+                  className="font-display text-xl sm:text-2xl font-black text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors"
                 />
                 <TextGenerateEffect
                   text={item.type}
                   as="p"
                   delay={0.05}
-                  className="mt-0.5 font-mono text-xs font-medium text-amber-500 dark:text-amber-400"
+                  className="mt-1 font-mono text-xs sm:text-sm font-medium text-amber-500 dark:text-amber-400"
                 />
               </div>
 
@@ -112,18 +112,18 @@ export function Timeline({ items }: TimelineProps) {
                 text={item.description}
                 as="p"
                 delay={0.1}
-                className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+                className="mt-3.5 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300"
               />
             </div>
 
             {/* Key Bullet Highlights (Top 2 for clean readability) */}
-            <ul className="mt-5 space-y-2 border-t border-slate-200/60 pt-4 dark:border-emerald-500/15">
+            <ul className="mt-5 space-y-2.5 border-t border-slate-200/60 pt-4 dark:border-emerald-500/15">
               {item.highlights.slice(0, 2).map((point, pointIdx) => (
                 <li
                   key={pointIdx}
-                  className="flex items-start gap-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300/90"
+                  className="flex items-start gap-2.5 text-xs sm:text-sm md:text-[15px] leading-relaxed text-slate-600 dark:text-slate-300/90"
                 >
-                  <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
                   <span>{point}</span>
                 </li>
               ))}

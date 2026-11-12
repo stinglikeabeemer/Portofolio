@@ -55,10 +55,10 @@ export function SplashScreen({ onFinish }: { onFinish?: () => void }) {
 
         {/* Generated Scramble Subtitle */}
         <TextGenerateEffect
-          text="// WELCOME TO GALIH'S PORTFOLIO"
+          text="WELCOME TO GALIH'S PORTFOLIO"
           as="p"
           delay={0.45}
-          className="mt-3 font-mono text-xs sm:text-sm font-semibold tracking-[0.25em] text-emerald-400 uppercase drop-shadow"
+          className="mt-3 font-mono text-xs sm:text-sm md:text-base font-semibold tracking-[0.25em] text-emerald-400 uppercase drop-shadow"
         />
 
         {/* Sleek Progress Bar (2.4s fill for 3.0s splash) */}
