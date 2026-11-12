@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Server,
@@ -98,12 +99,47 @@ export function AboutSkillsSection() {
                 className="mt-1.5 font-mono text-xs sm:text-sm md:text-base font-semibold text-emerald-600 dark:text-emerald-400"
               />
 
+              {/* Galih's Portrait Photo with Minimalist Modern Cyber Frame */}
+              <div className="my-6 flex justify-center">
+                <div className="relative group">
+                  {/* Subtle Ethereal Ambient Glow */}
+                  <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-br from-emerald-500/25 to-teal-500/20 blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                  {/* Outer Minimalist Frame */}
+                  <div className="relative w-44 h-44 sm:w-48 sm:h-48 md:w-52 md:h-52 rounded-3xl p-1.5 bg-gradient-to-b from-emerald-400/35 via-emerald-500/10 to-teal-500/25 border border-emerald-400/35 shadow-xl shadow-emerald-500/10 dark:shadow-[0_12px_36px_rgba(4,13,10,0.6)]">
+                    {/* HUD Cyber Corner Accents */}
+                    <div className="absolute top-1 left-1 w-3 h-3 border-t-2 border-l-2 border-emerald-400/60 rounded-tl-lg pointer-events-none z-10 transition-colors group-hover:border-emerald-300" />
+                    <div className="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-emerald-400/60 rounded-br-lg pointer-events-none z-10 transition-colors group-hover:border-emerald-300" />
+
+                    {/* Image Mask Container */}
+                    <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-slate-950 border border-slate-200/50 dark:border-emerald-500/20">
+                      <Image
+                        src="/images/galih.jpg"
+                        alt="Raden Mas Galih Pradityo"
+                        fill
+                        sizes="(max-width: 640px) 176px, (max-width: 768px) 192px, 208px"
+                        priority
+                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                      {/* Gentle Vignette Fade */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
+
+                      {/* Floating Status Tag */}
+                      <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-slate-950/85 border border-emerald-400/40 backdrop-blur-md font-mono text-[10px] text-emerald-300 font-semibold shadow-md select-none pointer-events-none">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>ARCHITECT</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Clean Concise Bio */}
               <TextGenerateEffect
                 text="5th-semester Software Engineering student at IPB University with strong expertise in architecting scalable RESTful APIs, relational/document database schemas, and seamless AI integrations."
                 as="p"
                 delay={0.15}
-                className="mt-4 text-sm sm:text-base md:text-[17px] leading-relaxed text-slate-600 dark:text-slate-300"
+                className="text-sm sm:text-base md:text-[17px] leading-relaxed text-slate-600 dark:text-slate-300"
               />
 
               {/* Quick Focus Points */}
