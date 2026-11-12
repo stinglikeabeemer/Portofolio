@@ -25,9 +25,11 @@ export function ExperienceSection() {
           className="mb-14 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
-              03 // LEADERSHIP &amp; ORGANIZATIONAL TRACK RECORD
-            </span>
+            <TextGenerateEffect
+              text="03 // LEADERSHIP & ORGANIZATIONAL TRACK RECORD"
+              as="span"
+              className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 block"
+            />
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               Organizational{" "}
               <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent">

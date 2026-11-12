@@ -32,9 +32,11 @@ export function ContactSection() {
         >
           {/* Section Header */}
           <div className="max-w-2xl mx-auto">
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
-              04 // INITIATE CONNECTION
-            </span>
+            <TextGenerateEffect
+              text="04 // INITIATE CONNECTION"
+              as="span"
+              className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 block"
+            />
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               Let&apos;s Build Scalable{" "}
               <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent">

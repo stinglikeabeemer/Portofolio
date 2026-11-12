@@ -120,8 +120,7 @@ export function HeroSection() {
         <TextGenerateEffect
           text="GALIH"
           as="h1"
-          mode="chars"
-          staggerDelay={0.08}
+          delay={0.1}
           className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-normal tracking-tight text-white uppercase leading-[0.9] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
         />
 
@@ -129,9 +128,7 @@ export function HeroSection() {
         <TextGenerateEffect
           text="Raden Mas Galih Pradityo"
           as="p"
-          mode="words"
           delay={0.25}
-          staggerDelay={0.05}
           className="mt-3 font-display text-lg sm:text-2xl md:text-3xl font-extrabold uppercase tracking-[0.16em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
         />
 
@@ -139,9 +136,7 @@ export function HeroSection() {
         <TextGenerateEffect
           text="// Backend & API Architecture Specialist"
           as="p"
-          mode="words"
-          delay={0.45}
-          staggerDelay={0.04}
+          delay={0.4}
           className="mt-1 font-mono text-xs sm:text-sm font-bold tracking-widest text-emerald-300 uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
         />
 
@@ -149,9 +144,7 @@ export function HeroSection() {
         <TextGenerateEffect
           text="5th-semester Software Engineering student at IPB University (GPA 3.80/4.00) specializing in scalable RESTful APIs, database modeling, and AI/CV backend pipelines."
           as="p"
-          mode="words"
-          delay={0.65}
-          staggerDelay={0.025}
+          delay={0.55}
           className="mt-4 sm:mt-5 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-white font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]"
         />
       </div>

@@ -45,9 +45,11 @@ export function AboutSkillsSection() {
           className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
-              01 // PROFILE &amp; TECH STACK
-            </span>
+            <TextGenerateEffect
+              text="01 // PROFILE & TECH STACK"
+              as="span"
+              className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 block"
+            />
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               About &amp;{" "}
               <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
@@ -86,12 +88,17 @@ export function AboutSkillsSection() {
               </div>
 
               {/* Title */}
-              <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 dark:text-white">
-                Raden Mas Galih Pradityo
-              </h3>
-              <p className="mt-1 font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                // Backend &amp; API Architecture Specialist
-              </p>
+              <TextGenerateEffect
+                text="Raden Mas Galih Pradityo"
+                as="h3"
+                className="mt-4 font-display text-2xl font-bold text-slate-900 dark:text-white"
+              />
+              <TextGenerateEffect
+                text="// Backend & API Architecture Specialist"
+                as="p"
+                delay={0.1}
+                className="mt-1 font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400"
+              />
 
               {/* Clean Concise Bio */}
               <TextGenerateEffect

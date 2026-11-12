@@ -105,7 +105,6 @@ export function ProjectCard({
             <TextGenerateEffect
               text={project.shortDescription || project.description}
               as="p"
-              staggerDelay={0.02}
               className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300"
             />
           </div>
