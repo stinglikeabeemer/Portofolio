@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData, ProjectItem } from "@/data/portfolio";
 import { ProjectCard } from "@/components/ProjectCard";
+import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
 type FilterType = "All" | "Backend & APIs" | "AI & Vision" | "Databases & Fullstack";
 
@@ -62,9 +63,11 @@ export function ProjectsSection() {
               </span>
             </h2>
           </div>
-          <p className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400">
-            Production backend systems, AI &amp; Computer Vision pipelines, and robust SQL/NoSQL database architectures.
-          </p>
+          <TextGenerateEffect
+            text="Production backend systems, AI &amp; Computer Vision pipelines, and robust SQL/NoSQL database architectures."
+            as="p"
+            className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400"
+          />
         </motion.div>
 
         {/* Filter Category Tabs with Animated Pill */}

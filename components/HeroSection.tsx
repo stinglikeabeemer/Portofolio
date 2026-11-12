@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
 const navItems = [
   { label: "Home", href: "#hero", active: true },
@@ -116,25 +117,43 @@ export function HeroSection() {
       {/* MAIN HERO CONTENT (LEFT-ALIGNED TYPOGRAPHY & LORE BIO) */}
       <div className="relative z-30 my-auto px-6 sm:px-12 lg:px-16 py-8 max-w-2xl lg:max-w-xl xl:max-w-2xl">
         {/* Giant Title: GALIH */}
-        <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-normal tracking-tight text-white uppercase leading-[0.9] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-          GALIH
-        </h1>
+        <TextGenerateEffect
+          text="GALIH"
+          as="h1"
+          mode="chars"
+          staggerDelay={0.08}
+          className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-normal tracking-tight text-white uppercase leading-[0.9] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
+        />
 
         {/* Subtitle: RADEN MAS GALIH PRADITYO */}
-        <p className="mt-3 font-display text-lg sm:text-2xl md:text-3xl font-extrabold uppercase tracking-[0.16em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-          Raden Mas Galih Pradityo
-        </p>
+        <TextGenerateEffect
+          text="Raden Mas Galih Pradityo"
+          as="p"
+          mode="words"
+          delay={0.25}
+          staggerDelay={0.05}
+          className="mt-3 font-display text-lg sm:text-2xl md:text-3xl font-extrabold uppercase tracking-[0.16em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+        />
 
         {/* Specialist Tag */}
-        <p className="mt-1 font-mono text-xs sm:text-sm font-bold tracking-widest text-emerald-300 uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-          // Backend &amp; API Architecture Specialist
-        </p>
+        <TextGenerateEffect
+          text="// Backend & API Architecture Specialist"
+          as="p"
+          mode="words"
+          delay={0.45}
+          staggerDelay={0.04}
+          className="mt-1 font-mono text-xs sm:text-sm font-bold tracking-widest text-emerald-300 uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+        />
 
         {/* Narrative Bio Paragraph */}
-        <p className="mt-4 sm:mt-5 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-white font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-          5th-semester Software Engineering student at IPB University (GPA 3.80/4.00) specializing in
-          scalable RESTful APIs, database modeling, and AI/CV backend pipelines.
-        </p>
+        <TextGenerateEffect
+          text="5th-semester Software Engineering student at IPB University (GPA 3.80/4.00) specializing in scalable RESTful APIs, database modeling, and AI/CV backend pipelines."
+          as="p"
+          mode="words"
+          delay={0.65}
+          staggerDelay={0.025}
+          className="mt-4 sm:mt-5 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-white font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]"
+        />
       </div>
 
       {/* BOTTOM BAR (Watermarks on Left, Action Pills on Right) */}

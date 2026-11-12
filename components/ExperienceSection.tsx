@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Trophy, Award } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { Timeline } from "@/components/Timeline";
+import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
 export function ExperienceSection() {
   const { experience, achievements } = portfolioData;
@@ -34,9 +35,11 @@ export function ExperienceSection() {
               </span>
             </h2>
           </div>
-          <p className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400">
-            Leadership experience, operational logistics management, and strategic corporate sponsorships at IPB University.
-          </p>
+          <TextGenerateEffect
+            text="Leadership experience, operational logistics management, and strategic corporate sponsorships at IPB University."
+            as="p"
+            className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400"
+          />
         </motion.div>
 
         {/* Responsive Vertical Timeline */}

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Layers, ArrowRight, Github, ExternalLink } from "lucide-react";
 import { ProjectItem } from "@/data/portfolio";
+import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
 interface ProjectCardProps {
   project: ProjectItem;
@@ -101,9 +102,12 @@ export function ProjectCard({
             </p>
 
             {/* Clean, Concise 1-sentence Description */}
-            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              {project.shortDescription || project.description}
-            </p>
+            <TextGenerateEffect
+              text={project.shortDescription || project.description}
+              as="p"
+              staggerDelay={0.02}
+              className="mt-3 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+            />
           </div>
 
           {/* Tech Stack Pills */}

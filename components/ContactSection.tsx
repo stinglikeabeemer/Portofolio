@@ -12,6 +12,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
 export function ContactSection() {
   const { personal } = portfolioData;
@@ -40,9 +41,12 @@ export function ContactSection() {
                 Backend Systems
               </span>
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">
-              Available for <strong>Backend Engineering Internships</strong>, API architecture consultations, and technical collaborations.
-            </p>
+            <TextGenerateEffect
+              text="Available for Backend Engineering Internships, API architecture consultations, and technical collaborations."
+              as="p"
+              delay={0.15}
+              className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base text-center"
+            />
           </div>
 
           {/* 3 Main Direct Contact Cards */}

@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { SkillBadge } from "@/components/SkillBadge";
+import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
 export function AboutSkillsSection() {
   const { personal, skills } = portfolioData;
@@ -54,9 +55,11 @@ export function AboutSkillsSection() {
               </span>
             </h2>
           </div>
-          <p className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400">
-            Specializing in resilient RESTful APIs, high-integrity database schemas, and AI/CV backend pipelines.
-          </p>
+          <TextGenerateEffect
+            text="Specializing in resilient RESTful APIs, high-integrity database schemas, and AI/CV backend pipelines."
+            as="p"
+            className="max-w-md font-mono text-xs text-slate-500 dark:text-slate-400"
+          />
         </motion.div>
 
         {/* Unified Bento Grid: Left (Profile & Academics) | Right (Tech Arsenal) */}
@@ -91,10 +94,12 @@ export function AboutSkillsSection() {
               </p>
 
               {/* Clean Concise Bio */}
-              <p className="mt-4 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                5th-semester Software Engineering student at IPB University with strong expertise in architecting
-                scalable RESTful APIs, relational/document database schemas, and seamless AI integrations.
-              </p>
+              <TextGenerateEffect
+                text="5th-semester Software Engineering student at IPB University with strong expertise in architecting scalable RESTful APIs, relational/document database schemas, and seamless AI integrations."
+                as="p"
+                delay={0.15}
+                className="mt-4 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+              />
 
               {/* Quick Focus Points */}
               <div className="mt-6 space-y-2.5">
