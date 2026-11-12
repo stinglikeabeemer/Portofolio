@@ -51,10 +51,7 @@ export function AboutSkillsSection() {
               className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 block"
             />
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              About &amp;{" "}
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
-                Technical Stack
-              </span>
+              <TextGenerateEffect text="About & Technical Stack" as="span" delay={0.1} />
             </h2>
           </div>
           <TextGenerateEffect
@@ -115,10 +112,10 @@ export function AboutSkillsSection() {
                   "Multi-Role Security (RBAC, Sanctum & PostgreSQL RLS)",
                   "SQL & NoSQL Schemas (PostgreSQL, MySQL, MongoDB)",
                   "AI & Computer Vision Integration (Gemini API & OpenCV)",
-                ].map((item) => (
+                ].map((item, idx) => (
                   <div key={item} className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-500 dark:text-emerald-400 mt-0.5" />
-                    <span>{item}</span>
+                    <TextGenerateEffect text={item} as="span" delay={0.15 + idx * 0.05} />
                   </div>
                 ))}
               </div>
@@ -172,12 +169,17 @@ export function AboutSkillsSection() {
                       {getCategoryIcon(group.category)}
                     </div>
                     <div>
-                      <h4 className="font-display text-sm sm:text-base font-bold text-slate-900 dark:text-white">
-                        {group.category}
-                      </h4>
-                      <p className="font-mono text-[10px] text-slate-500 dark:text-slate-400">
-                        {group.subtitle}
-                      </p>
+                      <TextGenerateEffect
+                        text={group.category}
+                        as="h4"
+                        className="font-display text-sm sm:text-base font-bold text-slate-900 dark:text-white"
+                      />
+                      <TextGenerateEffect
+                        text={group.subtitle}
+                        as="p"
+                        delay={0.1}
+                        className="font-mono text-[10px] text-slate-500 dark:text-slate-400"
+                      />
                     </div>
                   </div>
                   <span className="font-mono text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">

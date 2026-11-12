@@ -31,10 +31,7 @@ export function ExperienceSection() {
               className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 block"
             />
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              Organizational{" "}
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
-                Experience
-              </span>
+              <TextGenerateEffect text="Organizational Experience" as="span" delay={0.1} />
             </h2>
           </div>
           <TextGenerateEffect
@@ -61,12 +58,17 @@ export function ExperienceSection() {
                 <Trophy className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-display text-2xl font-extrabold text-slate-900 dark:text-white">
-                  Honors &amp; Achievements
-                </h3>
-                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">
-                  Scholarships and competition awards across national and international levels
-                </p>
+                <TextGenerateEffect
+                  text="Honors & Achievements"
+                  as="h3"
+                  className="font-display text-2xl font-extrabold text-slate-900 dark:text-white"
+                />
+                <TextGenerateEffect
+                  text="Scholarships and competition awards across national and international levels"
+                  as="p"
+                  delay={0.1}
+                  className="font-mono text-xs text-slate-500 dark:text-slate-400"
+                />
               </div>
             </div>
           </motion.div>

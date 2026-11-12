@@ -38,10 +38,7 @@ export function ContactSection() {
               className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400 block"
             />
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              Let&apos;s Build Scalable{" "}
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent">
-                Backend Systems
-              </span>
+              <TextGenerateEffect text="Let's Build Scalable Backend Systems" as="span" delay={0.1} />
             </h2>
             <TextGenerateEffect
               text="Available for Backend Engineering Internships, API architecture consultations, and technical collaborations."

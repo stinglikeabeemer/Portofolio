@@ -81,9 +81,11 @@ export function ProjectCard({
         >
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                {project.category}
-              </span>
+              <TextGenerateEffect
+                text={project.category}
+                as="span"
+                className="font-mono text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400"
+              />
               {featured && (
                 <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 font-mono text-[9px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
                   ★ FEATURED
@@ -92,14 +94,20 @@ export function ProjectCard({
             </div>
 
             <Link href={`/projects/${project.id}`}>
-              <h3 className="mt-1.5 font-display text-xl sm:text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
-                {project.title}
-              </h3>
+              <TextGenerateEffect
+                text={project.title}
+                as="h3"
+                delay={0.05}
+                className="mt-1.5 font-display text-xl sm:text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400"
+              />
             </Link>
 
-            <p className="mt-0.5 text-xs font-medium text-slate-500 dark:text-slate-400">
-              {project.subtitle}
-            </p>
+            <TextGenerateEffect
+              text={project.subtitle}
+              as="p"
+              delay={0.1}
+              className="mt-0.5 text-xs font-medium text-slate-500 dark:text-slate-400"
+            />
 
             {/* Clean, Concise 1-sentence Description */}
             <TextGenerateEffect
