@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { SplashScreen } from "@/components/SplashScreen";
 import { HeroSection } from "@/components/HeroSection";
-import { AboutSection } from "@/components/AboutSection";
-import { SkillsSection } from "@/components/SkillsSection";
+import { AboutSkillsSection } from "@/components/AboutSkillsSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { ContactSection } from "@/components/ContactSection";
@@ -29,11 +28,8 @@ export default function HomePage() {
         {/* Full-bleed Hero Section with Julian Artwork */}
         <HeroSection />
 
-        {/* About Section (py-20) */}
-        <AboutSection />
-
-        {/* Skills Bento Grid Section (py-20) */}
-        <SkillsSection />
+        {/* Combined About & Skills Section (py-20) */}
+        <AboutSkillsSection />
 
         {/* Featured Projects Section (py-20) */}
         <ProjectsSection />
@@ -41,7 +37,7 @@ export default function HomePage() {
         {/* Organizational Experience & Achievements Timeline Section (py-20) */}
         <ExperienceSection />
 
-        {/* Contact Section (py-20) */}
+        {/* Contact Hub Section (py-20) */}
         <ContactSection />
 
         {/* Floating Back to Top Button */}

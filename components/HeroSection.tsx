@@ -9,9 +9,10 @@ import { portfolioData } from "@/data/portfolio";
 
 const navItems = [
   { label: "Home", href: "#hero", active: true },
-  { label: "Profiles", href: "#about" },
-  { label: "Heroes", href: "#projects" },
-  { label: "About", href: "#experience" },
+  { label: "About & Skills", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export function HeroSection() {
@@ -131,12 +132,8 @@ export function HeroSection() {
 
         {/* Narrative Bio Paragraph */}
         <p className="mt-4 sm:mt-5 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-white font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-          Raden Mas Galih Pradityo is a 5th-semester Software Engineering student at
-          IPB University (GPA 3.80/4.00) specializing in backend software development,
-          API architecture, and database modeling. Proficient in engineering scalable
-          RESTful APIs and microservices with Laravel 12 and FastAPI, designing resilient
-          SQL/NoSQL databases with PostgreSQL RLS and MongoDB, and deploying intelligent
-          Computer Vision pipelines and Google Gemini AI integrations.
+          5th-semester Software Engineering student at IPB University (GPA 3.80/4.00) specializing in
+          scalable RESTful APIs, database modeling, and AI/CV backend pipelines.
         </p>
       </div>
 

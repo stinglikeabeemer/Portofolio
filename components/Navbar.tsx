@@ -15,8 +15,7 @@ import { portfolioData } from "@/data/portfolio";
 
 const navItems = [
   { label: "Home", href: "#hero" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
+  { label: "About & Skills", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
@@ -32,7 +31,7 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 90);
 
-      const sectionIds = ["contact", "experience", "projects", "skills", "about", "hero"];
+      const sectionIds = ["contact", "experience", "projects", "about", "hero"];
       const scrollPos = window.scrollY + 220;
 
       for (const id of sectionIds) {

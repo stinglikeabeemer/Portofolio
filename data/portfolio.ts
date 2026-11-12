@@ -49,6 +49,7 @@ export interface ProjectItem {
   period: string;
   category: string;
   featureHighlight: string;
+  shortDescription: string;
   description: string;
   architectureHighlights: string[];
   techStack: string[];
@@ -236,6 +237,8 @@ export const portfolioData: {
       period: "Nov 2026 – Present",
       category: "Competition Project",
       featureHighlight: "API token authentication & AI integration",
+      shortDescription:
+        "Clinical healthcare backend engineered with Laravel MVC, token authentication via Sanctum, and Google Gemini AI assistant.",
       description:
         "Engineered the MVC backend infrastructure and custom MySQL schema migrations for clinical data management, featuring strict token authentication via Laravel Sanctum and smart medical assistant integration with the Google Gemini API.",
       architectureHighlights: [
@@ -245,7 +248,7 @@ export const portfolioData: {
       ],
       techStack: ["Laravel", "MySQL", "Laravel Sanctum", "Google Gemini API"],
       image: "/images/projects/medigo.svg",
-      githubUrl: "https://github.com/galihpradityo",
+      githubUrl: "https://github.com/galihpradityo/medigo-backend",
       accentColor: "from-violet-600/30 via-indigo-600/20 to-cyan-500/20",
     },
     {
@@ -256,6 +259,8 @@ export const portfolioData: {
       period: "Sep 2026 – Present",
       category: "Academic Project",
       featureHighlight: "FastAPI on Railway, dual OpenCV pipeline, PostgreSQL RLS",
+      shortDescription:
+        "Plant pathology inference API on FastAPI and Railway, featuring dual OpenCV vision pipelines and PostgreSQL RLS.",
       description:
         "High-performance plant pathology system featuring scalable FastAPI REST endpoints on Railway for sub-second MobileNetV2 disease inference, a dual OpenCV vision pipeline, and a PostgreSQL schema protected by Row-Level Security (RLS).",
       architectureHighlights: [
@@ -265,7 +270,7 @@ export const portfolioData: {
       ],
       techStack: ["Python", "FastAPI", "PostgreSQL", "OpenCV"],
       image: "/images/projects/agrivision.svg",
-      githubUrl: "https://github.com/galihpradityo",
+      githubUrl: "https://github.com/galihpradityo/agrivision-fastapi",
       accentColor: "from-emerald-600/30 via-teal-600/20 to-cyan-500/20",
     },
     {
@@ -276,6 +281,8 @@ export const portfolioData: {
       period: "Feb 2026 – Jun 2026",
       category: "Academic Project",
       featureHighlight: "Responsive SPA, RESTful architecture, NoSQL data modeling",
+      shortDescription:
+        "Collaborative study and note-sharing platform built with React SPA, Laravel 12 REST API, and MongoDB data schemas.",
       description:
         "Collaborative academic platform structured with end-to-end system analysis documentation (SRS/UML), responsive React Single Page Application (SPA), Laravel 12 RESTful API, and scalable MongoDB document modeling.",
       architectureHighlights: [
@@ -285,7 +292,7 @@ export const portfolioData: {
       ],
       techStack: ["React", "Laravel 12", "MongoDB"],
       image: "/images/projects/bayu.svg",
-      githubUrl: "https://github.com/galihpradityo",
+      githubUrl: "https://github.com/galihpradityo/ba-yu-platform",
       accentColor: "from-cyan-600/30 via-blue-600/20 to-indigo-500/20",
     },
     {
@@ -296,6 +303,8 @@ export const portfolioData: {
       period: "Feb 2026 – Jun 2026",
       category: "Academic Project",
       featureHighlight: "4-tier RBAC authentication, MongoDB query pipeline",
+      shortDescription:
+        "Educational management ecosystem with 4-tier RBAC authentication and high-throughput MongoDB query pipelines.",
       description:
         "Comprehensive educational management platform engineered with Laravel 12 and MongoDB, featuring multi-role authentication (RBAC) across 4 user roles, custom middleware guards, and high-efficiency regex query pipelines.",
       architectureHighlights: [
@@ -305,7 +314,7 @@ export const portfolioData: {
       ],
       techStack: ["PHP", "Laravel 12", "MongoDB"],
       image: "/images/projects/qlc.svg",
-      githubUrl: "https://github.com/galihpradityo",
+      githubUrl: "https://github.com/galihpradityo/qlc-academic-management",
       accentColor: "from-amber-500/30 via-orange-600/20 to-violet-600/20",
     },
     {
@@ -316,6 +325,8 @@ export const portfolioData: {
       period: "Nov 2025 – Dec 2025",
       category: "Academic Project",
       featureHighlight: "Laravel 12 & React 19 Inertia SPA, Driver.js Onboarding, RBAC & PII Security",
+      shortDescription:
+        "Alumni intelligence platform powered by Laravel 12 & React 19 Inertia SPA with composite indexing and PII security.",
       description:
         "Comprehensive alumni management and career network ecosystem engineered for IPB University Software Engineering Technology. Features full-stack architecture with Laravel 12 and React 19 (Inertia.js), strict RBAC with PII data privacy, composite indexing, Driver.js interactive tours, automated email verification, and exportable report generation.",
       architectureHighlights: [
@@ -332,7 +343,7 @@ export const portfolioData: {
         "PHPUnit",
       ],
       image: "/images/projects/set-ais.svg",
-      githubUrl: "https://github.com/galihpradityo",
+      githubUrl: "https://github.com/galihpradityo/set-alumni-information-system",
       accentColor: "from-emerald-600/30 via-teal-600/20 to-cyan-500/20",
     },
   ],

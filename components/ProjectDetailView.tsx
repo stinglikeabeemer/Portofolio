@@ -1,0 +1,257 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ExternalLink,
+  Code2,
+  Calendar,
+  UserCheck,
+  CheckCircle2,
+  Terminal,
+  Sun,
+  Moon,
+  Github,
+} from "lucide-react";
+import { useTheme } from "next-themes";
+import { ProjectItem, portfolioData } from "@/data/portfolio";
+
+export function ProjectDetailView({ project }: { project: ProjectItem }) {
+  const { resolvedTheme, setTheme } = useTheme();
+
+  // Find previous and next project for bottom pagination
+  const allProjects = portfolioData.projects;
+  const currentIndex = allProjects.findIndex((p) => p.id === project.id);
+  const prevProject =
+    currentIndex > 0 ? allProjects[currentIndex - 1] : allProjects[allProjects.length - 1];
+  const nextProject =
+    currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : allProjects[0];
+
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900 antialiased dark:bg-[#061410] dark:text-slate-100 selection:bg-emerald-500 selection:text-white">
+      {/* Top Floating Glassmorphic Header */}
+      <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl dark:border-emerald-500/20 dark:bg-[#061410]/80">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700 transition-colors hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400"
+          >
+            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1 text-emerald-500" />
+            <span>Back to Portfolio</span>
+          </Link>
+
+          {/* Breadcrumb Info */}
+          <div className="hidden sm:flex items-center gap-2 font-mono text-xs text-slate-400 dark:text-slate-500">
+            <span>Portfolio</span>
+            <span>/</span>
+            <span>Projects</span>
+            <span>/</span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{project.title}</span>
+          </div>
+
+          {/* Theme Toggle */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle Theme"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-slate-100 text-slate-700 hover:border-emerald-500 hover:text-emerald-600 dark:border-white/10 dark:bg-white/5 dark:text-emerald-300 dark:hover:border-emerald-400 transition-all"
+          >
+            <Sun className="hidden h-4 w-4 dark:block" />
+            <Moon className="block h-4 w-4 text-slate-700 dark:hidden" />
+          </button>
+        </div>
+      </header>
+
+      {/* Main Content Container */}
+      <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+        {/* Project Header Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="rounded-3xl border border-slate-200/80 bg-white/70 p-6 sm:p-10 shadow-xl backdrop-blur-md dark:border-emerald-500/25 dark:bg-[#071914]/80 dark:shadow-[0_16px_50px_rgba(0,0,0,0.5)]"
+        >
+          {/* Metadata Badges Row */}
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+              <Terminal className="h-3.5 w-3.5" />
+              {project.category}
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 font-mono text-xs text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+              <UserCheck className="h-3.5 w-3.5 text-emerald-500" />
+              {project.role}
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 font-mono text-xs text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+              <Calendar className="h-3.5 w-3.5 text-emerald-500" />
+              {project.period}
+            </span>
+          </div>
+
+          {/* Project Title & Subtitle */}
+          <h1 className="mt-5 font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-slate-900 dark:text-white">
+            {project.title}
+          </h1>
+          <p className="mt-2 text-base sm:text-lg font-medium text-emerald-600 dark:text-emerald-400">
+            {project.subtitle}
+          </p>
+
+          {/* Core Summary Paragraph */}
+          <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300 max-w-3xl">
+            {project.description}
+          </p>
+
+          {/* Action CTAs: Repository & Live Demo */}
+          <div className="mt-8 flex flex-wrap items-center gap-3 pt-6 border-t border-slate-200/80 dark:border-white/10">
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-emerald-600/30 transition-all hover:bg-emerald-500 hover:scale-105 active:scale-95"
+              >
+                <Github className="h-4 w-4" />
+                <span>View Repository</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            )}
+
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-5 py-2.5 text-xs sm:text-sm font-semibold text-slate-800 transition-all hover:border-emerald-500 hover:text-emerald-600 dark:border-emerald-500/30 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10 dark:hover:text-emerald-300"
+              >
+                <span>Live Application</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            )}
+
+            <Link
+              href="/#projects"
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-slate-400 dark:hover:text-white transition-colors"
+            >
+              <span>Explore other projects</span>
+            </Link>
+          </div>
+        </motion.div>
+
+        {/* System Architecture Diagram Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-8 overflow-hidden rounded-3xl border border-slate-200/80 bg-white/70 p-6 sm:p-8 shadow-xl backdrop-blur-md dark:border-emerald-500/25 dark:bg-[#071914]/80"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 dark:border-white/10">
+            <div className="flex items-center gap-2">
+              <Code2 className="h-5 w-5 text-emerald-500" />
+              <h2 className="font-display text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                System &amp; Architecture Diagram
+              </h2>
+            </div>
+            <span className="font-mono text-xs text-slate-400 dark:text-slate-500">Vector Specification</span>
+          </div>
+
+          <div className="mt-6 flex justify-center items-center rounded-2xl bg-slate-100/80 dark:bg-[#040d0a]/90 p-4 sm:p-8 border border-slate-200/60 dark:border-emerald-500/20">
+            <div className="relative w-full max-w-2xl aspect-[16/9] flex items-center justify-center">
+              <Image
+                src={project.image}
+                alt={`${project.title} System Architecture`}
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Deep Dive Architecture & Engineering Highlights */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-8 rounded-3xl border border-slate-200/80 bg-white/70 p-6 sm:p-10 shadow-xl backdrop-blur-md dark:border-emerald-500/25 dark:bg-[#071914]/80"
+        >
+          <h2 className="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+            Architecture Highlights &amp; Technical Specs
+          </h2>
+          <p className="mt-1 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono">
+            // Core backend architecture, database modeling, and security implementation
+          </p>
+
+          <div className="mt-6 space-y-4">
+            {project.architectureHighlights.map((highlight, idx) => (
+              <div
+                key={idx}
+                className="flex items-start gap-3.5 rounded-2xl border border-slate-200/60 bg-slate-50/70 p-4 transition-all dark:border-white/5 dark:bg-white/[0.03] hover:border-emerald-500/40"
+              >
+                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                  {highlight}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Tech Stack Pills */}
+          <div className="mt-8 pt-6 border-t border-slate-200/80 dark:border-white/10">
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              Technology Stack Used
+            </h3>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {project.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-xs font-semibold text-slate-700 shadow-sm dark:border-emerald-500/30 dark:bg-[#05130e] dark:text-emerald-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Bottom Pagination: Next & Previous Projects */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Link
+            href={`/projects/${prevProject.id}`}
+            className="group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/70 p-5 shadow-sm transition-all hover:border-emerald-500 hover:shadow-md dark:border-white/10 dark:bg-[#071914]/70 dark:hover:border-emerald-400"
+          >
+            <span className="flex items-center gap-1.5 text-xs font-mono text-slate-400 dark:text-slate-500 group-hover:text-emerald-500">
+              <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
+              Previous Project
+            </span>
+            <span className="mt-2 font-display text-base sm:text-lg font-bold text-slate-800 dark:text-white group-hover:text-emerald-500 transition-colors">
+              {prevProject.title}
+            </span>
+          </Link>
+
+          <Link
+            href={`/projects/${nextProject.id}`}
+            className="group flex flex-col justify-between text-right rounded-2xl border border-slate-200/80 bg-white/70 p-5 shadow-sm transition-all hover:border-emerald-500 hover:shadow-md dark:border-white/10 dark:bg-[#071914]/70 dark:hover:border-emerald-400"
+          >
+            <span className="flex items-center justify-end gap-1.5 text-xs font-mono text-slate-400 dark:text-slate-500 group-hover:text-emerald-500">
+              Next Project
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+            </span>
+            <span className="mt-2 font-display text-base sm:text-lg font-bold text-slate-800 dark:text-white group-hover:text-emerald-500 transition-colors">
+              {nextProject.title}
+            </span>
+          </Link>
+        </div>
+      </main>
+    </div>
+  );
+}
+
