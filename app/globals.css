@@ -30,9 +30,9 @@
   background: rgba(16, 185, 129, 0.65);
 }
 
-/* Bulletproof CSS Splash Screen Animations */
+/* Bulletproof CSS Splash Screen Animations (3.0s duration with Top Drop Jump-in) */
 @keyframes splashCurtain {
-  0%, 75% {
+  0%, 82% {
     transform: translateY(0%);
     opacity: 1;
     pointer-events: auto;
@@ -45,17 +45,21 @@
   }
 }
 
-@keyframes splashPop {
+@keyframes splashDropTop {
   0% {
-    transform: scale(0.3) translateY(20px);
+    transform: translateY(-100px) scale(0.7);
     opacity: 0;
   }
   60% {
-    transform: scale(1.08) translateY(0);
+    transform: translateY(14px) scale(1.04);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-4px) scale(0.99);
     opacity: 1;
   }
   100% {
-    transform: scale(1) translateY(0);
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
 }
@@ -70,15 +74,15 @@
 }
 
 .splash-curtain {
-  animation: splashCurtain 1.5s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  animation: splashCurtain 3.0s cubic-bezier(0.76, 0, 0.24, 1) forwards;
 }
 
-.splash-pop {
-  animation: splashPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+.splash-drop-top {
+  animation: splashDropTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .splash-progress-bar {
-  animation: splashProgress 1.0s ease-in-out forwards;
+  animation: splashProgress 2.4s ease-in-out forwards;
 }
 
 

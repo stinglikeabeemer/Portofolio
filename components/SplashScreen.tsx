@@ -1,16 +1,17 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
 export function SplashScreen({ onFinish }: { onFinish?: () => void }) {
   const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
-    // Unmount completely after CSS curtain animation finishes
+    // Unmount completely after CSS curtain animation finishes (3.0s + 100ms buffer)
     const timer = setTimeout(() => {
       setMounted(false);
       if (onFinish) onFinish();
-    }, 1600);
+    }, 3100);
 
     return () => clearTimeout(timer);
   }, [onFinish]);
@@ -28,10 +29,10 @@ export function SplashScreen({ onFinish }: { onFinish?: () => void }) {
       {/* Ambient Ethereal Glow */}
       <div className="absolute h-96 w-96 rounded-full bg-emerald-500/20 blur-[130px] pointer-events-none" />
 
-      {/* Center Card */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4">
+      {/* Center Card with Jump-in From Top Animation */}
+      <div className="splash-drop-top relative z-10 flex flex-col items-center text-center px-4">
         {/* Glowing Geometric Logo */}
-        <div className="splash-pop mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white shadow-xl shadow-emerald-500/30 border border-emerald-400/40">
+        <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white shadow-xl shadow-emerald-500/30 border border-emerald-400/40">
           <svg
             className="h-8 w-8"
             viewBox="0 0 32 32"
@@ -43,17 +44,24 @@ export function SplashScreen({ onFinish }: { onFinish?: () => void }) {
           </svg>
         </div>
 
-        {/* Jump-in Text "Hallo!" */}
-        <h1 className="splash-pop font-serif text-6xl sm:text-7xl md:text-8xl font-normal tracking-tight text-white drop-shadow-[0_4px_24px_rgba(16,185,129,0.6)]">
-          Hallo!
-        </h1>
+        {/* Generated Scramble Text "Hallo!" */}
+        <TextGenerateEffect
+          text="Hallo!"
+          as="h1"
+          delay={0.15}
+          scrambleSpeed={30}
+          className="font-serif text-6xl sm:text-7xl md:text-8xl font-normal tracking-tight text-white drop-shadow-[0_4px_24px_rgba(16,185,129,0.7)]"
+        />
 
-        {/* Subtitle / System Welcome */}
-        <p className="mt-3 font-mono text-xs sm:text-sm font-semibold tracking-[0.25em] text-emerald-400 uppercase drop-shadow">
-          // WELCOME TO GALIH&apos;S PORTFOLIO
-        </p>
+        {/* Generated Scramble Subtitle */}
+        <TextGenerateEffect
+          text="// WELCOME TO GALIH'S PORTFOLIO"
+          as="p"
+          delay={0.45}
+          className="mt-3 font-mono text-xs sm:text-sm font-semibold tracking-[0.25em] text-emerald-400 uppercase drop-shadow"
+        />
 
-        {/* Sleek Progress Bar */}
+        {/* Sleek Progress Bar (2.4s fill for 3.0s splash) */}
         <div className="mt-8 h-1 w-48 sm:w-64 rounded-full bg-emerald-950/80 overflow-hidden border border-emerald-500/25">
           <div className="splash-progress-bar h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 rounded-full shadow-[0_0_12px_#10B981]" />
         </div>
