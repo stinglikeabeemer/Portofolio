@@ -57,14 +57,14 @@ export function AboutSkillsSection() {
         </motion.div>
 
         {/* Unified Bento Grid: Left (Profile & Academics) | Right (Tech Arsenal) */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 items-stretch">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 items-start">
           {/* Left Card: Profile & Academic Foundation (lg:col-span-5) */}
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="relative lg:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-6 sm:p-8 md:p-9 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] overflow-hidden group"
+            className="relative lg:col-span-5 lg:sticky lg:top-24 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-6 sm:p-8 md:p-9 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] overflow-hidden group"
           >
             {/* HUD Cyber Corner Accents */}
             <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-emerald-400/50 rounded-tl-2xl pointer-events-none" />
@@ -155,54 +155,65 @@ export function AboutSkillsSection() {
 
           {/* Right Bento Grid: Core Technical Stack (lg:col-span-7) */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            {skills.map((group, groupIdx) => (
-              <motion.div
-                key={group.category}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: groupIdx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="relative flex-1 rounded-3xl border border-slate-200/80 bg-white/80 p-6 sm:p-7 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 overflow-hidden group"
-              >
-                {/* HUD Cyber Corner Accents */}
-                <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-emerald-400/40 rounded-tr-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
-                <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-emerald-400/40 rounded-bl-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
-                <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/60 dark:border-white/5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
-                      {getCategoryIcon(group.category)}
-                    </div>
-                    <div>
-                      <TextGenerateEffect
-                        text={group.category}
-                        as="h4"
-                        className="font-display text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white"
-                      />
-                      <TextGenerateEffect
-                        text={group.subtitle}
-                        as="p"
-                        delay={0.1}
-                        className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400"
-                      />
-                    </div>
-                  </div>
-                  <span className="font-mono text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                    {group.skills.length} Technologies
-                  </span>
-                </div>
+            {skills.map((group, groupIdx) => {
+              // Custom grid column configuration based on item count:
+              // Backend & APIs (3 items): 3 columns in 1 row (zero empty space below)
+              // Databases (4 items): 2x2 grid (perfect symmetry)
+              // Tools & CV (6 items): 2x3 grid (all 6 visible, no clipping)
+              const gridColsClass =
+                group.skills.length === 3
+                  ? "grid grid-cols-1 sm:grid-cols-3 gap-3.5"
+                  : "grid grid-cols-1 sm:grid-cols-2 gap-3.5";
 
-                <div className="mt-4 flex flex-wrap gap-2.5">
-                  {group.skills.map((skill, skillIdx) => (
-                    <SkillBadge
-                      key={skill.name}
-                      skill={skill}
-                      accent={group.accent}
-                      index={skillIdx}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+              return (
+                <motion.div
+                  key={group.category}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.15 }}
+                  transition={{ duration: 0.5, delay: groupIdx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative rounded-3xl border border-slate-200/80 bg-white/80 p-5 sm:p-6 md:p-7 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 overflow-hidden group"
+                >
+                  {/* HUD Cyber Corner Accents */}
+                  <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-emerald-400/40 rounded-tr-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
+                  <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-emerald-400/40 rounded-bl-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
+                  <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/60 dark:border-white/5">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
+                        {getCategoryIcon(group.category)}
+                      </div>
+                      <div>
+                        <TextGenerateEffect
+                          text={group.category}
+                          as="h4"
+                          className="font-display text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white"
+                        />
+                        <TextGenerateEffect
+                          text={group.subtitle}
+                          as="p"
+                          delay={0.1}
+                          className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400"
+                        />
+                      </div>
+                    </div>
+                    <span className="shrink-0 font-mono text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                      {group.skills.length} Technologies
+                    </span>
+                  </div>
+
+                  <div className={`mt-4 ${gridColsClass}`}>
+                    {group.skills.map((skill, skillIdx) => (
+                      <SkillBadge
+                        key={skill.name}
+                        skill={skill}
+                        accent={group.accent}
+                        index={skillIdx}
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
