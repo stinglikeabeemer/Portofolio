@@ -9,6 +9,7 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { ContactSection } from "@/components/ContactSection";
 import { BackToTop } from "@/components/BackToTop";
+import { CyberBackground } from "@/components/CyberBackground";
 
 export default function HomePage() {
   const [splashFinished, setSplashFinished] = useState(false);
@@ -25,20 +26,26 @@ export default function HomePage() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative overflow-hidden"
       >
-        {/* Full-bleed Hero Section with Julian Artwork */}
+        {/* Full-bleed Hero Section with Julian Artwork (Completely Untouched) */}
         <HeroSection />
 
-        {/* Combined About & Skills Section (py-20) */}
-        <AboutSkillsSection />
+        {/* Post-Hero Container with Living Architecture Graph Background Effect */}
+        <div className="relative">
+          {/* Cybernetic Node Graph & Technical Matrix Background (Starts AFTER Julian) */}
+          <CyberBackground />
 
-        {/* Featured Projects Section (py-20) */}
-        <ProjectsSection />
+          {/* Combined About & Skills Section (py-20) */}
+          <AboutSkillsSection />
 
-        {/* Organizational Experience & Achievements Timeline Section (py-20) */}
-        <ExperienceSection />
+          {/* Featured Projects Section (py-20) */}
+          <ProjectsSection />
 
-        {/* Contact Hub Section (py-20) */}
-        <ContactSection />
+          {/* Organizational Experience & Achievements Timeline Section (py-20) */}
+          <ExperienceSection />
+
+          {/* Contact Hub Section (py-20) */}
+          <ContactSection />
+        </div>
 
         {/* Floating Back to Top Button */}
         <BackToTop />
