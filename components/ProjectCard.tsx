@@ -36,6 +36,10 @@ export function ProjectCard({
         featured ? "lg:col-span-2" : "lg:col-span-1"
       }`}
     >
+      {/* HUD Cyber Corner Accents */}
+      <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-emerald-400/40 rounded-tr-2xl pointer-events-none transition-colors group-hover:border-emerald-400 z-20" />
+      <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-emerald-400/40 rounded-bl-2xl pointer-events-none transition-colors group-hover:border-emerald-400 z-20" />
+
       <div className={featured ? "lg:grid lg:grid-cols-12 lg:items-center" : ""}>
         {/* Preview Thumbnail Container */}
         <Link

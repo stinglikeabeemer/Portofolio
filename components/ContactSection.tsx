@@ -30,6 +30,12 @@ export function ContactSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-white/95 via-slate-50/90 to-emerald-50/30 p-8 sm:p-12 shadow-xl dark:border-emerald-500/20 dark:from-[#09221a]/95 dark:via-[#081a14]/95 dark:to-[#05130e]/95 dark:shadow-[0_12px_45px_rgba(4,13,10,0.5)] text-center"
         >
+          {/* HUD Cyber Corner Accents */}
+          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-emerald-400/50 rounded-tl-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-emerald-400/50 rounded-tr-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-emerald-400/50 rounded-bl-3xl pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-emerald-400/50 rounded-br-3xl pointer-events-none" />
+
           {/* Section Header */}
           <div className="max-w-2xl mx-auto">
             <TextGenerateEffect

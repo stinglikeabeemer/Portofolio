@@ -69,8 +69,14 @@ export function AboutSkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-6 sm:p-8 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)]"
+            className="relative lg:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-6 sm:p-8 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] overflow-hidden group"
           >
+            {/* HUD Cyber Corner Accents */}
+            <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-emerald-400/50 rounded-tl-2xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-emerald-400/50 rounded-tr-2xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-emerald-400/50 rounded-bl-2xl pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-emerald-400/50 rounded-br-2xl pointer-events-none" />
+
             <div>
               {/* Badges Header */}
               <div className="flex flex-wrap items-center gap-2">
@@ -161,8 +167,11 @@ export function AboutSkillsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: groupIdx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="flex-1 rounded-3xl border border-slate-200/80 bg-white/80 p-5 sm:p-6 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90"
+                className="relative flex-1 rounded-3xl border border-slate-200/80 bg-white/80 p-5 sm:p-6 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 overflow-hidden group"
               >
+                {/* HUD Cyber Corner Accents */}
+                <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-emerald-400/40 rounded-tr-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
+                <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-emerald-400/40 rounded-bl-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
                 <div className="flex items-center justify-between pb-3 border-b border-slate-200/60 dark:border-white/5">
                   <div className="flex items-center gap-2.5">
                     <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
