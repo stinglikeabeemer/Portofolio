@@ -39,7 +39,7 @@ export function ProjectDetailView({ project }: { project: ProjectItem }) {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 antialiased dark:bg-[#061410] dark:text-slate-100 selection:bg-emerald-500 selection:text-white">
       {/* Top Floating Glassmorphic Header */}
-      <header className="sticky top-7 sm:top-8 z-40 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl dark:border-emerald-500/20 dark:bg-[#061410]/80">
+      <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl dark:border-emerald-500/20 dark:bg-[#061410]/80">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
           <Link
             href="/#projects"

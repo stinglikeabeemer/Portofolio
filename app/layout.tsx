@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { RunningTicker } from "@/components/RunningTicker";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { portfolioData } from "@/data/portfolio";
@@ -44,7 +43,6 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <div className="relative flex min-h-screen flex-col bg-slate-50 dark:bg-[#061410]">
-            <RunningTicker />
             <Navbar />
             <div className="flex-1">{children}</div>
             <Footer />

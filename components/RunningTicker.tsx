@@ -46,3 +46,4 @@ export function RunningTicker() {
     </div>
   );
 }
+

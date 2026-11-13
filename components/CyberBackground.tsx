@@ -2,6 +2,79 @@
 
 import React, { useEffect, useRef } from "react";
 
+interface KineticTrackProps {
+  words: string[];
+  separator?: string;
+  direction?: "left" | "right";
+  speed?: "fast" | "med" | "slow";
+  angle?: number;
+  top: string;
+  opacity?: string;
+}
+
+function KineticTrack({
+  words,
+  separator = "✦",
+  direction = "left",
+  speed = "med",
+  angle = 0,
+  top,
+  opacity = "opacity-[0.035] dark:opacity-[0.048]",
+}: KineticTrackProps) {
+  const animClass =
+    direction === "left"
+      ? speed === "fast"
+        ? "animate-bg-marquee-left-fast"
+        : speed === "slow"
+        ? "animate-bg-marquee-left-slow"
+        : "animate-bg-marquee-left-med"
+      : speed === "fast"
+      ? "animate-bg-marquee-right-fast"
+      : speed === "slow"
+      ? "animate-bg-marquee-right-slow"
+      : "animate-bg-marquee-right-med";
+
+  // Build repeated sequence to fill screen width multiple times
+  const sequence = Array.from({ length: 8 }).flatMap(() => words);
+
+  return (
+    <div
+      className={`absolute left-1/2 -translate-x-1/2 w-[160vw] max-w-none pointer-events-none select-none z-0 ${opacity}`}
+      style={{
+        top,
+        transform: `translateX(-50%) rotate(${angle}deg)`,
+        transformOrigin: "center center",
+      }}
+    >
+      <div className={`flex w-max ${animClass}`}>
+        <div className="flex shrink-0 items-center gap-6 sm:gap-10 md:gap-14 pr-6 sm:pr-10 md:pr-14 font-black font-display tracking-[0.25em] text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-slate-900 dark:text-emerald-300">
+          {sequence.map((word, idx) => (
+            <React.Fragment key={`seq-a-${idx}`}>
+              <span>{word}</span>
+              <span className="text-emerald-500/40 text-2xl sm:text-4xl md:text-5xl font-mono">
+                {separator}
+              </span>
+            </React.Fragment>
+          ))}
+        </div>
+        <div
+          className="flex shrink-0 items-center gap-6 sm:gap-10 md:gap-14 pr-6 sm:pr-10 md:pr-14 font-black font-display tracking-[0.25em] text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase text-slate-900 dark:text-emerald-300"
+          aria-hidden="true"
+        >
+          {sequence.map((word, idx) => (
+            <React.Fragment key={`seq-b-${idx}`}>
+              <span>{word}</span>
+              <span className="text-emerald-500/40 text-2xl sm:text-4xl md:text-5xl font-mono">
+                {separator}
+              </span>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function CyberBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -276,7 +349,63 @@ export function CyberBackground() {
         +
       </div>
 
-      {/* 6. Interactive Live Architecture Node & Glyph Canvas */}
+      {/* 6. Ambient Kinetic Typography Tracks (Running Text in Background) */}
+      {/* Track 1: Melintang dari kanan atas ke kiri bawah (Diagonal ~ -11deg) */}
+      <KineticTrack
+        words={["Hello", "Welcome", "Thank You!"]}
+        separator="✦"
+        direction="left"
+        speed="med"
+        angle={-11}
+        top="8%"
+        opacity="opacity-[0.035] dark:opacity-[0.048]"
+      />
+
+      {/* Track 2: Melintang dari kiri atas ke kanan bawah (Diagonal ~ +13deg) */}
+      <KineticTrack
+        words={["Welcome", "Thank You!", "Hello"]}
+        separator="★"
+        direction="right"
+        speed="fast"
+        angle={13}
+        top="28%"
+        opacity="opacity-[0.03] dark:opacity-[0.042]"
+      />
+
+      {/* Track 3: Horizontal melintang dari kanan ke kiri (Slight tilt ~ -2deg) */}
+      <KineticTrack
+        words={["Thank You!", "Hello", "Welcome"]}
+        separator="//"
+        direction="left"
+        speed="slow"
+        angle={-2}
+        top="48%"
+        opacity="opacity-[0.032] dark:opacity-[0.045]"
+      />
+
+      {/* Track 4: Melintang curam dari kanan atas ke kiri bawah (Diagonal ~ -14deg) */}
+      <KineticTrack
+        words={["Hello", "Thank You!", "Welcome"]}
+        separator="✦"
+        direction="left"
+        speed="fast"
+        angle={-14}
+        top="68%"
+        opacity="opacity-[0.03] dark:opacity-[0.042]"
+      />
+
+      {/* Track 5: Melintang dari kiri ke kanan (Diagonal ~ +9deg) */}
+      <KineticTrack
+        words={["Welcome", "Hello", "Thank You!"]}
+        separator="❖"
+        direction="right"
+        speed="med"
+        angle={9}
+        top="87%"
+        opacity="opacity-[0.035] dark:opacity-[0.048]"
+      />
+
+      {/* 7. Interactive Live Architecture Node & Glyph Canvas */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none"
