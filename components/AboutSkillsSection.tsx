@@ -47,7 +47,7 @@ export function AboutSkillsSection() {
         >
           <div>
             <TextGenerateEffect
-              text="01 PROFILE & TECH STACK"
+              text="PROFILE & TECH STACK"
               as="span"
               className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
             />

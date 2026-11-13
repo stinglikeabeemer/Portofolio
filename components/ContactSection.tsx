@@ -39,7 +39,7 @@ export function ContactSection() {
           {/* Section Header */}
           <div className="max-w-2xl mx-auto">
             <TextGenerateEffect
-              text="04 INITIATE CONNECTION"
+              text="INITIATE CONNECTION"
               as="span"
               className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
             />

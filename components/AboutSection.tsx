@@ -24,7 +24,7 @@ export function AboutSection() {
         >
           <div>
             <span className="font-mono text-xs font-semibold uppercase tracking-[0.25em] text-emerald-400">
-              01 // PROFILE &amp; ACADEMIC FOUNDATION
+              PROFILE &amp; ACADEMIC FOUNDATION
             </span>
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               About{" "}

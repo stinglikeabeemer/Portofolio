@@ -60,7 +60,7 @@ export function ProjectsSection() {
         >
           <div>
             <TextGenerateEffect
-              text="02 FEATURED PROJECTS"
+              text="FEATURED PROJECTS"
               as="span"
               className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
             />

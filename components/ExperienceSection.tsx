@@ -25,7 +25,7 @@ export function ExperienceSection() {
           className="mb-10 text-center max-w-2xl mx-auto"
         >
           <TextGenerateEffect
-            text="03 LEADERSHIP & ORGANIZATIONAL TRACK RECORD"
+            text="LEADERSHIP & ORGANIZATIONAL TRACK RECORD"
             as="span"
             className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
           />
