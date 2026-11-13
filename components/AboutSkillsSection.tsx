@@ -146,8 +146,8 @@ export function AboutSkillsSection() {
                 <p className="font-display text-lg sm:text-2xl md:text-3xl font-black text-teal-400">
                   5+
                 </p>
-                <p className="mt-1 font-mono text-[10px] sm:text-xs md:text-[13px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-tight sm:tracking-wider">
-                  Architectures
+                <p className="mt-1 font-mono text-[11px] sm:text-xs md:text-[13px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                  Systems
                 </p>
               </div>
 

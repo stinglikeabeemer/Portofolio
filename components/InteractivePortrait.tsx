@@ -124,19 +124,7 @@ export function InteractivePortrait({
             </AnimatePresence>
 
             {/* Subtle Vignette Fade */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
-
-            {/* Floating Status Tag (switches on hover: MARK::VII_ONLINE -> ARCHITECT) */}
-            <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-slate-950/85 border border-emerald-400/40 backdrop-blur-md font-mono text-[10px] text-emerald-300 font-semibold shadow-md select-none pointer-events-none z-10">
-              <span
-                className={`h-1.5 w-1.5 rounded-full ${
-                  isHovered
-                    ? "bg-emerald-400 shadow-[0_0_8px_#10B981]"
-                    : "bg-amber-400 animate-pulse shadow-[0_0_8px_#F59E0B]"
-                }`}
-              />
-              <span>{isHovered ? "ARCHITECT" : "MARK::VII_ONLINE"}</span>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
       </div>
