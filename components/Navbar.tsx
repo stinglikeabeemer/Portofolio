@@ -53,7 +53,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out ${
+      className={`fixed top-11 sm:top-12 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out ${
         scrolled
           ? "translate-y-0 opacity-100 scale-100 pointer-events-auto"
           : "-translate-y-24 opacity-0 scale-95 pointer-events-none"

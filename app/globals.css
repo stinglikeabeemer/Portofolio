@@ -34,6 +34,27 @@
   background: rgba(16, 185, 129, 0.65);
 }
 
+/* Infinite Marquee Running Text Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Bulletproof CSS Splash Screen Animations (3.0s duration with Top Drop Jump-in) */
 @keyframes splashCurtain {
   0%, 82% {
