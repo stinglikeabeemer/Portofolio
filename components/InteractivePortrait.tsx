@@ -45,7 +45,7 @@ export function InteractivePortrait({
         <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-br from-emerald-500/25 to-teal-500/20 blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
         {/* Outer Minimalist Frame */}
-        <div className="relative w-44 h-44 sm:w-48 sm:h-48 md:w-52 md:h-52 rounded-3xl p-1.5 bg-gradient-to-b from-emerald-400/35 via-emerald-500/10 to-teal-500/25 border border-emerald-400/35 shadow-xl shadow-emerald-500/10 dark:shadow-[0_12px_36px_rgba(4,13,10,0.6)]">
+        <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 rounded-3xl p-1.5 bg-gradient-to-b from-emerald-400/35 via-emerald-500/10 to-teal-500/25 border border-emerald-400/35 shadow-xl shadow-emerald-500/10 dark:shadow-[0_12px_36px_rgba(4,13,10,0.6)]">
           {/* HUD Cyber Corner Accents */}
           <div className="absolute top-1 left-1 w-3 h-3 border-t-2 border-l-2 border-emerald-400/60 rounded-tl-lg pointer-events-none z-20 transition-colors group-hover:border-emerald-300" />
           <div className="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-emerald-400/60 rounded-br-lg pointer-events-none z-20 transition-colors group-hover:border-emerald-300" />

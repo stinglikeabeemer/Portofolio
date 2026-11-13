@@ -45,7 +45,7 @@ export function HeroSection() {
       </div>
 
       {/* TOP BAR (Full Width Header right on the background) */}
-      <div className="relative z-30 flex items-center justify-between px-6 sm:px-12 lg:px-16 pt-6 sm:pt-8 md:pt-10">
+      <div className="relative z-30 flex items-center justify-between px-4 sm:px-10 lg:px-16 pt-5 sm:pt-8 md:pt-10">
         {/* Left: Minimalist Geometric Glyph Logo & Nav Links */}
         <div className="flex items-center gap-6 sm:gap-10 md:gap-12">
           <a href="#hero" className="group flex items-center" aria-label="Home">
@@ -135,13 +135,13 @@ export function HeroSection() {
       </div>
 
       {/* MAIN HERO CONTENT (LEFT-ALIGNED TYPOGRAPHY & LORE BIO) */}
-      <div className="relative z-30 my-auto px-6 sm:px-12 lg:px-16 py-8 max-w-2xl lg:max-w-xl xl:max-w-2xl">
+      <div className="relative z-30 my-auto px-4 sm:px-10 lg:px-16 py-6 sm:py-8 max-w-2xl lg:max-w-xl xl:max-w-2xl">
         {/* Giant Title: GALIH */}
         <TextGenerateEffect
           text="GALIH"
           as="h1"
           delay={0.1}
-          className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-normal tracking-tight text-white uppercase leading-[0.9] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
+          className="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-normal tracking-tight text-white uppercase leading-[0.9] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
         />
 
         {/* Subtitle: RADEN MAS GALIH PRADITYO */}
@@ -170,7 +170,7 @@ export function HeroSection() {
       </div>
 
       {/* BOTTOM BAR (Watermarks on Left) */}
-      <div className="relative z-30 flex items-center justify-between px-6 sm:px-12 lg:px-16 pb-8 sm:pb-12">
+      <div className="relative z-30 flex items-center justify-between px-4 sm:px-10 lg:px-16 pb-6 sm:pb-10">
         {/* Left Watermark / Handle */}
         <div className="flex items-center gap-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
           <a

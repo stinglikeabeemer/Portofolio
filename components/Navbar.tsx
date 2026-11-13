@@ -57,10 +57,10 @@ export function Navbar() {
         scrolled
           ? "translate-y-0 opacity-100 scale-100 pointer-events-auto"
           : "-translate-y-24 opacity-0 scale-95 pointer-events-none"
-      } w-[92%] sm:w-auto max-w-fit`}
+      } w-[92vw] max-w-sm sm:max-w-md md:w-auto md:max-w-fit`}
     >
       {/* Floating Minimalist Glassmorphic Pill Capsule in Center */}
-      <div className="flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-slate-200/80 bg-white/85 p-1.5 sm:p-2 shadow-2xl shadow-black/15 backdrop-blur-2xl dark:border-emerald-500/30 dark:bg-[#061410]/85 dark:shadow-[0_12px_45px_rgba(0,0,0,0.6)]">
+      <div className="flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-slate-200/80 bg-white/85 p-1.5 sm:p-2 shadow-2xl shadow-black/15 backdrop-blur-2xl dark:border-emerald-500/30 dark:bg-[#061410]/85 dark:shadow-[0_12px_45px_rgba(0,0,0,0.6)] w-full md:w-auto">
         {/* Desktop Navigation Links with Fluid Sliding Indicator & Hover Effect */}
         <nav
           aria-label="Floating Navigation"

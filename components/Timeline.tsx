@@ -32,13 +32,14 @@ export function Timeline({ items }: TimelineProps) {
   return (
     <div className="relative">
       {/* Top Controls: Left / Right Navigation Buttons & Hint */}
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex items-center justify-between gap-3">
         <span className="font-mono text-xs sm:text-sm text-slate-400 dark:text-slate-500 flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          Scroll horizontally or use arrows (Left to Right)
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+          <span className="hidden sm:inline">Scroll horizontally or use arrows (Left to Right)</span>
+          <span className="sm:hidden">Swipe or tap arrows</span>
         </span>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <button
             type="button"
             onClick={() => scroll("left")}
@@ -76,7 +77,7 @@ export function Timeline({ items }: TimelineProps) {
               ease: [0.22, 1, 0.36, 1],
             }}
             whileHover={{ y: -5 }}
-            className="group flex flex-col justify-between min-w-[320px] sm:min-w-[390px] md:min-w-[430px] max-w-[450px] shrink-0 snap-start rounded-3xl border border-slate-200/80 bg-white/90 p-6 sm:p-7 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50"
+            className="group flex flex-col justify-between w-[85vw] max-w-[340px] sm:w-auto sm:min-w-[380px] sm:max-w-[430px] md:min-w-[420px] md:max-w-[460px] shrink-0 snap-start rounded-3xl border border-slate-200/80 bg-white/90 p-5 sm:p-7 shadow-sm backdrop-blur-md transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50"
           >
             <div>
               {/* Milestone Node Header */}

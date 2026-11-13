@@ -31,7 +31,13 @@ export function ProjectsSection() {
       return stack.includes("opencv") || stack.includes("gemini") || desc.includes("vision") || desc.includes("ai");
     }
     if (filter === "Databases & Fullstack") {
-      return stack.includes("mongodb") || stack.includes("postgresql") || stack.includes("react");
+      return (
+        stack.includes("mongodb") ||
+        stack.includes("postgresql") ||
+        stack.includes("mysql") ||
+        stack.includes("react") ||
+        project.role.toLowerCase().includes("fullstack")
+      );
     }
     return true;
   };

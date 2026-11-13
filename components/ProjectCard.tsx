@@ -79,8 +79,8 @@ export function ProjectCard({
         <div
           className={
             featured
-              ? "lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between"
-              : "p-6 sm:p-7 flex flex-col justify-between"
+              ? "lg:col-span-7 p-5 sm:p-8 flex flex-col justify-between"
+              : "p-5 sm:p-7 flex flex-col justify-between"
           }
         >
           <div>
@@ -141,13 +141,13 @@ export function ProjectCard({
       </div>
 
       {/* Action Footer: Detail Arsitektur & Repository */}
-      <div className="flex items-center justify-between border-t border-slate-200/70 bg-slate-50/70 px-6 py-3.5 dark:border-emerald-500/15 dark:bg-[#05130e]/80 sm:px-7">
+      <div className="flex items-center justify-between border-t border-slate-200/70 bg-slate-50/70 px-4 sm:px-6 md:px-7 py-3 sm:py-3.5 dark:border-emerald-500/15 dark:bg-[#05130e]/80">
         {project.githubUrl ? (
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-mono text-sm sm:text-base font-semibold text-slate-700 transition-colors hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-300"
+            className="inline-flex items-center gap-1.5 sm:gap-2 font-mono text-xs sm:text-sm md:text-base font-semibold text-slate-700 transition-colors hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-300"
             aria-label={`Repository for ${project.title}`}
           >
             <Github className="h-4 w-4" />
@@ -155,12 +155,12 @@ export function ProjectCard({
             <ExternalLink className="h-3.5 w-3.5 opacity-60" />
           </a>
         ) : (
-          <span className="font-mono text-sm text-slate-400">Private Source</span>
+          <span className="font-mono text-xs sm:text-sm text-slate-400">Private Source</span>
         )}
 
         <Link
           href={`/projects/${project.id}`}
-          className="group/btn inline-flex items-center gap-2 rounded-full bg-emerald-600/10 px-4 py-1.5 text-sm sm:text-base font-semibold text-emerald-700 transition-all hover:bg-emerald-600 hover:text-white dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500 dark:hover:text-white"
+          className="group/btn inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-emerald-600/10 px-3 sm:px-4 py-1.5 text-xs sm:text-sm md:text-base font-semibold text-emerald-700 transition-all hover:bg-emerald-600 hover:text-white dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500 dark:hover:text-white"
         >
           <span>Detail</span>
           <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-0.5" />
