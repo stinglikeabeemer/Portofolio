@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
@@ -19,6 +19,7 @@ const navItems = [
 export function HeroSection() {
   const { personal } = portfolioData;
   const { resolvedTheme, setTheme } = useTheme();
+  const [hoveredHeroTab, setHoveredHeroTab] = useState<string | null>(null);
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
@@ -62,22 +63,41 @@ export function HeroSection() {
             </svg>
           </a>
 
-          {/* Navigation Links with Active Underline Bar under Home */}
-          <nav className="hidden sm:flex items-center gap-7 md:gap-9">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="relative group py-1 text-sm md:text-base font-semibold tracking-wide text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] hover:text-emerald-300 transition-colors"
-              >
-                <span>{item.label}</span>
-                {item.active ? (
-                  <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
-                ) : (
-                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-emerald-400 rounded-full transition-all group-hover:w-full" />
-                )}
-              </a>
-            ))}
+          {/* Navigation Links with Active Underline & Hover Glow Animation */}
+          <nav
+            className="hidden sm:flex items-center gap-7 md:gap-9 relative"
+            onMouseLeave={() => setHoveredHeroTab(null)}
+          >
+            {navItems.map((item) => {
+              const isHovered = hoveredHeroTab === item.label;
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onMouseEnter={() => setHoveredHeroTab(item.label)}
+                  className="relative group py-1.5 text-sm md:text-base font-semibold tracking-wide text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)] hover:text-emerald-300 transition-colors flex items-center justify-center"
+                >
+                  <span className="relative z-10">{item.label}</span>
+
+                  {/* Active Indicator Underline for Home */}
+                  {item.active && (
+                    <motion.span
+                      layoutId="heroActiveUnderline"
+                      className="absolute -bottom-1 left-0 right-0 h-[3px] bg-white rounded-full shadow-[0_0_12px_rgba(255,255,255,0.9)]"
+                    />
+                  )}
+
+                  {/* Animated Hover Gliding Glow */}
+                  {isHovered && !item.active && (
+                    <motion.span
+                      layoutId="heroHoverUnderline"
+                      className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-emerald-400 rounded-full shadow-[0_0_10px_#34D399]"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </a>
+              );
+            })}
           </nav>
         </div>
 

@@ -26,6 +26,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,10 +61,11 @@ export function Navbar() {
     >
       {/* Floating Minimalist Glassmorphic Pill Capsule in Center */}
       <div className="flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-slate-200/80 bg-white/85 p-1.5 sm:p-2 shadow-2xl shadow-black/15 backdrop-blur-2xl dark:border-emerald-500/30 dark:bg-[#061410]/85 dark:shadow-[0_12px_45px_rgba(0,0,0,0.6)]">
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links with Fluid Sliding Indicator & Hover Effect */}
         <nav
           aria-label="Floating Navigation"
-          className="hidden md:flex items-center gap-1"
+          className="hidden md:flex items-center gap-1 relative"
+          onMouseLeave={() => setHoveredTab(null)}
         >
           {navItems.map((item) => {
             const isActive = activeSection === item.href.substring(1);
@@ -71,13 +73,41 @@ export function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-4 py-2 text-[13px] sm:text-sm font-medium tracking-wide transition-all duration-200 ${
+                onMouseEnter={() => setHoveredTab(item.href)}
+                className={`relative rounded-full px-4 py-2 text-[13px] sm:text-sm font-medium tracking-wide transition-colors duration-200 flex items-center gap-1.5 z-10 ${
                   isActive
-                    ? "bg-emerald-500/15 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300 font-semibold shadow-sm"
-                    : "text-slate-600 hover:bg-slate-100/80 hover:text-emerald-600 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-emerald-300"
+                    ? "text-emerald-700 dark:text-emerald-300 font-semibold"
+                    : "text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-300"
                 }`}
               >
-                {item.label}
+                {/* Active Sliding Pill Indicator */}
+                {isActive && (
+                  <motion.span
+                    layoutId="activeFloatingNavIndicator"
+                    className="absolute inset-0 rounded-full bg-emerald-500/15 dark:bg-emerald-500/25 border border-emerald-500/35 dark:border-emerald-400/40 shadow-sm shadow-emerald-500/20 -z-10"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+
+                {/* Hover Follower Indicator */}
+                {hoveredTab === item.href && !isActive && (
+                  <motion.span
+                    layoutId="hoverFloatingNavIndicator"
+                    className="absolute inset-0 rounded-full bg-slate-100/90 dark:bg-white/5 -z-10"
+                    transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                  />
+                )}
+
+                {/* Active Pulsing Indicator Dot */}
+                {isActive && (
+                  <motion.span
+                    layoutId="activeTabDot"
+                    className="h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 shadow-[0_0_8px_#10B981]"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+
+                <span>{item.label}</span>
               </a>
             );
           })}
@@ -85,7 +115,7 @@ export function Navbar() {
 
         {/* Mobile Active Section Tag */}
         <span className="md:hidden px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-          // {activeSection}
+          {activeSection}
         </span>
 
         {/* Right Controls: Theme Toggle + Mobile Menu */}
@@ -128,16 +158,26 @@ export function Navbar() {
             className="mt-2 w-full overflow-hidden rounded-3xl border border-slate-200/80 bg-white/95 p-4 shadow-2xl backdrop-blur-2xl dark:border-emerald-500/25 dark:bg-[#061410]/95 md:hidden"
           >
             <div className="space-y-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-emerald-500/10 hover:text-emerald-600 dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-emerald-400"
-                >
-                  <span>{item.label}</span>
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href.substring(1);
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "bg-emerald-500/15 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300 font-semibold"
+                        : "text-slate-700 hover:bg-emerald-500/10 hover:text-emerald-600 dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-emerald-400"
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    {isActive && (
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#10B981]" />
+                    )}
+                  </a>
+                );
+              })}
 
               <div className="mt-3 flex items-center justify-between border-t border-slate-200/70 pt-3 dark:border-white/10">
                 <a
