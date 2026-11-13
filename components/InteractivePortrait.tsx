@@ -67,17 +67,17 @@ export function InteractivePortrait({
             onTouchEnd={() => setIsHovered(false)}
             className="relative w-full h-full rounded-[22px] overflow-hidden bg-slate-950 border border-slate-200/50 dark:border-emerald-500/20 cursor-crosshair select-none"
           >
-            {/* Layer 1: Base Photo (Galih) */}
+            {/* Layer 1: Base Mask Photo (Iron Man Armor) */}
             <Image
               src={baseImage}
-              alt={alt}
+              alt="Iron Man Helmet Mask"
               fill
               sizes="(max-width: 640px) 176px, (max-width: 768px) 192px, 208px"
               priority
               className="object-cover object-center pointer-events-none"
             />
 
-            {/* Layer 2: Revealed Character Photo (Iron Man) with Dynamic Circle ClipPath */}
+            {/* Layer 2: Revealed Real Face (Galih) with Dynamic Circle ClipPath */}
             <div
               className="absolute inset-0 pointer-events-none transition-[clip-path] duration-75 ease-out"
               style={{
@@ -91,12 +91,11 @@ export function InteractivePortrait({
             >
               <Image
                 src={revealImage}
-                alt="Iron Man Character Reveal"
+                alt={alt}
                 fill
                 sizes="(max-width: 640px) 176px, (max-width: 768px) 192px, 208px"
                 className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-red-950/10 mix-blend-color-burn" />
             </div>
 
             {/* Scanning Ring & Arc Reticle that follows cursor */}
@@ -127,16 +126,16 @@ export function InteractivePortrait({
             {/* Subtle Vignette Fade */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
 
-            {/* Floating Status Tag (switches on hover) */}
+            {/* Floating Status Tag (switches on hover: MARK::VII_ONLINE -> ARCHITECT) */}
             <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-slate-950/85 border border-emerald-400/40 backdrop-blur-md font-mono text-[10px] text-emerald-300 font-semibold shadow-md select-none pointer-events-none z-10">
               <span
                 className={`h-1.5 w-1.5 rounded-full ${
                   isHovered
-                    ? "bg-amber-400 shadow-[0_0_8px_#F59E0B]"
-                    : "bg-emerald-400 animate-pulse"
+                    ? "bg-emerald-400 shadow-[0_0_8px_#10B981]"
+                    : "bg-amber-400 animate-pulse shadow-[0_0_8px_#F59E0B]"
                 }`}
               />
-              <span>{isHovered ? "MARK::VII_ONLINE" : "ARCHITECT"}</span>
+              <span>{isHovered ? "ARCHITECT" : "MARK::VII_ONLINE"}</span>
             </div>
           </div>
         </div>

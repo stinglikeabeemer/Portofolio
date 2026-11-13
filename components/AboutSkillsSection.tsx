@@ -99,10 +99,10 @@ export function AboutSkillsSection() {
                 className="mt-1.5 font-mono text-xs sm:text-sm md:text-base font-semibold text-emerald-600 dark:text-emerald-400"
               />
 
-              {/* Interactive Portrait (Galih + Iron Man X-Ray Spotlight Reveal on Hover) */}
+              {/* Interactive Portrait (Iron Man Helmet Mask + Galih Real Face Reveal on Hover) */}
               <InteractivePortrait
-                baseImage="/images/galih.jpg"
-                revealImage="/images/ironman.jpg"
+                baseImage="/images/ironman.jpg"
+                revealImage="/images/galih.jpg"
                 alt="Raden Mas Galih Pradityo"
                 spotlightRadius={55}
               />
@@ -182,28 +182,30 @@ export function AboutSkillsSection() {
                   {/* HUD Cyber Corner Accents */}
                   <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-emerald-400/40 rounded-tr-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
                   <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-emerald-400/40 rounded-bl-xl pointer-events-none transition-colors group-hover:border-emerald-400" />
-                  <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/60 dark:border-white/5">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
-                        {getCategoryIcon(group.category)}
-                      </div>
-                      <div>
+                  <div className="pb-3 sm:pb-3.5 border-b border-slate-200/60 dark:border-white/5">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2.5 sm:gap-3">
+                        <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
+                          {getCategoryIcon(group.category)}
+                        </div>
                         <TextGenerateEffect
                           text={group.category}
                           as="h4"
                           className="font-display text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white"
                         />
-                        <TextGenerateEffect
-                          text={group.subtitle}
-                          as="p"
-                          delay={0.1}
-                          className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400"
-                        />
                       </div>
+
+                      <span className="shrink-0 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 sm:px-3 py-1 font-mono text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                        {group.skills.length} Technologies
+                      </span>
                     </div>
-                    <span className="shrink-0 font-mono text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                      {group.skills.length} Technologies
-                    </span>
+
+                    <TextGenerateEffect
+                      text={group.subtitle}
+                      as="p"
+                      delay={0.1}
+                      className="mt-2 text-xs sm:text-sm font-mono leading-relaxed text-slate-500 dark:text-slate-400"
+                    />
                   </div>
 
                   <div className={`mt-4 ${gridColsClass}`}>

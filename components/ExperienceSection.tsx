@@ -16,32 +16,25 @@ export function ExperienceSection() {
       <div className="pointer-events-none absolute right-1/4 top-1/3 h-96 w-96 rounded-full bg-emerald-500/10 blur-[150px]" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header with Scroll Entrance & Exit */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+          className="mb-10 text-center max-w-2xl mx-auto"
         >
-          <div>
-            <TextGenerateEffect
-              text="03 LEADERSHIP & ORGANIZATIONAL TRACK RECORD"
-              as="span"
-              className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
-            />
-            <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
-              <TextGenerateEffect text="Organizational Experience" as="span" delay={0.1} />
-            </h2>
-          </div>
           <TextGenerateEffect
-            text="Leadership experience, operational logistics management, and strategic corporate sponsorships at IPB University."
-            as="p"
-            className="max-w-lg font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400"
+            text="03 LEADERSHIP & ORGANIZATIONAL TRACK RECORD"
+            as="span"
+            className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
           />
+          <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
+            <TextGenerateEffect text="Organizational Experience" as="span" delay={0.1} />
+          </h2>
         </motion.div>
 
-        {/* Responsive Vertical Timeline */}
+        {/* 3D Interactive Shuffle Card Deck */}
         <Timeline items={experience} />
 
         {/* Honors & Achievements Subsection */}

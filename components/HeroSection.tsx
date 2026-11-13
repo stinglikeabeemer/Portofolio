@@ -38,10 +38,10 @@ export function HeroSection() {
           fill
           priority
           unoptimized
-          className="object-cover object-center"
+          className="object-cover object-[24%_center] sm:object-center"
         />
-        {/* Gentle bottom fade to transition into the next section without obscuring the artwork */}
-        <div className="absolute inset-x-0 bottom-0 h-36 sm:h-48 bg-gradient-to-t from-[#061410] via-[#061410]/75 to-transparent pointer-events-none" />
+        {/* Gentle bottom fade to transition into the next section while keeping artwork visible */}
+        <div className="absolute inset-x-0 bottom-0 h-96 sm:h-48 bg-gradient-to-t from-[#061410] via-[#061410]/85 sm:via-[#061410]/75 to-transparent pointer-events-none" />
       </div>
 
       {/* TOP BAR (Full Width Header right on the background) */}
@@ -135,7 +135,7 @@ export function HeroSection() {
       </div>
 
       {/* MAIN HERO CONTENT (LEFT-ALIGNED TYPOGRAPHY & LORE BIO) */}
-      <div className="relative z-30 my-auto px-4 sm:px-10 lg:px-16 py-6 sm:py-8 max-w-2xl lg:max-w-xl xl:max-w-2xl">
+      <div className="relative z-30 mt-auto mb-4 sm:my-auto px-4 sm:px-10 lg:px-16 pt-24 sm:pt-6 pb-4 sm:pb-8 max-w-2xl lg:max-w-xl xl:max-w-2xl">
         {/* Giant Title: GALIH */}
         <TextGenerateEffect
           text="GALIH"

@@ -41,38 +41,21 @@ export function ProjectCard({
       <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2 border-emerald-400/40 rounded-bl-2xl pointer-events-none transition-colors group-hover:border-emerald-400 z-20" />
 
       <div className={featured ? "lg:grid lg:grid-cols-12 lg:items-center" : ""}>
-        {/* Preview Thumbnail Container */}
+        {/* Preview Thumbnail Container (Clean Vector Diagram, Zero Badge Overlap) */}
         <Link
           href={`/projects/${project.id}`}
           className={
             featured
-              ? "relative block aspect-[16/9] lg:aspect-auto lg:col-span-5 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-200/60 bg-slate-950 dark:border-emerald-500/20 h-full min-h-[200px]"
-              : "relative block aspect-[16/9] w-full overflow-hidden border-b border-slate-200/60 bg-slate-950 dark:border-emerald-500/20"
+              ? "relative block aspect-[16/9] lg:aspect-auto lg:col-span-5 w-full overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-200/60 bg-[#071914] dark:border-emerald-500/20 lg:h-full"
+              : "relative block aspect-[16/9] w-full overflow-hidden border-b border-slate-200/60 bg-[#071914] dark:border-emerald-500/20"
           }
         >
           <Image
             src={project.image}
             alt={`${project.title} - ${project.subtitle}`}
-            width={700}
-            height={400}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            fill
+            className="object-contain p-2.5 sm:p-4 transition-transform duration-500 group-hover:scale-[1.02]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-
-          {/* Role Badge Overlay */}
-          <div className="absolute left-3.5 top-3.5">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-slate-950/85 px-3.5 py-1.5 font-mono text-xs sm:text-sm font-semibold text-emerald-300 backdrop-blur-md">
-              <Layers className="h-3.5 w-3.5 text-emerald-400" />
-              {project.role}
-            </span>
-          </div>
-
-          {/* Period Overlay */}
-          <div className="absolute bottom-3 left-3.5">
-            <span className="rounded-full border border-white/15 bg-slate-950/80 px-3 py-1 font-mono text-xs text-slate-300 backdrop-blur-md">
-              {project.period}
-            </span>
-          </div>
         </Link>
 
         {/* Card Content Body */}
@@ -84,17 +67,30 @@ export function ProjectCard({
           }
         >
           <div>
-            <div className="flex items-center gap-2">
-              <TextGenerateEffect
-                text={project.category}
-                as="span"
-                className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400"
-              />
-              {featured && (
-                <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
-                  ★ FEATURED
+            {/* Project Category, Role & Period Header */}
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <TextGenerateEffect
+                  text={project.category}
+                  as="span"
+                  className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400"
+                />
+                {featured && (
+                  <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                    ★ FEATURED
+                  </span>
+                )}
+              </div>
+
+              <div className="flex items-center gap-2 font-mono text-xs">
+                <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 font-semibold text-emerald-700 dark:text-emerald-300">
+                  <Layers className="h-3 w-3 text-emerald-500" />
+                  {project.role}
                 </span>
-              )}
+                <span className="text-slate-400 dark:text-slate-500 text-[11px] sm:text-xs">
+                  {project.period}
+                </span>
+              </div>
             </div>
 
             <Link href={`/projects/${project.id}`}>
@@ -102,7 +98,7 @@ export function ProjectCard({
                 text={project.title}
                 as="h3"
                 delay={0.05}
-                className="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400"
+                className="mt-2.5 font-display text-2xl sm:text-3xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400"
               />
             </Link>
 
@@ -117,7 +113,7 @@ export function ProjectCard({
             <TextGenerateEffect
               text={project.shortDescription || project.description}
               as="p"
-              className="mt-3.5 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300"
+              className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300"
             />
           </div>
 
