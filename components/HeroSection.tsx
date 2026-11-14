@@ -101,8 +101,8 @@ export function HeroSection() {
           </nav>
         </div>
 
-        {/* Right: IPB University Badge, S-Rank Shield, and Theme Toggle */}
-        <div className="flex items-center gap-3">
+        {/* Right: IPB University Badge and Theme Toggle */}
+        <div className="flex items-center gap-4">
           <div className="text-right hidden xs:block sm:block drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
             <p className="font-display text-[11px] sm:text-xs font-black tracking-[0.22em] text-white uppercase">
               IPB UNIVERSITY
@@ -112,14 +112,8 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* Metallic S-Rank Shield */}
-          <div className="flex items-center gap-1.5 rounded-lg border border-white/40 bg-black/60 backdrop-blur-md px-2.5 py-1.5 shadow-xl">
-            <svg className="h-5 w-5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L4 5V11C4 16.55 7.42 21.74 12 23C16.58 21.74 20 16.55 20 11V5L12 2ZM12 4.18L18 6.43V11C18 15.35 15.44 19.34 12 20.73C8.56 19.34 6 15.35 6 11V6.43L12 4.18Z"/>
-              <path d="M12 7L9 11H11V16H13V11H15L12 7Z"/>
-            </svg>
-            <span className="font-mono font-black text-xs text-white">S-RANK</span>
-          </div>
+          {/* Thin divider between the campus label and the theme toggle */}
+          <span className="hidden sm:block h-8 w-px bg-white/30" aria-hidden="true" />
 
           {/* Theme Toggle Button */}
           <button
