@@ -35,14 +35,17 @@ export interface SkillItem {
 }
 
 export interface SkillCategory {
-  category: "Backend & APIs" | "Databases" | "Tools & CV";
+  category: "Frameworks & APIs" | "Databases" | "Tools & CV";
   subtitle: string;
   accent: string;
   skills: SkillItem[];
 }
 
+export type ProjectTag = "backend" | "ai" | "fullstack";
+
 export interface ProjectItem {
   id: string;
+  tags: ProjectTag[];
   title: string;
   subtitle: string;
   role: string;
@@ -122,7 +125,7 @@ export const portfolioData: {
         detail: "Scale 4.00 @ IPB University",
       },
       {
-        label: "Production Systems",
+        label: "Projects Built",
         value: "5+",
         detail: "Backend, AI & Full-Stack Apps",
       },
@@ -141,8 +144,8 @@ export const portfolioData: {
 
   skills: [
     {
-      category: "Backend & APIs",
-      subtitle: "High-throughput server frameworks, token authentication & clean REST architecture",
+      category: "Frameworks & APIs",
+      subtitle: "Server frameworks, token authentication & clean REST architecture",
       accent: "violet",
       skills: [
         {
@@ -156,21 +159,21 @@ export const portfolioData: {
           tag: "Async Python REST APIs, ML Model Serving",
         },
         {
-          name: "Next.js",
+          name: "React",
           level: "Intermediate",
-          tag: "App Router, SSR/SSG, Full-Stack API Routes",
+          tag: "TypeScript SPAs with Inertia.js & Laravel",
         },
       ],
     },
     {
       category: "Databases",
-      subtitle: "Relational schema design, Row-Level Security (RLS) & NoSQL document modeling",
+      subtitle: "Relational schema design, Row-Level Security & NoSQL modeling",
       accent: "cyan",
       skills: [
         {
           name: "PostgreSQL",
           level: "Advanced",
-          tag: "Supabase RLS, PL/pgSQL Triggers & Composite Indexing",
+          tag: "Supabase RLS, PL/pgSQL Triggers & Indexing",
         },
         {
           name: "MySQL",
@@ -185,19 +188,19 @@ export const portfolioData: {
         {
           name: "Firebase",
           level: "Intermediate",
-          tag: "FCM Push Notifications & Realtime Auth",
+          tag: "FCM Push Notifications & Auth",
         },
       ],
     },
     {
       category: "Tools & CV",
-      subtitle: "AI/LLM orchestration, computer vision pipelines & cloud PaaS deployment",
+      subtitle: "LLM integration, computer vision pipelines & cloud deployment",
       accent: "amber",
       skills: [
         {
           name: "Google Gemini API",
           level: "Advanced",
-          tag: "REST HTTP POST, Function Calling & Prompt Engineering",
+          tag: "REST Requests, Function Calling & Prompting",
         },
         {
           name: "OpenCV",
@@ -207,22 +210,22 @@ export const portfolioData: {
         {
           name: "TensorFlow Lite",
           level: "Intermediate",
-          tag: "Sub-second MobileNetV2 Disease Inference",
+          tag: "MobileNetV2 Model Serving",
         },
         {
           name: "Docker",
           level: "Intermediate",
-          tag: "Containerized Microservices & Runtime Isolation",
+          tag: "Containerized API Services",
         },
         {
           name: "Railway",
           level: "Advanced",
-          tag: "Cloud PaaS CI/CD & Production API Hosting",
+          tag: "Cloud PaaS API Hosting",
         },
         {
           name: "Postman",
           level: "Advanced",
-          tag: "API Contract Testing & Automated Test Suites",
+          tag: "API Testing & Collections",
         },
       ],
     },
@@ -231,6 +234,7 @@ export const portfolioData: {
   projects: [
     {
       id: "medigo",
+      tags: ["backend", "ai", "fullstack"],
       title: "MediGo",
       subtitle: "AI-Integrated Healthcare Platform",
       role: "Fullstack Developer",
@@ -238,9 +242,9 @@ export const portfolioData: {
       category: "Competition Project",
       featureHighlight: "Full-Stack Platform, Sanctum RBAC, MediBot Gemini AI & Google Maps",
       shortDescription:
-        "End-to-end full-stack healthcare platform built with Laravel MVC, Blade, Bootstrap 5, MySQL, and MediBot AI assistant powered by Google Gemini API.",
+        "Healthcare facility platform on Laravel and MySQL, with Sanctum-based RBAC and MediBot, a Gemini-powered assistant that recommends nearby facilities.",
       description:
-        "Engineered an end-to-end full-stack web platform utilizing Laravel MVC, Blade templating, and responsive UI components, while designing normalized MySQL database schemas and migrations for efficient healthcare facility data management. Implemented secure client-server communication and token authentication using Laravel Sanctum to enforce strict role-based access control across user review workflows, community discussion forums, and admin moderation panels. Integrated an interactive AI healthcare assistant (MediBot) by connecting Google Gemini API via REST requests and native function calling, enabling dynamic real-time faskes recommendations with geospatial filtering and Google Maps navigation.",
+        "A full-stack healthcare platform for finding and reviewing health facilities (faskes). Built on Laravel MVC with normalized MySQL schemas, Sanctum token authentication with role-based access, and MediBot — an AI assistant that uses Google Gemini function calling to recommend facilities with geospatial filtering and Google Maps navigation.",
       architectureHighlights: [
         "Engineered an end-to-end full-stack web platform utilizing Laravel MVC, Blade templating, and responsive UI components, while designing normalized MySQL database schemas and migrations for efficient healthcare facility data management.",
         "Implemented secure client-server communication and token authentication using Laravel Sanctum to enforce strict role-based access control across user review workflows, community discussion forums, and admin moderation panels.",
@@ -262,6 +266,7 @@ export const portfolioData: {
     },
     {
       id: "agrivision",
+      tags: ["backend", "ai"],
       title: "Agrivision",
       subtitle: "Tomato Disease Detection & Health Monitoring System",
       role: "Backend Developer",
@@ -269,9 +274,9 @@ export const portfolioData: {
       category: "Academic Project",
       featureHighlight: "FastAPI on Railway, dual OpenCV pipeline, PostgreSQL RLS",
       shortDescription:
-        "Plant pathology inference API on FastAPI and Railway, featuring dual OpenCV vision pipelines and PostgreSQL RLS.",
+        "FastAPI service on Railway that classifies 10 tomato leaf diseases with TFLite and measures damage severity through an OpenCV pipeline.",
       description:
-        "High-performance plant pathology system featuring scalable FastAPI REST endpoints on Railway for sub-second MobileNetV2 disease inference, a dual OpenCV vision pipeline, and a PostgreSQL schema protected by Row-Level Security (RLS).",
+        "A tomato disease detection and health monitoring system. FastAPI endpoints on Railway serve a MobileNetV2 (TFLite) model for sub-second classification, a dual OpenCV pipeline estimates damage severity, and a Supabase PostgreSQL schema secured with Row-Level Security backs the Next.js and Flutter clients.",
       architectureHighlights: [
         "Engineered and deployed scalable RESTful APIs using FastAPI on Railway to serve TFLite models (MobileNetV2), delivering sub-second disease classification across 10 classes of tomato leaves.",
         "Developed a dual computer vision processing pipeline with OpenCV to compute vegetation indices (ExG & VARI) and isolate lesion masks (HSV), accurately calculating plant damage percentage and severity levels.",
@@ -291,6 +296,7 @@ export const portfolioData: {
     },
     {
       id: "ba-yu",
+      tags: ["fullstack", "backend"],
       title: "Ba-Yu",
       subtitle: "BelajarYuk! – Collaborative Study & Note-Sharing Platform",
       role: "Fullstack & System Analyst",
@@ -298,9 +304,9 @@ export const portfolioData: {
       category: "Academic Project",
       featureHighlight: "Responsive SPA, RESTful architecture, NoSQL data modeling",
       shortDescription:
-        "Collaborative study and note-sharing platform built with React SPA, Laravel 12 REST API, and MongoDB data schemas.",
+        "Note-sharing platform for students: a React SPA and Android app on a Laravel 12 + MongoDB REST API, with FCM push notifications.",
       description:
-        "Collaborative academic platform structured with end-to-end system analysis documentation (SRS/UML), responsive React Single Page Application (SPA), Laravel 12 RESTful API, and scalable MongoDB document modeling.",
+        "A collaborative study and note-sharing platform. I led the system analysis (SRS/UML) and architecture, then built the Laravel 12 REST API with MongoDB schemas, a responsive React (TypeScript) SPA, and an Android build via Capacitor JS with Firebase Cloud Messaging.",
       architectureHighlights: [
         "Designed the overall system architecture, authored technical documentation (SRS/UML), and architected scalable RESTful APIs with MongoDB schemas.",
         "Developed an end-to-end responsive SPA and Android app using React (TypeScript), Tailwind CSS, and Laravel 12 for rich-text note authoring.",
@@ -321,16 +327,17 @@ export const portfolioData: {
     },
     {
       id: "qlc",
+      tags: ["backend"],
       title: "QLC",
       subtitle: "Qur'anic Leadership Centre – Academic & Student Management Platform",
       role: "Backend Developer",
       period: "Feb 2026 – Jun 2026",
       category: "Academic Project",
-      featureHighlight: "4-tier RBAC authentication, MongoDB query pipeline",
+      featureHighlight: "4-role RBAC authentication, MongoDB query pipeline",
       shortDescription:
-        "Educational management ecosystem with 4-tier RBAC authentication and high-throughput MongoDB query pipelines.",
+        "Laravel 12 + MongoDB REST API for an Islamic education centre, with role-based access for admins, teachers, parents and partners.",
       description:
-        "Comprehensive educational management platform engineered with Laravel 12 and MongoDB, featuring multi-role authentication (RBAC) across 4 user roles, custom middleware guards, and high-efficiency regex query pipelines.",
+        "A student and academic management platform for an Islamic education centre. The Laravel 12 + MongoDB REST API handles enrollment, programs, partner institutions and events, with RBAC across 4 user roles, custom middleware, paginated regex search and secure file uploads.",
       architectureHighlights: [
         "Architected and developed RESTful APIs using Laravel 12 and MongoDB to manage core academic operations, including student enrollment, program directories, partner institutions, and event scheduling.",
         "Implemented multi-role authentication and authorization (RBAC) supporting 4 distinct user roles (Admin, Teacher, Parents, and Mitra) using custom middleware and strict request validation.",
@@ -349,16 +356,17 @@ export const portfolioData: {
     },
     {
       id: "set-ais",
+      tags: ["fullstack", "backend"],
       title: "SET Alumni Information System",
-      subtitle: "Software Engineering Technology Alumni & Career Intelligence Platform",
+      subtitle: "Alumni Information System for Software Engineering Technology",
       role: "Fullstack Developer & System Analyst",
       period: "Nov 2025 – Dec 2025",
       category: "Academic Project",
       featureHighlight: "Laravel 12 & React 19 Inertia SPA, Driver.js Onboarding, RBAC & PII Security",
       shortDescription:
-        "Alumni intelligence platform powered by Laravel 12 & React 19 Inertia SPA with composite indexing and PII security.",
+        "Alumni information system built as a Laravel 12 + React 19 Inertia SPA, with strict RBAC, PII protection and guided onboarding.",
       description:
-        "Comprehensive alumni management and career network ecosystem engineered for IPB University Software Engineering Technology. Features full-stack architecture with Laravel 12 and React 19 (Inertia.js), strict RBAC with PII data privacy, composite indexing, Driver.js interactive tours, automated email verification, and exportable report generation.",
+        "An alumni information system for IPB University's Software Engineering Technology program. I authored the SRS/SKPL and built the full-stack architecture with Laravel 12 and React 19 (Inertia.js): composite-indexed relational schemas, strict RBAC with PII protection, rate-limited auth, email verification, Driver.js onboarding and exportable reports.",
       architectureHighlights: [
         "Authored comprehensive Software Requirements Specifications (SRS/SKPL) and engineered the core full-stack architecture utilizing Laravel 12, React 19, and Inertia.js.",
         "Designed responsive SPA interfaces with Tailwind CSS and interactive onboarding (Driver.js), structured with optimized relational database constraints and composite indexing.",
@@ -427,7 +435,7 @@ export const portfolioData: {
     {
       year: "2026 / 2027",
       title: "Awardee of YPLI Scholarship",
-      organizer: "YPLI Leadership & Academic Scholarship",
+      organizer: "YPLI",
       badge: "Scholarship Awardee",
     },
     {

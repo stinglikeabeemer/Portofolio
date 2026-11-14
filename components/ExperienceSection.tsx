@@ -25,20 +25,23 @@ export function ExperienceSection() {
           className="mb-10 text-center max-w-2xl mx-auto"
         >
           <TextGenerateEffect
-            text="LEADERSHIP & ORGANIZATIONAL TRACK RECORD"
+            text="BEYOND THE CODE"
             as="span"
             className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
           />
           <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
             <TextGenerateEffect text="Organizational Experience" as="span" delay={0.1} />
           </h2>
+          <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-500 dark:text-slate-400">
+            Mentoring, operations and partnerships — use the arrows to flip through the deck.
+          </p>
         </motion.div>
 
         {/* 3D Interactive Shuffle Card Deck */}
         <Timeline items={experience} />
 
         {/* Honors & Achievements Subsection */}
-        <div id="achievements" className="mt-20 pt-6">
+        <div id="achievements" className="mt-28 pt-10 sm:mt-36 sm:pt-12 scroll-mt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -56,12 +59,9 @@ export function ExperienceSection() {
                   as="h3"
                   className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white"
                 />
-                <TextGenerateEffect
-                  text="Scholarships and competition awards across national and international levels"
-                  as="p"
-                  delay={0.1}
-                  className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400"
-                />
+                <p className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                  Scholarship and national &amp; international competition awards
+                </p>
               </div>
             </div>
           </motion.div>

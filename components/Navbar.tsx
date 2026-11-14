@@ -15,7 +15,7 @@ import { portfolioData } from "@/data/portfolio";
 
 const navItems = [
   { label: "Home", href: "#hero" },
-  { label: "About & Skills", href: "#about" },
+  { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },

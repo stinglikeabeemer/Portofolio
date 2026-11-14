@@ -110,12 +110,9 @@ export function ProjectDetailView({ project }: { project: ProjectItem }) {
           />
 
           {/* Core Summary Paragraph */}
-          <TextGenerateEffect
-            text={project.description}
-            as="p"
-            delay={0.2}
-            className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-300 max-w-4xl"
-          />
+          <p className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-300 max-w-4xl">
+            {project.description}
+          </p>
 
           {/* Action CTAs: Repository & Live Demo */}
           <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-6 border-t border-slate-200/80 dark:border-white/10">
@@ -197,12 +194,9 @@ export function ProjectDetailView({ project }: { project: ProjectItem }) {
             as="h2"
             className="font-display text-xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white"
           />
-          <TextGenerateEffect
-            text="Core backend architecture, database modeling, and security implementation"
-            as="p"
-            delay={0.1}
-            className="mt-1.5 text-xs sm:text-sm md:text-base text-slate-500 dark:text-slate-400 font-mono"
-          />
+          <p className="mt-1.5 text-xs sm:text-sm md:text-base text-slate-500 dark:text-slate-400 font-mono">
+            What I built and how it is put together
+          </p>
 
           <div className="mt-6 sm:mt-7 space-y-3 sm:space-y-4">
             {project.architectureHighlights.map((highlight, idx) => (
@@ -213,12 +207,9 @@ export function ProjectDetailView({ project }: { project: ProjectItem }) {
                 <div className="mt-0.5 sm:mt-1 flex h-6 w-6 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
                   <CheckCircle2 className="h-4 w-4 sm:h-4.5 sm:w-4.5" />
                 </div>
-                <TextGenerateEffect
-                  text={highlight}
-                  as="p"
-                  delay={0.15 + idx * 0.05}
-                  className="text-xs sm:text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-200"
-                />
+                <p className="text-sm sm:text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-200">
+                  {highlight}
+                </p>
               </div>
             ))}
           </div>

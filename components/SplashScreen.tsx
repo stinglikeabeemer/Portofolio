@@ -7,6 +7,18 @@ export function SplashScreen({ onFinish }: { onFinish?: () => void }) {
   const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
+    // Returning visitors in the same tab session skip the intro
+    try {
+      if (sessionStorage.getItem("splashSeen") === "1") {
+        setMounted(false);
+        if (onFinish) onFinish();
+        return;
+      }
+      sessionStorage.setItem("splashSeen", "1");
+    } catch {
+      /* storage unavailable: just play the splash */
+    }
+
     // Unmount completely after CSS curtain animation finishes (3.0s + 100ms buffer)
     const timer = setTimeout(() => {
       setMounted(false);

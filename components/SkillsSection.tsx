@@ -11,7 +11,7 @@ export function SkillsSection() {
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
-      case "Backend & APIs":
+      case "Frameworks & APIs":
         return <Server className="h-5 w-5 text-emerald-400" />;
       case "Databases":
         return <Database className="h-5 w-5 text-cyan-400" />;

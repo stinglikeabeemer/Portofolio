@@ -2,45 +2,25 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { portfolioData, ProjectItem } from "@/data/portfolio";
+import { portfolioData, ProjectItem, ProjectTag } from "@/data/portfolio";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
-type FilterType = "All" | "Backend & APIs" | "AI & Vision" | "Databases & Fullstack";
+type FilterType = "All" | ProjectTag;
+
+const filterTabs: { id: FilterType; label: string }[] = [
+  { id: "All", label: "All" },
+  { id: "backend", label: "Backend & APIs" },
+  { id: "ai", label: "AI & Computer Vision" },
+  { id: "fullstack", label: "Full-Stack" },
+];
 
 export function ProjectsSection() {
   const { projects } = portfolioData;
   const [activeFilter, setActiveFilter] = useState<FilterType>("All");
 
-  const filterTabs: FilterType[] = [
-    "All",
-    "Backend & APIs",
-    "AI & Vision",
-    "Databases & Fullstack",
-  ];
-
-  const matchesFilter = (project: ProjectItem, filter: FilterType): boolean => {
-    if (filter === "All") return true;
-    const stack = project.techStack.join(" ").toLowerCase();
-    const desc = (project.description + " " + project.title).toLowerCase();
-
-    if (filter === "Backend & APIs") {
-      return stack.includes("laravel") || stack.includes("fastapi") || desc.includes("api");
-    }
-    if (filter === "AI & Vision") {
-      return stack.includes("opencv") || stack.includes("gemini") || desc.includes("vision") || desc.includes("ai");
-    }
-    if (filter === "Databases & Fullstack") {
-      return (
-        stack.includes("mongodb") ||
-        stack.includes("postgresql") ||
-        stack.includes("mysql") ||
-        stack.includes("react") ||
-        project.role.toLowerCase().includes("fullstack")
-      );
-    }
-    return true;
-  };
+  const matchesFilter = (project: ProjectItem, filter: FilterType): boolean =>
+    filter === "All" || project.tags.includes(filter);
 
   const filteredProjects = projects.filter((p) => matchesFilter(p, activeFilter));
 
@@ -60,7 +40,7 @@ export function ProjectsSection() {
         >
           <div>
             <TextGenerateEffect
-              text="FEATURED PROJECTS"
+              text="SELECTED WORK"
               as="span"
               className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
             />
@@ -68,17 +48,22 @@ export function ProjectsSection() {
               <TextGenerateEffect text="Featured Projects" as="span" delay={0.1} />
             </h2>
           </div>
+          <p className="max-w-md text-sm sm:text-base leading-relaxed text-slate-500 dark:text-slate-400 md:text-right">
+            Systems across healthcare, agritech and education — each card links to a full architecture breakdown.
+          </p>
         </motion.div>
 
         {/* Filter Category Tabs with Animated Pill */}
         <div className="mb-10 flex flex-wrap items-center gap-2.5">
           {filterTabs.map((tab) => {
-            const isActive = activeFilter === tab;
+            const isActive = activeFilter === tab.id;
+            const count = projects.filter((p) => matchesFilter(p, tab.id)).length;
             return (
               <button
-                key={tab}
+                key={tab.id}
                 type="button"
-                onClick={() => setActiveFilter(tab)}
+                aria-pressed={isActive}
+                onClick={() => setActiveFilter(tab.id)}
                 className={`relative rounded-full px-4 sm:px-5 py-2 sm:py-2.5 font-mono text-xs sm:text-sm font-semibold tracking-wide transition-colors ${
                   isActive
                     ? "text-white"
@@ -92,7 +77,12 @@ export function ProjectsSection() {
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
-                <span className="relative z-10">{tab}</span>
+                <span className="relative z-10">
+                  {tab.label}
+                  <span className={`ml-1.5 ${isActive ? "text-white/75" : "text-slate-400 dark:text-slate-500"}`}>
+                    {count}
+                  </span>
+                </span>
               </button>
             );
           })}

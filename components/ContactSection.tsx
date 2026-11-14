@@ -46,12 +46,9 @@ export function ContactSection() {
             <h2 className="mt-2 font-display text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               <TextGenerateEffect text="Let's Build Scalable Backend Systems" as="span" delay={0.1} />
             </h2>
-            <TextGenerateEffect
-              text="Available for Backend Engineering Internships, API architecture consultations, and technical collaborations."
-              as="p"
-              delay={0.15}
-              className="mt-3 text-sm sm:text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-300 text-center"
-            />
+            <p className="mt-3 text-sm sm:text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-300 text-center">
+              Currently looking for a backend developer internship. Open to collaborations too — the fastest way to reach me is email or WhatsApp.
+            </p>
           </div>
 
           {/* 3 Main Direct Contact Cards */}
@@ -132,7 +129,7 @@ export function ContactSection() {
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-emerald-600 px-6 sm:px-7 py-3 text-sm sm:text-base font-bold text-white shadow-lg shadow-emerald-600/30 transition-all hover:bg-emerald-500 hover:scale-105 active:scale-95"
             >
               <FileDown className="h-4.5 w-4.5" />
-              <span>Download Official CV (PDF)</span>
+              <span>Download CV (PDF)</span>
             </a>
 
             <div className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-2.5 font-mono text-xs sm:text-sm text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">

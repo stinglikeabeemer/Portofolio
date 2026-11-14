@@ -102,19 +102,14 @@ export function ProjectCard({
               />
             </Link>
 
-            <TextGenerateEffect
-              text={project.subtitle}
-              as="p"
-              delay={0.1}
-              className="mt-1 text-sm sm:text-base font-medium text-slate-500 dark:text-slate-400"
-            />
+            <p className="mt-1 text-sm sm:text-base font-medium text-slate-500 dark:text-slate-400">
+              {project.subtitle}
+            </p>
 
             {/* Clean, Concise 1-sentence Description */}
-            <TextGenerateEffect
-              text={project.shortDescription || project.description}
-              as="p"
-              className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300"
-            />
+            <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+              {project.shortDescription || project.description}
+            </p>
           </div>
 
           {/* Tech Stack Pills */}

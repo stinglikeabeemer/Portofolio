@@ -21,7 +21,7 @@ export function AboutSkillsSection() {
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
-      case "Backend & APIs":
+      case "Frameworks & APIs":
         return <Server className="h-5 w-5 text-emerald-400" />;
       case "Databases":
         return <Database className="h-5 w-5 text-cyan-400" />;
@@ -47,14 +47,17 @@ export function AboutSkillsSection() {
         >
           <div>
             <TextGenerateEffect
-              text="PROFILE & TECH STACK"
+              text="ABOUT ME"
               as="span"
               className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.28em] text-emerald-400 block"
             />
             <h2 className="mt-2 font-display text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
-              <TextGenerateEffect text="About & Technical Stack" as="span" delay={0.1} />
+              <TextGenerateEffect text="Profile & Tech Stack" as="span" delay={0.1} />
             </h2>
           </div>
+          <p className="max-w-md text-sm sm:text-base leading-relaxed text-slate-500 dark:text-slate-400 md:text-right">
+            Backend-first engineer who also ships the frontend — from schema design to deployed APIs.
+          </p>
         </motion.div>
 
         {/* Unified Bento Grid: Left (Profile & Academics) | Right (Tech Arsenal) */}
@@ -82,7 +85,7 @@ export function AboutSkillsSection() {
                 </span>
                 <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-slate-200 bg-slate-100 px-3 sm:px-3.5 py-1 sm:py-1.5 font-mono text-xs sm:text-sm text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
                   <Terminal className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-400" />
-                  Software Engineering
+                  Software Engineering · {personal.education.period}
                 </span>
               </div>
 
@@ -108,12 +111,11 @@ export function AboutSkillsSection() {
               />
 
               {/* Clean Concise Bio */}
-              <TextGenerateEffect
-                text="5th-semester Software Engineering student at IPB University with strong expertise in architecting scalable RESTful APIs, relational/document database schemas, and seamless AI integrations."
-                as="p"
-                delay={0.15}
-                className="text-sm sm:text-base md:text-[17px] leading-relaxed text-slate-600 dark:text-slate-300"
-              />
+              <p className="text-sm sm:text-base md:text-[17px] leading-relaxed text-slate-600 dark:text-slate-300">
+                I design RESTful APIs, relational and document database schemas, and AI integrations
+                with Laravel and FastAPI — built to be secure, maintainable, and easy for frontend
+                and mobile teams to consume.
+              </p>
 
               {/* Quick Focus Points */}
               <div className="mt-6 space-y-3">
@@ -122,10 +124,10 @@ export function AboutSkillsSection() {
                   "Multi-Role Security (RBAC, Sanctum & PostgreSQL RLS)",
                   "SQL & NoSQL Schemas (PostgreSQL, MySQL, MongoDB)",
                   "AI & Computer Vision Integration (Gemini API & OpenCV)",
-                ].map((item, idx) => (
+                ].map((item) => (
                   <div key={item} className="flex items-start gap-3 text-xs sm:text-sm md:text-[15px] font-medium text-slate-700 dark:text-slate-200">
                     <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-emerald-500 dark:text-emerald-400 mt-0.5" />
-                    <TextGenerateEffect text={item} as="span" delay={0.15 + idx * 0.05} />
+                    <span>{item}</span>
                   </div>
                 ))}
               </div>
@@ -147,16 +149,16 @@ export function AboutSkillsSection() {
                   5+
                 </p>
                 <p className="mt-1 font-mono text-[11px] sm:text-xs md:text-[13px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                  Systems
+                  Projects
                 </p>
               </div>
 
               <div className="rounded-2xl border border-slate-200/60 bg-slate-50/80 p-2 sm:p-3.5 md:p-4 text-center dark:border-emerald-500/15 dark:bg-[#05130e]/70">
                 <p className="font-display text-lg sm:text-2xl md:text-3xl font-black text-cyan-400">
-                  1st
+                  YPLI
                 </p>
                 <p className="mt-1 font-mono text-[10px] sm:text-xs md:text-[13px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-tight sm:tracking-wider">
-                  Technofest &apos;25
+                  Scholar &apos;26
                 </p>
               </div>
             </div>
@@ -200,12 +202,9 @@ export function AboutSkillsSection() {
                       </span>
                     </div>
 
-                    <TextGenerateEffect
-                      text={group.subtitle}
-                      as="p"
-                      delay={0.1}
-                      className="mt-2 text-xs sm:text-sm font-mono leading-relaxed text-slate-500 dark:text-slate-400"
-                    />
+                    <p className="mt-2 text-xs sm:text-sm font-mono leading-relaxed text-slate-500 dark:text-slate-400">
+                      {group.subtitle}
+                    </p>
                   </div>
 
                   <div className={`mt-4 ${gridColsClass}`}>

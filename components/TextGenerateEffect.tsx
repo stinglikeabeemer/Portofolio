@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { useInView } from "framer-motion";
+import { useInView, useReducedMotion } from "framer-motion";
 
 interface TextGenerateEffectProps {
   text: string;
@@ -30,12 +30,16 @@ export function TextGenerateEffect({
   const [randomChars, setRandomChars] = useState<string[]>([]);
   const containerRef = useRef<HTMLElement>(null);
   const isInView = useInView(containerRef, { once, amount: 0.15 });
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
     let intervalId: NodeJS.Timeout;
 
-    if (isInView) {
+    if (prefersReducedMotion) {
+      setResolvedIndex(text.length);
+      setIsAnimating(false);
+    } else if (isInView) {
       timeoutId = setTimeout(() => {
         setIsAnimating(true);
         setResolvedIndex(0);
@@ -73,7 +77,7 @@ export function TextGenerateEffect({
       clearTimeout(timeoutId);
       clearInterval(intervalId);
     };
-  }, [isInView, text, delay, scrambleSpeed, once]);
+  }, [isInView, text, delay, scrambleSpeed, once, prefersReducedMotion]);
 
   // If not in view or before starting, render either static text or initial random letters
   // For safety and SSR consistency, we render characters correctly
@@ -82,6 +86,9 @@ export function TextGenerateEffect({
   return (
     // @ts-expect-error dynamic HTML tag
     <Tag ref={containerRef} className={className}>
+      {/* Screen readers get the real text once; the scrambling glyphs are decorative */}
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">
       {characters.map((char, index) => {
         if (char === " ") {
           return " ";
@@ -91,7 +98,7 @@ export function TextGenerateEffect({
         }
 
         // If this character is already resolved, render it normally
-        if (!isInView || resolvedIndex >= totalLengthOrChar(index)) {
+        if (prefersReducedMotion || !isInView || resolvedIndex >= totalLengthOrChar(index)) {
           return (
             <span key={index} className="transition-opacity duration-150">
               {char}
@@ -119,6 +126,7 @@ export function TextGenerateEffect({
           </span>
         );
       })}
+      </span>
     </Tag>
   );
 

@@ -4,13 +4,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, ArrowRight, FileDown, ChevronDown } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
 const navItems = [
   { label: "Home", href: "#hero", active: true },
-  { label: "About & Skills", href: "#about" },
+  { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
@@ -136,6 +136,20 @@ export function HeroSection() {
 
       {/* MAIN HERO CONTENT (LEFT-ALIGNED TYPOGRAPHY & LORE BIO) */}
       <div className="relative z-30 mt-auto mb-4 sm:my-auto px-4 sm:px-10 lg:px-16 pt-24 sm:pt-6 pb-4 sm:pb-8 max-w-2xl lg:max-w-xl xl:max-w-2xl">
+        {/* Availability Status Chip */}
+        <motion.span
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="mb-4 sm:mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-black/50 px-3 py-1 font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-300 backdrop-blur-md"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+          </span>
+          Open to Backend Internships
+        </motion.span>
+
         {/* Giant Title: GALIH */}
         <TextGenerateEffect
           text="GALIH"
@@ -167,6 +181,30 @@ export function HeroSection() {
           delay={0.55}
           className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-white font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]"
         />
+
+        {/* Primary Calls to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3"
+        >
+          <a
+            href="#projects"
+            className="group inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-[#04140e] shadow-lg shadow-emerald-500/30 transition-all hover:-translate-y-0.5 hover:bg-emerald-400"
+          >
+            View Projects
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
+          <a
+            href={personal.resumeUrl}
+            download="CV_Raden Mas Galih Pradityo.pdf"
+            className="inline-flex items-center gap-2 rounded-full border border-white/50 bg-black/40 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-emerald-300 hover:text-emerald-300"
+          >
+            <FileDown className="h-4 w-4" />
+            Download CV
+          </a>
+        </motion.div>
       </div>
 
       {/* BOTTOM BAR (Watermarks on Left) */}
@@ -182,6 +220,16 @@ export function HeroSection() {
             linkedin.com/in/galihpradityo
           </a>
         </div>
+
+        {/* Right: Scroll Cue */}
+        <a
+          href="#about"
+          aria-label="Scroll to About section"
+          className="hidden sm:inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-white/80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] transition-colors hover:text-emerald-300"
+        >
+          Scroll
+          <ChevronDown className="h-4 w-4 animate-bounce" />
+        </a>
       </div>
     </section>
   );
