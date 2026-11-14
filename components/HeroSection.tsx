@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Sun, Moon, ArrowRight, FileDown, ChevronDown } from "lucide-react";
+import { Sun, Moon, ArrowRight, ChevronDown } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
@@ -195,14 +195,6 @@ export function HeroSection() {
           >
             View Projects
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </a>
-          <a
-            href={personal.resumeUrl}
-            download="CV_Raden Mas Galih Pradityo.pdf"
-            className="inline-flex items-center gap-2 rounded-full border border-white/50 bg-black/40 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-emerald-300 hover:text-emerald-300"
-          >
-            <FileDown className="h-4 w-4" />
-            Download CV
           </a>
         </motion.div>
       </div>
