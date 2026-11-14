@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { portfolioData, ProjectItem, ProjectTag } from "@/data/portfolio";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TextGenerateEffect } from "@/components/TextGenerateEffect";
+import { SideProjects } from "@/components/SideProjects";
 
 type FilterType = "All" | ProjectTag;
 
@@ -104,6 +105,9 @@ export function ProjectsSection() {
             })}
           </AnimatePresence>
         </motion.div>
+
+        {/* Secondary showcase: projects outside the backend/full-stack focus */}
+        <SideProjects />
       </div>
     </section>
   );

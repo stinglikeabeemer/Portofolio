@@ -62,6 +62,20 @@ export interface ProjectItem {
   accentColor: string;
 }
 
+export interface SideProjectItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  role: string;
+  period: string;
+  icon: "map" | "ar";
+  accent: "cyan" | "violet";
+  focus: string[];
+  tools: string[];
+  highlights: string[];
+}
+
 export interface ExperienceItem {
   id: string;
   organization: string;
@@ -83,6 +97,7 @@ export const portfolioData: {
   personal: PersonalInfo;
   skills: SkillCategory[];
   projects: ProjectItem[];
+  sideProjects: SideProjectItem[];
   experience: ExperienceItem[];
   achievements: AchievementItem[];
 } = {
@@ -383,6 +398,43 @@ export const portfolioData: {
       image: "/images/projects/set-ais.svg",
       githubUrl: "https://github.com/galihpradityo/set-alumni-information-system",
       accentColor: "from-emerald-600/30 via-teal-600/20 to-cyan-500/20",
+    },
+  ],
+
+  sideProjects: [
+    {
+      id: "nalarruang",
+      title: "NalarRuang",
+      subtitle: "Lifestyle-Based WebGIS for Residential Area Recommendation",
+      category: "Academic Project",
+      role: "System Analyst",
+      period: "Sep 2026 – Nov 2026",
+      icon: "map",
+      accent: "cyan",
+      focus: ["SRS / BPMN / Use Case", "Spatial Data (GIS)", "Scoring Logic", "API Contracts", "Agile Scrum"],
+      tools: ["Laravel", "React", "Inertia.js", "Leaflet", "PostGIS", "QGIS", "Overpass API", "Figma"],
+      highlights: [
+        "Authored the SRS (BPMN, use cases UC-01 to UC-07) and turned four lifestyle personas — Commuter, Driver, Social & Vibe, Zen — into a prioritized Scrum backlog with testable NFRs.",
+        "Designed the 0–3 star persona scoring (1.2 / 2.5 / 5 km proximity thresholds, air-quality and green-space rules) and co-defined API contracts for map layers, Top-3 Search, scoring and the Commute Simulator.",
+        "Audited 9 official data sources (InaRISK, DEMNAS, BPS, GISTARU, Transjakarta GTFS, OSM) across 6 spatial layers for Jabodetabek, and led unit, integration and UAT planning.",
+      ],
+    },
+    {
+      id: "ar-app",
+      title: "Interactive AR Application",
+      subtitle: "Marker-Based Augmented Reality Experience",
+      category: "Academic Project",
+      role: "AR Developer",
+      period: "Feb 2026 – Jun 2026",
+      icon: "ar",
+      accent: "violet",
+      focus: ["Augmented Reality", "Marker-Based Tracking", "3D Modeling", "UI/UX Design"],
+      tools: ["Unity", "Vuforia Engine", "Blender"],
+      highlights: [
+        "Built an interactive AR app in Unity that projects 3D models and environments into real-world spaces.",
+        "Implemented marker-based tracking with Vuforia Engine for accurate image recognition and stable rendering of virtual objects.",
+        "Modeled and optimized 3D assets in Blender before bringing them into Unity, keeping the mobile experience smooth.",
+      ],
     },
   ],
 
