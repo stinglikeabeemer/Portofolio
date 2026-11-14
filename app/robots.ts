@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://galihpradityo.dev/sitemap.xml",
+    sitemap: "https://galihdev.vercel.app/sitemap.xml",
   };
 }
 
