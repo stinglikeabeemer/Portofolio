@@ -48,7 +48,7 @@ export function SkillBadge({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.45, delay: (index % 6) * 0.04, ease: "easeOut" }}
       whileHover={{ y: -4 }}
       className={`group relative flex w-full h-full flex-col justify-between rounded-2xl border border-slate-200/80 bg-white/90 p-3.5 sm:p-4 backdrop-blur-sm transition-all duration-300 dark:border-emerald-500/20 dark:bg-[#05130e]/80 ${currentStyle.border}`}
@@ -58,7 +58,7 @@ export function SkillBadge({
           <span
             className={`h-2.5 w-2.5 shrink-0 rounded-full ${currentStyle.dot} transition-transform duration-300 group-hover:scale-125 shadow-[0_0_8px_currentColor]`}
           />
-          <h4 className="font-display text-sm sm:text-base font-bold text-slate-900 dark:text-white whitespace-nowrap">
+          <h4 className="font-display text-sm sm:text-base font-bold text-slate-900 dark:text-white">
             {skill.name}
           </h4>
         </div>

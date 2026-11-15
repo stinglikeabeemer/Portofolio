@@ -18,7 +18,7 @@ export function AboutSection() {
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
@@ -44,7 +44,7 @@ export function AboutSection() {
           <motion.div
             initial={{ opacity: 0, y: 45, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.15 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -4 }}
             className="lg:col-span-7 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-7 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] sm:p-8"
@@ -106,7 +106,7 @@ export function AboutSection() {
           <motion.div
             initial={{ opacity: 0, y: 45, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: false, amount: 0.15 }}
+            viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -4 }}
             className="lg:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-gradient-to-br from-emerald-500/5 via-white/90 to-teal-500/5 p-7 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:from-[#09221a]/95 dark:via-[#081a14]/90 dark:to-[#05130e]/95 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] sm:p-8"

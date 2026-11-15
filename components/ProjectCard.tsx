@@ -25,7 +25,7 @@ export function ProjectCard({
       initial={{ opacity: 0, y: 35, scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, scale: 0.94, transition: { duration: 0.2 } }}
-      viewport={{ once: false, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{
         duration: 0.5,
         delay: (index % 2) * 0.1,
@@ -117,7 +117,7 @@ export function ProjectCard({
             {project.techStack.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-slate-200 bg-slate-100/80 px-3 py-1 font-mono text-xs sm:text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
+                className="rounded-full border border-slate-200 bg-slate-100/80 px-3 py-1 font-mono text-xs font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
               >
                 {tech}
               </span>

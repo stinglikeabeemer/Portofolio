@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Space_Grotesk, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
@@ -9,6 +9,16 @@ import { portfolioData } from "@/data/portfolio";
 const fontSans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 const fontDisplay = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 const fontMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
+const fontSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", variable: "--font-serif", display: "swap" });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#061410" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: `${portfolioData.personal.name} | Backend & API Architecture Specialist`,
@@ -42,7 +52,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable}`}
+      className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable} ${fontSerif.variable}`}
     >
       <body className="min-h-screen bg-slate-50 font-sans text-slate-900 transition-colors duration-300 dark:bg-[#061410] dark:text-slate-100">
         <ThemeProvider

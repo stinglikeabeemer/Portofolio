@@ -22,7 +22,7 @@ export function TextGenerateEffect({
   as: Tag = "p",
   delay = 0,
   scrambleSpeed = 24,
-  once = false,
+  once = true,
 }: TextGenerateEffectProps) {
   // Store the progress of resolved characters (0 to text.length)
   const [resolvedIndex, setResolvedIndex] = useState(0);

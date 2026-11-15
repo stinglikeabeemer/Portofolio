@@ -53,7 +53,7 @@ function SideProjectCard({
     <motion.article
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       className={`group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white/60 p-5 sm:p-6 backdrop-blur-sm transition-colors duration-300 dark:border-white/10 dark:bg-white/[0.025] ${style.hover} ${className}`}
     >
@@ -149,7 +149,7 @@ export function SideProjects() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="flex items-center gap-4">

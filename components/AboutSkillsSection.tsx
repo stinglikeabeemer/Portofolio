@@ -41,7 +41,7 @@ export function AboutSkillsSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
@@ -66,7 +66,7 @@ export function AboutSkillsSection() {
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="relative lg:col-span-5 lg:sticky lg:top-24 flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-5 sm:p-8 md:p-9 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] overflow-hidden group"
           >
@@ -177,7 +177,7 @@ export function AboutSkillsSection() {
                   key={group.category}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.15 }}
+                  viewport={{ once: true, amount: 0.15 }}
                   transition={{ duration: 0.5, delay: groupIdx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   className="relative rounded-3xl border border-slate-200/80 bg-white/80 p-4.5 sm:p-6 md:p-7 shadow-sm backdrop-blur-md dark:border-emerald-500/20 dark:bg-[#081a14]/90 overflow-hidden group"
                 >

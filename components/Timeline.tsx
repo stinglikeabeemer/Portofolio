@@ -85,7 +85,7 @@ export function Timeline({ items }: TimelineProps) {
       </div>
 
       {/* 3D Stacked Card Deck Container */}
-      <div className="relative min-h-[470px] sm:min-h-[420px] w-full select-none">
+      <div className="relative grid w-full select-none pb-8">
         {items.map((item, idx) => {
           // Relative position in cyclic deck: 0 = active, 1 = behind 1, 2 = behind 2
           const offset = (idx - activeIndex + items.length) % items.length;
@@ -120,7 +120,7 @@ export function Timeline({ items }: TimelineProps) {
                 if (info.offset.x < -60) handleNext();
                 else if (info.offset.x > 60) handlePrev();
               }}
-              className={`absolute inset-x-0 top-0 cursor-grab active:cursor-grabbing rounded-3xl border border-slate-200/80 bg-white/95 p-6 sm:p-8 md:p-9 shadow-xl backdrop-blur-xl transition-colors duration-300 dark:border-emerald-500/25 dark:bg-[#081a14]/95 dark:shadow-[0_16px_50px_rgba(4,13,10,0.6)] ${
+              className={`relative [grid-area:1/1] self-start cursor-grab active:cursor-grabbing rounded-3xl border border-slate-200/80 bg-white/95 p-6 sm:p-8 md:p-9 shadow-xl backdrop-blur-xl transition-colors duration-300 dark:border-emerald-500/25 dark:bg-[#081a14]/95 dark:shadow-[0_16px_50px_rgba(4,13,10,0.6)] ${
                 !isActive ? "pointer-events-none" : ""
               }`}
             >
@@ -172,7 +172,7 @@ export function Timeline({ items }: TimelineProps) {
               {/* Card Footer Hint */}
               <div className="mt-6 flex items-center justify-between pt-3 border-t border-slate-200/40 dark:border-white/5">
                 <span className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
-                  Swipe card or tap arrows to shuffle
+                  Swipe or use the arrows
                 </span>
                 <span className="font-mono text-xs font-semibold text-emerald-500">
                   {idx + 1} of {items.length}

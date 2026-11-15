@@ -20,7 +20,7 @@ export function ExperienceSection() {
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-10 text-center max-w-2xl mx-auto"
         >
@@ -45,7 +45,7 @@ export function ExperienceSection() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="mb-8 flex items-center justify-between"
           >
@@ -72,7 +72,7 @@ export function ExperienceSection() {
                 key={ach.title}
                 initial={{ opacity: 0, y: 35, scale: 0.96 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: false, amount: 0.15 }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -5 }}
                 className="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/85 p-6 shadow-sm backdrop-blur-md transition-all hover:border-amber-500/50 dark:border-emerald-500/20 dark:bg-[#081a14]/90 dark:shadow-[0_10px_35px_rgba(4,13,10,0.5)] dark:hover:border-emerald-400/50"

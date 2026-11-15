@@ -26,7 +26,7 @@ export function ContactSection() {
         <motion.div
           initial={{ opacity: 0, y: 35, scale: 0.98 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-white/95 via-slate-50/90 to-emerald-50/30 p-5 sm:p-10 md:p-12 shadow-xl dark:border-emerald-500/20 dark:from-[#09221a]/95 dark:via-[#081a14]/95 dark:to-[#05130e]/95 dark:shadow-[0_12px_45px_rgba(4,13,10,0.5)] text-center"
         >

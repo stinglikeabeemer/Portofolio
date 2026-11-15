@@ -35,7 +35,7 @@ export function ProjectsSection() {
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >

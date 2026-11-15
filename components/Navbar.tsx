@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sun,
@@ -23,6 +24,7 @@ const navItems = [
 
 export function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
@@ -30,7 +32,9 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 90);
+      const isScrolled = window.scrollY > 90;
+      setScrolled(isScrolled);
+      if (!isScrolled) setMobileMenuOpen(false);
 
       const sectionIds = ["contact", "experience", "projects", "about", "hero"];
       const scrollPos = window.scrollY + 220;
@@ -50,6 +54,9 @@ export function Navbar() {
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
+
+  // Section anchors only exist on the home page; detail pages have their own header
+  if (pathname !== "/") return null;
 
   return (
     <header

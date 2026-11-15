@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Sun, Moon, ArrowRight, ChevronDown } from "lucide-react";
+import { Sun, Moon, ArrowRight, ChevronDown, Menu, X, Mail } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { TextGenerateEffect } from "@/components/TextGenerateEffect";
 
@@ -20,6 +20,7 @@ export function HeroSection() {
   const { personal } = portfolioData;
   const { resolvedTheme, setTheme } = useTheme();
   const [hoveredHeroTab, setHoveredHeroTab] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
@@ -28,7 +29,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-screen flex flex-col justify-between overflow-hidden"
+      className="relative w-full min-h-screen min-h-[100svh] flex flex-col justify-between overflow-hidden"
     >
       {/* Background: Raw Full HD Julian.jpg fills the entire screen edge-to-edge */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
@@ -41,7 +42,7 @@ export function HeroSection() {
           className="object-cover object-[24%_center] sm:object-center"
         />
         {/* Gentle bottom fade to transition into the next section while keeping artwork visible */}
-        <div className="absolute inset-x-0 bottom-0 h-96 sm:h-48 bg-gradient-to-t from-[#061410] via-[#061410]/85 sm:via-[#061410]/75 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-[65%] sm:h-48 bg-gradient-to-t from-[#061410] via-[#061410]/85 sm:via-[#061410]/75 to-transparent pointer-events-none" />
       </div>
 
       {/* TOP BAR (Full Width Header right on the background) */}
@@ -125,7 +126,49 @@ export function HeroSection() {
             <Sun className="hidden h-4 w-4 dark:block" />
             <Moon className="block h-4 w-4 text-emerald-300 dark:hidden" />
           </button>
+
+          {/* Mobile menu toggle (desktop links are inline) */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            className="flex sm:hidden h-9 w-9 items-center justify-center rounded-lg border border-white/40 bg-black/60 backdrop-blur-md text-white transition-all hover:border-white/80 shadow-xl"
+          >
+            {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
         </div>
+
+        {/* Mobile dropdown menu */}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.nav
+              aria-label="Mobile navigation"
+              initial={{ opacity: 0, y: -8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.98 }}
+              transition={{ duration: 0.18 }}
+              className="absolute inset-x-4 top-full mt-3 origin-top rounded-2xl border border-white/15 bg-[#061410]/95 p-2 shadow-2xl backdrop-blur-xl sm:hidden"
+            >
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex items-center justify-between rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
+                    item.active ? "bg-emerald-500/15 text-emerald-300" : "text-white/90 hover:bg-white/5 hover:text-emerald-300"
+                  }`}
+                >
+                  {item.label}
+                  <ArrowRight className="h-4 w-4 opacity-50" />
+                </a>
+              ))}
+              <p className="mt-1 border-t border-white/10 px-4 pb-2 pt-3 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-emerald-400">
+                IPB University · Software Engineering
+              </p>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* MAIN HERO CONTENT (LEFT-ALIGNED TYPOGRAPHY & LORE BIO) */}
@@ -189,6 +232,13 @@ export function HeroSection() {
           >
             View Projects
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/40 px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-emerald-300 hover:text-emerald-300"
+          >
+            <Mail className="h-4 w-4" />
+            Get in Touch
           </a>
         </motion.div>
       </div>
