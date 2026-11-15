@@ -69,8 +69,8 @@ export interface SideProjectItem {
   category: string;
   role: string;
   period: string;
-  icon: "map" | "ar";
-  accent: "cyan" | "violet";
+  icon: "map" | "ar" | "data";
+  accent: "cyan" | "violet" | "emerald";
   focus: string[];
   tools: string[];
   highlights: string[];
@@ -402,6 +402,23 @@ export const portfolioData: {
   ],
 
   sideProjects: [
+    {
+      id: "cart-abandonment",
+      title: "E-Commerce Cart Abandonment Classification",
+      subtitle: "Distributed Big Data Pipeline & Model Benchmarking",
+      category: "Academic Project",
+      role: "Data Engineer & ML Analyst",
+      period: "Aug 2026 – Present",
+      icon: "data",
+      accent: "emerald",
+      focus: ["Big Data Processing", "Pipeline Engineering", "Hyperparameter Tuning", "Statistical Evaluation", "Explainable AI"],
+      tools: ["Python", "PySpark", "Spark MLlib", "Parquet", "scikit-learn", "pandas", "Jupyter"],
+      highlights: [
+        "Engineered a leakage-safe PySpark pipeline (split-before-fit) over 1M rows and 57 features; converting raw CSV to Snappy Parquet cut storage by 84% and made loading 15× faster.",
+        "Benchmarked LR, Decision Tree, Random Forest and GBT in Spark MLlib with a 72-config grid search, 5-fold CV, McNemar tests and bootstrap CIs — the tuned Decision Tree hit 0.990 ROC-AUC, training ~22× faster than Random Forest.",
+        "Explained decisions with a depth-3 surrogate tree (98.3% fidelity), permutation importance and exact Shapley values, segmented customers with K-Means, and drafted a manuscript for the JIKO journal.",
+      ],
+    },
     {
       id: "nalarruang",
       title: "NalarRuang",
